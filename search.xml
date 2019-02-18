@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[使用GitPages+Hexo搭建并开通博客]]></title>
+    <url>%2F2019%2F02%2F18%2FStartMyBlog%2F</url>
+    <content type="text"><![CDATA[GitPages Hexo搭建GitHub博客1、下载安装node.jsNode.js官网下载注意： 可以选择自定义安装位置。 2、安装 Sublime text 3Sublime Text 3下载地址下载速度较慢，不过安装包较小。安装位置可自己选择。 3、注册GitHub账号 GitHub注册地址 注册用户名 邮箱 密码 添加新的仓库(new repository)： Repository name：注册用户名.github.io（.github.io为强制要求） Description（仓库描述）：选填。 Public：勾选，表示可以供他人访问。 Initialize this repository with a README：可选。最后点击 create repository 即可。 4、安装GitGit下载地址下载安装Git，安装位置可自由选择。 5、配置GitHubSSH6、初始化配置Hexo简介： Hexo详细说明参考Hexo官网，Hexo就是一个用Node.js编写的静态网站生成器(所以需要安装Node.js)，可以用来做博客框架，恰好它还可以将静态网站部署到GitHub，所以你编写的博客通过Hexo生成静态页面，然后在部署到GitHub中，通过访问GitHub中的页面也都是静态页面。 在写博客的地方创建文件夹例如，我在D盘创建Hexo文件夹。 在D:/Hexo文件夹按住shift点击鼠标右键选择在此处打开Powershell窗口 输入npm install hexo-cli -g命令，等待 等待完成后输入 hexo -v查看是否安装。 打开D:/hexo文件夹，鼠标右键选择git bash here,输入hexo init blog命令来初始化blog目录，该目录用来存放博客相关。 git bash窗口中输入以下命令： cd blog npm install hexo s 浏览器输入 localhost:4000,看能否打开Hexo默认主题。 至此，博客系统搭建完成，需要手动配置博客主题(为了好看)。 7、Next主题使用在Hexo官网 上方有主题栏，可供选择。这里采用使用比较多的主题：NexT主题。 仓库下载地址：NexT仓库，可选择git clone或下载压缩包形式下载。 解压缩压缩包，并将文件夹更名为next，移动到blog/themes目录中。 修改Hexo配置文件_config.yml 修改配置文件详情即接下来的步骤，请参考NexT文档 或者博客末尾的第二个视频，文档和视频都非常详细。 参考视频教程(B站)：GitHub+hexo搭建博客使用Next主题优化博客]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>其他</tag>
+      </tags>
+  </entry>
+</search>
