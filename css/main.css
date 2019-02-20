@@ -2008,7 +2008,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #18b84e;
+  background: #ffedff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3287,41 +3287,6 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
-code {
-  color: #404040;
-  background: #fbf7f8;
-  margin: 2px;
-}
-.highlight,
-pre {
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 3px;
-}
-.highlight,
-code,
-pre {
-  border: 1px solid #d6d6d6;
-}
-.post {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
-  -webkit-box-shadow: 0 0 5px #646464;
-  -moz-box-shadow: 0 0 5px #646464;
-}
-body {
-  background-image: url("/images/background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-}
-.content-wrap {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
-  background: rgba(255,255,255,0.7);
-}
 .footer {
   color: #000;
   margin-top: 60px;
@@ -3330,4 +3295,11 @@ body {
 }
 .category-all-page .category-list-count {
   color: #000;
+}
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
 }
