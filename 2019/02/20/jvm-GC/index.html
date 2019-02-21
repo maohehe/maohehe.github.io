@@ -112,7 +112,7 @@
 <meta property="og:description" content="一、垃圾收集概述回收区域：  栈：栈中的栈帧根据方法的开始和结束来执行入栈和出栈的操作，而每个栈帧要分配的内存在类结构确定下来就可以确定了。方法或线程结束，栈帧内存就回收。 堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic.yupoo.com/crowhawk/56a02e55/3b3c42d2.jpg">
-<meta property="og:updated_time" content="2019-02-20T12:54:12.296Z">
+<meta property="og:updated_time" content="2019-02-21T03:01:00.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm内存分配及垃圾收集">
 <meta name="twitter:description" content="一、垃圾收集概述回收区域：  栈：栈中的栈帧根据方法的开始和结束来执行入栈和出栈的操作，而每个栈帧要分配的内存在类结构确定下来就可以确定了。方法或线程结束，栈帧内存就回收。 堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。">
@@ -421,12 +421,24 @@
                 
               
 
-              <time title="创建时间：2019-02-20 20:51:47 / 修改时间：20:54:12" itemprop="dateCreated datePublished" datetime="2019-02-20T20:51:47+08:00">2019-02-20</time>
+              <time title="创建时间：2019-02-20 20:51:47" itemprop="dateCreated datePublished" datetime="2019-02-20T20:51:47+08:00">2019-02-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-21 11:01:00" itemprop="dateModified" datetime="2019-02-21T11:01:00+08:00">2019-02-21</time>
               
             
           </span>
@@ -491,7 +503,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">8.6k</span>
+                <span title="本文字数">8.7k</span>
               
 
               
@@ -531,7 +543,7 @@
 <li>堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。</li>
 </ol>
 <a id="more"></a>
-<h3 id="二、判断对象是否存活"><a href="#二、判断对象是否存活" class="headerlink" title="二、判断对象是否存活"></a>二、判断对象是否存活</h3><p>​   堆中几乎存放着java所有对象，垃圾收集器在回收前要先判断对象是否存活。</p>
+<h3 id="二、判断对象是否存活"><a href="#二、判断对象是否存活" class="headerlink" title="二、判断对象是否存活"></a>二、判断对象是否存活</h3><p>   堆中几乎存放着java所有对象，垃圾收集器在回收前要先判断对象是否存活。</p>
 <h4 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1. 引用计数算法"></a>1. 引用计数算法</h4><blockquote>
 <p>给对象添加一个引用计数器，每当有一个地方引用该对象，计数器加 1，解除引用，计数器减 1。任一时刻，只要计数器为 0 ，则认为该对象不再存活。</p>
 </blockquote>
@@ -565,7 +577,7 @@
 <p>运行结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">D:\java\jdk\bin\java.exe </span><br><span class="line">死刑对象被押赴刑场...</span><br><span class="line">死刑对象完成自救</span><br><span class="line">死刑对象被处死(被回收)</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
 <p><strong>结果表明：</strong> 对象再次犯事，没有完成自救被回收。因为他无法再次通过执行finalize方法收买法官（finalize方法一个对象只能执行一次）。</p>
-<h3 id="三、垃圾收集算法"><a href="#三、垃圾收集算法" class="headerlink" title="三、垃圾收集算法"></a>三、垃圾收集算法</h3><h4 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记 - 清除算法"></a>1. 标记 - 清除算法</h4><p>​   最基本的垃圾收集算法。</p>
+<h3 id="三、垃圾收集算法"><a href="#三、垃圾收集算法" class="headerlink" title="三、垃圾收集算法"></a>三、垃圾收集算法</h3><h4 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记 - 清除算法"></a>1. 标记 - 清除算法</h4><p>   最基本的垃圾收集算法。</p>
 <p>算法思想：</p>
 <ul>
 <li>标记：标记出要回收的对象。就是标记出上一节中那些最终押赴刑场执行处死的对象。</li>
@@ -576,18 +588,18 @@
 <li>标记 - 清除效率低下。</li>
 <li>清除后的对象产生小碎片，如果要分配大对象，还需要再次进行垃圾收集整合小碎片为大空间。</li>
 </ul>
-<h4 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h4><p>​   将可用内存划分为容量相等的两块，每次使用一块，使用的这块用完了，进行垃圾回收时，就将这块上的存活对象复制到另一块保留区域上，再将这块内存区域一次清理变成保留区域。</p>
-<p>​   代价就是内存缩小为原来的一半。</p>
+<h4 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h4><p>   将可用内存划分为容量相等的两块，每次使用一块，使用的这块用完了，进行垃圾回收时，就将这块上的存活对象复制到另一块保留区域上，再将这块内存区域一次清理变成保留区域。</p>
+<p>   代价就是内存缩小为原来的一半。</p>
 <p><strong>回收新生代采用复制算法</strong>，并做了改进：</p>
-<p>​   新生代的对象 98% 都是短命鬼，由于回收时<strong>存活对象很少</strong>，所以划分区域时，就不用按照1:1划分了，划分一小块区域暂存存活对象即可。</p>
-<p>​   新生代划分对象是划分为一块大空间（Eden）和两块小空间（Survivor），每次使用Eden和一块Survivor空间。进行回收，只需要把Eden和Survivor空间上的存活对象复制到另一块Survivor空间，最后清理掉Eden和Survivor空间。默认Eden:Survivor:Survivor=8:1:1。所以浪费的空间只有 10%。</p>
-<p>​   如果进行回收时，存活对象比Survivor空间大，复制过去装不下，则就需要向其他内存（例如老年代）进行暂借空间，这种机制称为<strong>分配担保</strong>（后续讲解）。</p>
+<p>   新生代的对象 98% 都是短命鬼，由于回收时<strong>存活对象很少</strong>，所以划分区域时，就不用按照1:1划分了，划分一小块区域暂存存活对象即可。</p>
+<p>   新生代划分对象是划分为一块大空间（Eden）和两块小空间（Survivor），每次使用Eden和一块Survivor空间。进行回收，只需要把Eden和Survivor空间上的存活对象复制到另一块Survivor空间，最后清理掉Eden和Survivor空间。默认Eden:Survivor:Survivor=8:1:1。所以浪费的空间只有 10%。</p>
+<p>   如果进行回收时，存活对象比Survivor空间大，复制过去装不下，则就需要向其他内存（例如老年代）进行暂借空间，这种机制称为<strong>分配担保</strong>（后续讲解）。</p>
 <h4 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记 - 整理算法"></a>3. 标记 - 整理算法</h4><p>算法思想：</p>
 <ul>
 <li>标记：标记出要回收的对象。标记方法同标记 - 清除算法。</li>
 <li>整理：让所有存活对象向内存区域的一端移动，聚一堆。然后将这一堆以外的其他空间直接清理，腾出空间。</li>
 </ul>
-<h4 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4. 分代收集算法"></a>4. 分代收集算法</h4><p>​   根据对象存活周期的差异将内存划为几块。一般堆划分为新生代和老年代，根据年代特点选择不同的收集算法。</p>
+<h4 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4. 分代收集算法"></a>4. 分代收集算法</h4><p>   根据对象存活周期的差异将内存划为几块。一般堆划分为新生代和老年代，根据年代特点选择不同的收集算法。</p>
 <p>例如，</p>
 <ul>
 <li>新生代：对象比较短命，存活的少，采用 8:1:1 的复制算法。</li>
@@ -596,28 +608,28 @@
 <h3 id="四、垃圾收集器"><a href="#四、垃圾收集器" class="headerlink" title="四、垃圾收集器"></a>四、垃圾收集器</h3><p><img src="https://pic.yupoo.com/crowhawk/56a02e55/3b3c42d2.jpg" alt="图示"></p>
 <p><strong>说明：</strong> 图片上部Young generation表示新生代，Tenured generation表示老年代，收集器之间的连线表示两者可以配套使用。</p>
 <h4 id="1-Serial收集器（新生代、单线程）"><a href="#1-Serial收集器（新生代、单线程）" class="headerlink" title="1. Serial收集器（新生代、单线程）"></a>1. Serial收集器（新生代、单线程）</h4><p>收集算法：<strong>复制算法</strong>。</p>
-<p>​   单线程收集器，只会使用一个CPU或一条收集线程去完成垃圾收集工作，并且在进行收集时，必须暂停其他所有的工作线程（包括用户正常的工作线程），直到收集完成。</p>
+<p>   单线程收集器，只会使用一个CPU或一条收集线程去完成垃圾收集工作，并且在进行收集时，必须暂停其他所有的工作线程（包括用户正常的工作线程），直到收集完成。</p>
 <p>应用：</p>
 <ul>
 <li>目前是jvm运行在Client模式下的默认的新生代收集器，单线程没有线程交互，专心收垃圾，效率很高。</li>
 </ul>
 <h4 id="2-ParNew收集器（新生代，多线程）"><a href="#2-ParNew收集器（新生代，多线程）" class="headerlink" title="2. ParNew收集器（新生代，多线程）"></a>2. ParNew收集器（新生代，多线程）</h4><p>收集算法：<strong>复制算法</strong>。</p>
-<p>​   可认为是Serial的多线程版本，除了增加了垃圾回收线程外，其他与Serial基本一致。</p>
-<p>​   随着CPU数量增加，ParNew对于系统资源的利用越来越强。默认开启的GC线程数与CPU数量相同，可以使用 -XX:ParallelGCThreads 参数来限制GC线程数量。</p>
+<p>   可认为是Serial的多线程版本，除了增加了垃圾回收线程外，其他与Serial基本一致。</p>
+<p>   随着CPU数量增加，ParNew对于系统资源的利用越来越强。默认开启的GC线程数与CPU数量相同，可以使用 -XX:ParallelGCThreads 参数来限制GC线程数量。</p>
 <h4 id="3-Parallel-Scavenge收集器（新生代、多线程）"><a href="#3-Parallel-Scavenge收集器（新生代、多线程）" class="headerlink" title="3. Parallel Scavenge收集器（新生代、多线程）"></a>3. Parallel Scavenge收集器（新生代、多线程）</h4><p>收集算法：<strong>复制算法</strong>。</p>
 <blockquote>
 <p>与其他收集器如CMS收集器尽量缩短垃圾收集时用户线程的停顿时间不同，Parallel Scavenge收集器目标是达到一个可控制的<strong>吞吐量</strong>，吞吐量就是CPU运行用户代码时间占CPU运行总时间（包含垃圾收集时间）的比重。</p>
 </blockquote>
 <p><strong>停顿时间和吞吐量</strong>：</p>
-<p>​   首先应明确吞吐量是用户代码执行时间占总时间比例，总时间中垃圾收集并不是一次执行，而是许多次垃圾收集时间总和，用户代码和垃圾收集交替。而停顿时间是表示每次垃圾收集占有的时间，缩短停顿时间可能会导致垃圾收集次数变多。</p>
+<p>   首先应明确吞吐量是用户代码执行时间占总时间比例，总时间中垃圾收集并不是一次执行，而是许多次垃圾收集时间总和，用户代码和垃圾收集交替。而停顿时间是表示每次垃圾收集占有的时间，缩短停顿时间可能会导致垃圾收集次数变多。</p>
 <ul>
 <li>停顿时间：停顿时间短，响应时间就快，适合与用户交互的程序。</li>
 <li>吞吐量：吞吐量大，CPU执行用户代码时间长，程序的运算效率高，适合后台运算任务。</li>
 </ul>
 <h4 id="4-Serial-Old收集器（老年代、单线程）"><a href="#4-Serial-Old收集器（老年代、单线程）" class="headerlink" title="4. Serial Old收集器（老年代、单线程）"></a>4. Serial Old收集器（老年代、单线程）</h4><p>收集算法：<strong>标记 - 整理算法</strong>。</p>
-<p>​   Serial收集器老年代版本。单线程收集器。</p>
+<p>   Serial收集器老年代版本。单线程收集器。</p>
 <h4 id="5-Parallel-Old收集器（老年代、多线程）"><a href="#5-Parallel-Old收集器（老年代、多线程）" class="headerlink" title="5. Parallel Old收集器（老年代、多线程）"></a>5. Parallel Old收集器（老年代、多线程）</h4><p>收集算法：<strong>标记 - 整理</strong>。</p>
-<p>​   Parallel Scavenge收集器老年代版本。多线程收集器。Parallel Scavenge + Parallel Old收集器组成纯 “吞吐量” 优先收集器。</p>
+<p>   Parallel Scavenge收集器老年代版本。多线程收集器。Parallel Scavenge + Parallel Old收集器组成纯 “吞吐量” 优先收集器。</p>
 <h4 id="6-CMS收集器（老年代、多线程）"><a href="#6-CMS收集器（老年代、多线程）" class="headerlink" title="6. CMS收集器（老年代、多线程）"></a>6. CMS收集器（老年代、多线程）</h4><p>收集算法：<strong>标记 - 清除算法</strong>。</p>
 <blockquote>
 <p>CMS收集器是一种为了获取最短停顿时间的收集器。</p>
@@ -660,12 +672,12 @@
 <li><strong>可预测的停顿</strong>：除了降低停顿时间，G1还可以建立可预测的停顿时间模型。可以让使用者指定一个时间段，GC消耗的时间不能超过指定的时间。</li>
 </ul>
 <p><strong>管理整个堆内存</strong>：</p>
-<p>​   G 1<strong>将整个Java堆划分为多个大小相等的独立区域（Region）</strong>，虽然还保留新生代和老年代的概念，但<strong>新生代和老年代不再是物理隔离的了，而都是一部分Region（不需要连续）的集合</strong>。</p>
+<p>   G 1<strong>将整个Java堆划分为多个大小相等的独立区域（Region）</strong>，虽然还保留新生代和老年代的概念，但<strong>新生代和老年代不再是物理隔离的了，而都是一部分Region（不需要连续）的集合</strong>。</p>
 <p><strong>建立可预测的时间模型：</strong></p>
-<p>​   G1对整个堆进行垃圾收集是有计划的，其内部有一个<strong>回收优先级列表</strong>，列表中的待回收的Region顺序是<strong>根据每个Region回收性价比进行排序</strong>（回收的空间越大，时间越短，性价比越高），每次回收优先回收性价比高的Region，这样在一定的收集时间内收集效率就很高。</p>
+<p>   G1对整个堆进行垃圾收集是有计划的，其内部有一个<strong>回收优先级列表</strong>，列表中的待回收的Region顺序是<strong>根据每个Region回收性价比进行排序</strong>（回收的空间越大，时间越短，性价比越高），每次回收优先回收性价比高的Region，这样在一定的收集时间内收集效率就很高。</p>
 <p><strong>避免全堆扫描对象</strong>：</p>
-<p>​   G1将堆分为多个Region，逻辑上相互独立，实际上Region中的对象可能与其他任意一个Region中的对象有引用关系。使用全堆扫描，才能保证GC的准确性，但GC效率会大大下降。</p>
-<p>​   <strong>解决办法</strong>：G1为每个Region维护一个Remembered Set，如果程序对引用类型数据进行写操作，虚拟机会产生一个Write Barrier中断写操作，然后检查引用的对象是否是其他Region中的，如果是，就将引用信息写到被引用对象所在的Region的Remembered Set表中。进行内存回收时，GC Roots枚举范围也参照Remembered Set表内容来扫描对象，可以实现不全堆扫描也能保证准确。</p>
+<p>   G1将堆分为多个Region，逻辑上相互独立，实际上Region中的对象可能与其他任意一个Region中的对象有引用关系。使用全堆扫描，才能保证GC的准确性，但GC效率会大大下降。</p>
+<p>   <strong>解决办法</strong>：G1为每个Region维护一个Remembered Set，如果程序对引用类型数据进行写操作，虚拟机会产生一个Write Barrier中断写操作，然后检查引用的对象是否是其他Region中的，如果是，就将引用信息写到被引用对象所在的Region的Remembered Set表中。进行内存回收时，GC Roots枚举范围也参照Remembered Set表内容来扫描对象，可以实现不全堆扫描也能保证准确。</p>
 <p><strong>G1运行流程</strong>：</p>
 <ul>
 <li><strong>初始标记</strong>：同CMS收集器。</li>
@@ -676,15 +688,24 @@
 <h3 id="五、内存分配与回收"><a href="#五、内存分配与回收" class="headerlink" title="五、内存分配与回收"></a>五、内存分配与回收</h3><blockquote>
 <p>对象在堆中分配内存，主要分配在新生代的Eden去榆中，如果启动了TLAB，将按线程优先在TLAB上分配，少数情况直接分配在老年代。具体分配要参照收集器组合和设置的参数。</p>
 </blockquote>
-<h4 id="1-对象优先在Eden分配"><a href="#1-对象优先在Eden分配" class="headerlink" title="1. 对象优先在Eden分配"></a>1. 对象优先在Eden分配</h4><p>​   多数情况下，对象在Eden区分配，E的呢空间不够，则进行一次Minor GC（新生代GC），如果空间仍然不够，则根据<strong>分配担保</strong>机制，将Eden区中占空对象提前转移到老年代。</p>
-<h4 id="2-大对象直接进入老年代"><a href="#2-大对象直接进入老年代" class="headerlink" title="2. 大对象直接进入老年代"></a>2. 大对象直接进入老年代</h4><p>​   大对象需要占用大量的连续空间（如长字符串、数组等），虚拟机提供了一个参数用来指定大对象 -XX:PretenureSizeThreshold ，大于参数值的大对象直接扔进老年代。</p>
-<p>​   <strong>注意</strong>：只有Serial和ParNew能识别该参数。可以考虑使用ParNew+CMS收集器组合来实现该参数相同的功能。</p>
-<h4 id="3-长期存活的对象将进入老年代"><a href="#3-长期存活的对象将进入老年代" class="headerlink" title="3. 长期存活的对象将进入老年代"></a>3. 长期存活的对象将进入老年代</h4><p>​   虚拟机有<strong>分代收集</strong>思想，所以会识别对象是属于哪个年代。</p>
-<p>​   <strong>识别对象年代方式</strong>：每个对象都有Age计数器代表年龄，对象从Eden出生并且度过了第一次Minor GC并能被Survivor容纳且成功转移到Survivor中，该对象Age为 1。以后对象每经过一次Minor GC且每被回收，Age就 +1，直到对象成年（默认Age为15）后，就晋升到老年代。对象成年Age值可通过 -XX:MaxTenuringThreshold 设置。</p>
-<h4 id="4-对象成年Age动态判定"><a href="#4-对象成年Age动态判定" class="headerlink" title="4. 对象成年Age动态判定"></a>4. 对象成年Age动态判定</h4><p>​   并不是一定到达参数指定Age才可扔到老年代。如果Survivor中相同Age所有对象大小总和大于Survivor空间的 50%，则Survivor中Age大于等于该Age的对象都可以直接进入老年代，而不用等到参数要求的Age。</p>
-<p>​   例如，Survivor中有20MB空间，有一个4MB的对象Age为6，有六个2MB的对象Age为3，剩下四个1MB的对象Age为2，由于六个Age为3 的对象总空间12MB大于Survivor的 50%，所以此时Age为6和3的 7 个对象可以直接进入老年代。</p>
-<h4 id="5-空间分配担保"><a href="#5-空间分配担保" class="headerlink" title="5. 空间分配担保"></a>5. 空间分配担保</h4><p>​   新生代采用复制算法，GC时如果Survivor空间暂时不够保存存活的对象，就需要老年代进行分配担保，让Survivor无法容纳的对象进入老年代。但是老年代的剩余空间还得保证能够容纳这些对象，由于这次回收进入老年代的对象需要的空间是未知的，所以需要参考以往需要的容量的平均大小，来看是否能够容纳。如果不能容纳，即担保失败，就需要进行一次老年代的Full GC。</p>
-<p>​   通过查看HandlePromotionFailure设置值是否支持担保失败，如果允许担保失败，则只进行Minor GC即可，如果不允许失败，也需要进行一次Full GC。</p>
+<h4 id="1-对象优先在Eden分配"><a href="#1-对象优先在Eden分配" class="headerlink" title="1. 对象优先在Eden分配"></a>1. 对象优先在Eden分配</h4><p>   多数情况下，对象在Eden区分配，E的呢空间不够，则进行一次Minor GC（新生代GC），如果空间仍然不够，则根据<strong>分配担保</strong>机制，将Eden区中占空对象提前转移到老年代。</p>
+<h4 id="2-大对象直接进入老年代"><a href="#2-大对象直接进入老年代" class="headerlink" title="2. 大对象直接进入老年代"></a>2. 大对象直接进入老年代</h4><p>   大对象需要占用大量的连续空间（如长字符串、数组等），虚拟机提供了一个参数用来指定大对象 -XX:PretenureSizeThreshold ，大于参数值的大对象直接扔进老年代。</p>
+<p>   <strong>注意</strong>：只有Serial和ParNew能识别该参数。可以考虑使用ParNew+CMS收集器组合来实现该参数相同的功能。</p>
+<h4 id="3-长期存活的对象将进入老年代"><a href="#3-长期存活的对象将进入老年代" class="headerlink" title="3. 长期存活的对象将进入老年代"></a>3. 长期存活的对象将进入老年代</h4><p>   虚拟机有<strong>分代收集</strong>思想，所以会识别对象是属于哪个年代。</p>
+<p>   <strong>识别对象年代方式</strong>：每个对象都有Age计数器代表年龄，对象从Eden出生并且度过了第一次Minor GC并能被Survivor容纳且成功转移到Survivor中，该对象Age为 1。以后对象每经过一次Minor GC且每被回收，Age就 +1，直到对象成年（默认Age为15）后，就晋升到老年代。对象成年Age值可通过 -XX:MaxTenuringThreshold 设置。</p>
+<h4 id="4-对象成年Age动态判定"><a href="#4-对象成年Age动态判定" class="headerlink" title="4. 对象成年Age动态判定"></a>4. 对象成年Age动态判定</h4><p>   并不是一定到达参数指定Age才可扔到老年代。如果Survivor中相同Age所有对象大小总和大于Survivor空间的 50%，则Survivor中Age大于等于该Age的对象都可以直接进入老年代，而不用等到参数要求的Age。</p>
+<p>   例如，Survivor中有20MB空间，有一个4MB的对象Age为6，有六个2MB的对象Age为3，剩下四个1MB的对象Age为2，由于六个Age为3 的对象总空间12MB大于Survivor的 50%，所以此时Age为6和3的 7 个对象可以直接进入老年代。</p>
+<h4 id="5-空间分配担保"><a href="#5-空间分配担保" class="headerlink" title="5. 空间分配担保"></a>5. 空间分配担保</h4><p>   新生代采用复制算法，GC时如果Survivor空间暂时不够保存存活的对象，就需要老年代进行分配担保，让Survivor无法容纳的对象进入老年代。但是老年代的剩余空间还得保证能够容纳这些对象，由于这次回收进入老年代的对象需要的空间是未知的，所以需要参考以往需要的容量的平均大小，来看是否能够容纳。如果不能容纳，即担保失败，就需要进行一次老年代的Full GC。</p>
+<p>   通过查看HandlePromotionFailure设置值是否支持担保失败，如果允许担保失败，则只进行Minor GC即可，如果不允许失败，也需要进行一次Full GC。</p>
+<h3 id="六、常见面试题"><a href="#六、常见面试题" class="headerlink" title="六、常见面试题"></a>六、常见面试题</h3><ol>
+<li>GC的<strong>常见算法</strong></li>
+<li><strong>CMS及G1的垃圾回收过程</strong>，CMS的各个阶段那两个是Stop The World（暂停其他线程）的？CMS会不会产生空间碎片？</li>
+<li>G1的优势</li>
+<li>标记清除和标记整理算法的理解及优缺点</li>
+<li>Eden Survivor区的比例，为什么是这个比例，Eden Survivor的工作过程</li>
+<li>JVM如何<strong>判断一个对象是否应该被GC</strong>？有哪些类型的对象可被作为<strong>GC Roots</strong>？</li>
+<li>强、软、弱、虚引用的区别，及GC对他们执行怎么样的操作？</li>
+</ol>
 
       
     </div>
@@ -945,7 +966,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、垃圾收集概述"><span class="nav-number">1.</span> <span class="nav-text">一、垃圾收集概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、判断对象是否存活"><span class="nav-number">2.</span> <span class="nav-text">二、判断对象是否存活</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引用计数算法"><span class="nav-number">2.1.</span> <span class="nav-text">1. 引用计数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-根搜索算法"><span class="nav-number">2.2.</span> <span class="nav-text">2. 根搜索算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-引用的分类："><span class="nav-number">2.3.</span> <span class="nav-text">3. 引用的分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-根搜索算法判定对象存活"><span class="nav-number">2.4.</span> <span class="nav-text">4. 根搜索算法判定对象存活</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、垃圾收集算法"><span class="nav-number">3.</span> <span class="nav-text">三、垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-标记-清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">1. 标记 - 清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-复制算法"><span class="nav-number">3.2.</span> <span class="nav-text">2. 复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-标记-整理算法"><span class="nav-number">3.3.</span> <span class="nav-text">3. 标记 - 整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-分代收集算法"><span class="nav-number">3.4.</span> <span class="nav-text">4. 分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、垃圾收集器"><span class="nav-number">4.</span> <span class="nav-text">四、垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Serial收集器（新生代、单线程）"><span class="nav-number">4.1.</span> <span class="nav-text">1. Serial收集器（新生代、单线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ParNew收集器（新生代，多线程）"><span class="nav-number">4.2.</span> <span class="nav-text">2. ParNew收集器（新生代，多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Parallel-Scavenge收集器（新生代、多线程）"><span class="nav-number">4.3.</span> <span class="nav-text">3. Parallel Scavenge收集器（新生代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Serial-Old收集器（老年代、单线程）"><span class="nav-number">4.4.</span> <span class="nav-text">4. Serial Old收集器（老年代、单线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Parallel-Old收集器（老年代、多线程）"><span class="nav-number">4.5.</span> <span class="nav-text">5. Parallel Old收集器（老年代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-CMS收集器（老年代、多线程）"><span class="nav-number">4.6.</span> <span class="nav-text">6. CMS收集器（老年代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-G1收集器（全堆、多线程）"><span class="nav-number">4.7.</span> <span class="nav-text">7. G1收集器（全堆、多线程）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、内存分配与回收"><span class="nav-number">5.</span> <span class="nav-text">五、内存分配与回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对象优先在Eden分配"><span class="nav-number">5.1.</span> <span class="nav-text">1. 对象优先在Eden分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-大对象直接进入老年代"><span class="nav-number">5.2.</span> <span class="nav-text">2. 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-长期存活的对象将进入老年代"><span class="nav-number">5.3.</span> <span class="nav-text">3. 长期存活的对象将进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-对象成年Age动态判定"><span class="nav-number">5.4.</span> <span class="nav-text">4. 对象成年Age动态判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-空间分配担保"><span class="nav-number">5.5.</span> <span class="nav-text">5. 空间分配担保</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、垃圾收集概述"><span class="nav-number">1.</span> <span class="nav-text">一、垃圾收集概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、判断对象是否存活"><span class="nav-number">2.</span> <span class="nav-text">二、判断对象是否存活</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引用计数算法"><span class="nav-number">2.1.</span> <span class="nav-text">1. 引用计数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-根搜索算法"><span class="nav-number">2.2.</span> <span class="nav-text">2. 根搜索算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-引用的分类："><span class="nav-number">2.3.</span> <span class="nav-text">3. 引用的分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-根搜索算法判定对象存活"><span class="nav-number">2.4.</span> <span class="nav-text">4. 根搜索算法判定对象存活</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、垃圾收集算法"><span class="nav-number">3.</span> <span class="nav-text">三、垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-标记-清除算法"><span class="nav-number">3.1.</span> <span class="nav-text">1. 标记 - 清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-复制算法"><span class="nav-number">3.2.</span> <span class="nav-text">2. 复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-标记-整理算法"><span class="nav-number">3.3.</span> <span class="nav-text">3. 标记 - 整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-分代收集算法"><span class="nav-number">3.4.</span> <span class="nav-text">4. 分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、垃圾收集器"><span class="nav-number">4.</span> <span class="nav-text">四、垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Serial收集器（新生代、单线程）"><span class="nav-number">4.1.</span> <span class="nav-text">1. Serial收集器（新生代、单线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ParNew收集器（新生代，多线程）"><span class="nav-number">4.2.</span> <span class="nav-text">2. ParNew收集器（新生代，多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Parallel-Scavenge收集器（新生代、多线程）"><span class="nav-number">4.3.</span> <span class="nav-text">3. Parallel Scavenge收集器（新生代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Serial-Old收集器（老年代、单线程）"><span class="nav-number">4.4.</span> <span class="nav-text">4. Serial Old收集器（老年代、单线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Parallel-Old收集器（老年代、多线程）"><span class="nav-number">4.5.</span> <span class="nav-text">5. Parallel Old收集器（老年代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-CMS收集器（老年代、多线程）"><span class="nav-number">4.6.</span> <span class="nav-text">6. CMS收集器（老年代、多线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-G1收集器（全堆、多线程）"><span class="nav-number">4.7.</span> <span class="nav-text">7. G1收集器（全堆、多线程）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、内存分配与回收"><span class="nav-number">5.</span> <span class="nav-text">五、内存分配与回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对象优先在Eden分配"><span class="nav-number">5.1.</span> <span class="nav-text">1. 对象优先在Eden分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-大对象直接进入老年代"><span class="nav-number">5.2.</span> <span class="nav-text">2. 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-长期存活的对象将进入老年代"><span class="nav-number">5.3.</span> <span class="nav-text">3. 长期存活的对象将进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-对象成年Age动态判定"><span class="nav-number">5.4.</span> <span class="nav-text">4. 对象成年Age动态判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-空间分配担保"><span class="nav-number">5.5.</span> <span class="nav-text">5. 空间分配担保</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、常见面试题"><span class="nav-number">6.</span> <span class="nav-text">六、常见面试题</span></a></li></ol></div>
             
 
           </div>
