@@ -104,7 +104,7 @@
 
 
   <meta name="description" content="一、垃圾收集概述回收区域：  栈：栈中的栈帧根据方法的开始和结束来执行入栈和出栈的操作，而每个栈帧要分配的内存在类结构确定下来就可以确定了。方法或线程结束，栈帧内存就回收。 堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。">
-<meta name="keywords" content="jvm,java">
+<meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm内存分配及垃圾收集">
 <meta property="og:url" content="https://maohehe.github.io/2019/02/20/jvm-GC/index.html">
@@ -784,9 +784,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
-          
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
+          
+            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
           
         </div>
       
@@ -809,8 +809,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" rel="prev" title="jvm中新生代分为一个Eden区和两个Survivor区">
-                jvm中新生代分为一个Eden区和两个Survivor区 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" rel="prev" title="新生代为何分为一个Eden区和两个Survivor区">
+                新生代为何分为一个Eden区和两个Survivor区 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

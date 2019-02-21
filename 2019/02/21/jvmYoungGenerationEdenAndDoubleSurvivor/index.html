@@ -104,16 +104,16 @@
 
 
   <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
-<meta name="keywords" content="jvm,java">
+<meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm中新生代分为一个Eden区和两个Survivor区">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/index.html">
+<meta property="og:title" content="新生代为何分为一个Eden区和两个Survivor区">
+<meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
 <meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T12:05:27.961Z">
+<meta property="og:updated_time" content="2019-02-21T12:10:34.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm中新生代分为一个Eden区和两个Survivor区">
+<meta name="twitter:title" content="新生代为何分为一个Eden区和两个Survivor区">
 <meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>jvm中新生代分为一个Eden区和两个Survivor区 | MaoHe's Blog</title>
+  <title>新生代为何分为一个Eden区和两个Survivor区 | MaoHe's Blog</title>
   
 
 
@@ -376,7 +376,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -393,7 +393,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jvm中新生代分为一个Eden区和两个Survivor区
+          <h1 class="post-title" itemprop="name headline">新生代为何分为一个Eden区和两个Survivor区
 
               
             
@@ -419,7 +419,7 @@
                 
               
 
-              <time title="创建时间：2019-02-21 20:04:47 / 修改时间：20:05:27" itemprop="dateCreated datePublished" datetime="2019-02-21T20:04:47+08:00">2019-02-21</time>
+              <time title="创建时间：2019-02-21 20:09:04 / 修改时间：20:10:34" itemprop="dateCreated datePublished" datetime="2019-02-21T20:09:04+08:00">2019-02-21</time>
             
 
             
@@ -466,8 +466,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" itemprop="commentCount"></span>
+                <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -580,7 +580,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" title="jvm中新生代分为一个Eden区和两个Survivor区">2019/02/21/jvmYoungGenerationEdenAndSurvivor/</a>
+        <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" title="新生代为何分为一个Eden区和两个Survivor区">2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -636,9 +636,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
-          
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
+          
+            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
           
         </div>
       
