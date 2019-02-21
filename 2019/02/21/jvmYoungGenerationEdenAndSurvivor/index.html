@@ -103,23 +103,25 @@
 
 
 
-  <meta name="description" content="要做一个勤奋的人。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaoHe&#39;s Blog">
-<meta property="og:url" content="https://maohehe.github.io/tags/jvm/index.html">
+  <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta name="keywords" content="jvm,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm中新生代分为一个Eden区和两个Survivor区">
+<meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="要做一个勤奋的人。">
+<meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-21T12:05:27.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaoHe&#39;s Blog">
-<meta name="twitter:description" content="要做一个勤奋的人。">
+<meta name="twitter:title" content="jvm中新生代分为一个Eden区和两个Survivor区">
+<meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/tags/jvm/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/">
 
 
 
@@ -129,7 +131,7 @@
   };
 </script>
 
-  <title>标签: jvm | MaoHe's Blog</title>
+  <title>jvm中新生代分为一个Eden区和两个Survivor区 | MaoHe's Blog</title>
   
 
 
@@ -177,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -354,108 +356,338 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>jvm<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndSurvivor/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maohe">
+      <meta itemprop="description" content="要做一个勤奋的人。">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaoHe's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" itemprop="url">
-            
-              <span itemprop="name">jvm中新生代分为一个Eden区和两个Survivor区</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">jvm中新生代分为一个Eden区和两个Survivor区
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-21T20:04:47+08:00" content="2019-02-21">
-          02-21
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-21 20:04:47 / 修改时间：20:05:27" itemprop="dateCreated datePublished" datetime="2019-02-21T20:04:47+08:00">2019-02-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/jvm/" itemprop="url" rel="index"><span itemprop="name">jvm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/20/jvm-GC/" itemprop="url">
-            
-              <span itemprop="name">jvm内存分配及垃圾收集</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-20T20:51:47+08:00" content="2019-02-20">
-          02-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <p>问题：为什么新生代还要分为Eden区和两个Survivor区?</p>
+<p><strong>注意</strong>：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象</p>
+<p>1、为什么要新生代要分区？</p>
+<ul>
+<li>新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…</li>
+</ul>
+<a id="more"></a>
+<p>2、为什么分Eden区和Survivor区比例不同？</p>
+<ul>
+<li>新生代中的对象是比较多的，如果每次使用一半，空闲一半，浪费太严重，所以比例不同。</li>
+<li>80% 的空间分给Eden区域，10%+10% 分别分给from Survivor和to Survivor区，Eden区用来给新对象分配空间，Survivor用来保留存活对象。</li>
+<li>具体的 8:1:1 的比例是实验得出来的最优（当然不是我实验的）。</li>
+</ul>
+<p>3、为什么不是一个Eden + 一个Survivor？</p>
+<ul>
+<li>如果只有Eden和一个Survivor空间的话，收集操作会产生碎片化。<ul>
+<li>举例：假设条件是Eden 80% + Survivor20%。新分配对象到Eden区，Eden满后，需要GC，将Eden区存活对象复制到Survivor，之后清理Eden区。接着又存对象到Eden区，再次满了需要GC，这次GC会将Eden区存活对象复制到Survivor区，但是Survivor也有死亡的对象需要回收，Survivor区存活的对象仍然保持原位置，Survivor中回收剩下的区域就变成碎片，因为复制算法不会自动整理空间。久而久之，内存碎片增多，造成资源浪费。</li>
+</ul>
+</li>
+<li>为什么每次GC完事不把Survivor区存活的对象再复制到Eden区？<ul>
+<li>似乎挺有道理，但是一是再次复制效率比较低，二来就没法判断哪些对象什么时候可以晋升至老年代了。</li>
+</ul>
+</li>
+</ul>
+<p>4、一个80%的Eden加两个10%的Survivor试试？</p>
+<ul>
+<li>将新生代分为 Eden(80%) + From Survivor(10%) + To Survivor(10%)，<strong>注意</strong>：这里的From和To不是和某一块Survivor区绑定的，即这次From是第一块Survivor，下次From就变成了第二块Survivor了。</li>
+<li>每次分配新对象还是分配到Eden区中，但是每次GC仍只使用Eden区和一块Survivor区。<ul>
+<li>第一次GC：首先分配内存给Eden区，Eden满后需要GC，将存活对象复制到一块Survivor中，然后清理Eden区域。</li>
+<li>第二次GC：将Eden和上次使用的Survivor区中的存活对象复制到另一块空闲的Survivor区中，再统一清理Eden区和上次使用的Survivor区。咦，这次又变成一块空闲的Survivor区和一块正在使用的Survivor区了，似乎碎片的问题也解决了（因为复制的对象顺序排列）</li>
+<li>第 3、4 … n 次GC：GC过程都和第二次一样。在Survivor中的对象每度过一次GC，对象的Age+1，等到了年龄阈值（默认15，可设置）就可晋升至老年代，当然还有其他方式晋升老年代（不阐述了，参考《jvm内存分配和垃圾收集》）。</li>
+</ul>
+</li>
+</ul>
+<p>问题似乎就这么不完美的讲通了…</p>
 
       
     </div>
 
+    
+
+  <div>    
+    
+    
+    <ul class="post-copyright">
+      <li class="post-copyright-author">
+          <strong>本文作者：</strong>maohe
+      </li>
+      <li class="post-copyright-link">
+        <strong>本文链接：</strong>
+        <a href="/2019/02/21/jvmYoungGenerationEdenAndSurvivor/" title="jvm中新生代分为一个Eden区和两个Survivor区">2019/02/21/jvmYoungGenerationEdenAndSurvivor/</a>
+      </li>
+      <li class="post-copyright-license">
+        <strong>版权声明： </strong>
+        本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+      </li>
+    </ul>
+    
+  </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="maohe 微信">
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="maohe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/jvm-GC/" rel="next" title="jvm内存分配及垃圾收集">
+                <i class="fa fa-chevron-left"></i> jvm内存分配及垃圾收集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -728,6 +960,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -767,6 +1003,8 @@
 
 
 
+
+  
 
 
   
