@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+  <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 <meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新生代为何分为一个Eden区和两个Survivor区">
 <meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T12:10:34.146Z">
+<meta property="og:updated_time" content="2019-02-22T06:46:27.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新生代为何分为一个Eden区和两个Survivor区">
-<meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？  新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
 
 
 
@@ -419,12 +419,24 @@
                 
               
 
-              <time title="创建时间：2019-02-21 20:09:04 / 修改时间：20:10:34" itemprop="dateCreated datePublished" datetime="2019-02-21T20:09:04+08:00">2019-02-21</time>
+              <time title="创建时间：2019-02-21 20:09:04" itemprop="dateCreated datePublished" datetime="2019-02-21T20:09:04+08:00">2019-02-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-22 14:46:27" itemprop="dateModified" datetime="2019-02-22T14:46:27+08:00">2019-02-22</time>
               
             
           </span>
@@ -532,19 +544,16 @@
       
         <p>问题：为什么新生代还要分为Eden区和两个Survivor区?</p>
 <p><strong>注意</strong>：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象</p>
-<p>1、为什么要新生代要分区？</p>
-<ul>
+<h4 id="1、为什么要新生代要分区？"><a href="#1、为什么要新生代要分区？" class="headerlink" title="1、为什么要新生代要分区？"></a>1、为什么要新生代要分区？</h4><ul>
 <li>新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…</li>
 </ul>
 <a id="more"></a>
-<p>2、为什么分Eden区和Survivor区比例不同？</p>
-<ul>
+<h4 id="2、为什么分Eden区和Survivor区比例不同？"><a href="#2、为什么分Eden区和Survivor区比例不同？" class="headerlink" title="2、为什么分Eden区和Survivor区比例不同？"></a>2、为什么分Eden区和Survivor区比例不同？</h4><ul>
 <li>新生代中的对象是比较多的，如果每次使用一半，空闲一半，浪费太严重，所以比例不同。</li>
 <li>80% 的空间分给Eden区域，10%+10% 分别分给from Survivor和to Survivor区，Eden区用来给新对象分配空间，Survivor用来保留存活对象。</li>
 <li>具体的 8:1:1 的比例是实验得出来的最优（当然不是我实验的）。</li>
 </ul>
-<p>3、为什么不是一个Eden + 一个Survivor？</p>
-<ul>
+<h4 id="3、为什么不是一个Eden-一个Survivor？"><a href="#3、为什么不是一个Eden-一个Survivor？" class="headerlink" title="3、为什么不是一个Eden + 一个Survivor？"></a>3、为什么不是一个Eden + 一个Survivor？</h4><ul>
 <li>如果只有Eden和一个Survivor空间的话，收集操作会产生碎片化。<ul>
 <li>举例：假设条件是Eden 80% + Survivor20%。新分配对象到Eden区，Eden满后，需要GC，将Eden区存活对象复制到Survivor，之后清理Eden区。接着又存对象到Eden区，再次满了需要GC，这次GC会将Eden区存活对象复制到Survivor区，但是Survivor也有死亡的对象需要回收，Survivor区存活的对象仍然保持原位置，Survivor中回收剩下的区域就变成碎片，因为复制算法不会自动整理空间。久而久之，内存碎片增多，造成资源浪费。</li>
 </ul>
@@ -554,8 +563,7 @@
 </ul>
 </li>
 </ul>
-<p>4、一个80%的Eden加两个10%的Survivor试试？</p>
-<ul>
+<h4 id="4、一个80-的Eden加两个10-的Survivor试试？"><a href="#4、一个80-的Eden加两个10-的Survivor试试？" class="headerlink" title="4、一个80%的Eden加两个10%的Survivor试试？"></a>4、一个80%的Eden加两个10%的Survivor试试？</h4><ul>
 <li>将新生代分为 Eden(80%) + From Survivor(10%) + To Survivor(10%)，<strong>注意</strong>：这里的From和To不是和某一块Survivor区绑定的，即这次From是第一块Survivor，下次From就变成了第二块Survivor了。</li>
 <li>每次分配新对象还是分配到Eden区中，但是每次GC仍只使用Eden区和一块Survivor区。<ul>
 <li>第一次GC：首先分配内存给Eden区，Eden满后需要GC，将存活对象复制到一块Survivor中，然后清理Eden区域。</li>
@@ -661,6 +669,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/02/22/jvmMemoryArea/" rel="prev" title="jvm内存区域">
+                jvm内存区域 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -708,8 +720,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -726,7 +747,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -806,6 +827,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、为什么要新生代要分区？"><span class="nav-number">1.</span> <span class="nav-text">1、为什么要新生代要分区？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、为什么分Eden区和Survivor区比例不同？"><span class="nav-number">2.</span> <span class="nav-text">2、为什么分Eden区和Survivor区比例不同？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、为什么不是一个Eden-一个Survivor？"><span class="nav-number">3.</span> <span class="nav-text">3、为什么不是一个Eden + 一个Survivor？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、一个80-的Eden加两个10-的Survivor试试？"><span class="nav-number">4.</span> <span class="nav-text">4、一个80%的Eden加两个10%的Survivor试试？</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -831,7 +869,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">11k</span>
+    <span title="本站总字数">16k</span>
   
 
   
@@ -840,7 +878,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   
 </div>
 
