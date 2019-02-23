@@ -392,6 +392,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/23/jvmClassFile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maohe">
+      <meta itemprop="description" content="要做一个勤奋的人。">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaoHe's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/23/jvmClassFile/" class="post-title-link" itemprop="url">java Class类文件结构</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-23 13:13:20 / 修改时间：13:15:40" itemprop="dateCreated datePublished" datetime="2019-02-23T13:13:20+08:00">2019-02-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/jvm/" itemprop="url" rel="index"><span itemprop="name">jvm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/02/23/jvmClassFile/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/23/jvmClassFile/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">10k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>​   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。</p>
+<p>Class文件数据类型：<strong>无符号数</strong>和<strong>表</strong>。</p>
+<ul>
+<li><strong>无符号数</strong>：是基本的数据类型，无符号数<strong>用 u 表示</strong>：u1、u2、u4、u8分别代表1字节、2字节、4字节、8字节长度的无符号数。这些无符号数数可以用来描述数字、<strong>索引引用</strong>、数量值或按照<strong>UTF-8编码构成的字符串值</strong>（注意这个）。</li>
+<li><strong>表</strong>：由多个<strong>无符号数</strong>或<strong>其他表</strong>作为数据项构成的复合数据类型，一般以”_info”结尾。整个class文件就是一张表，里面由<strong>无符号数+其他表</strong>组成</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/23/jvmClassFile/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+  <div>    
+    
+    
+  </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/22/jvmMemoryArea/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1361,7 +1585,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1466,7 +1690,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">16k</span>
+    <span title="本站总字数">26k</span>
   
 
   
@@ -1475,7 +1699,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">23 分钟</span>
   
 </div>
 
