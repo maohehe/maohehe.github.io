@@ -412,7 +412,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/25/javaTreeMap/" class="post-title-link" itemprop="url">javaTreeMap</a>
+                <a href="/2019/02/25/javaTreeMap/" class="post-title-link" itemprop="url">java集合框架之TreeMap</a>
               
             
           </h1>
@@ -437,12 +437,41 @@
                 
               
 
-              <time title="创建时间：2019-02-25 12:24:17" itemprop="dateCreated datePublished" datetime="2019-02-25T12:24:17+08:00">2019-02-25</time>
+              <time title="创建时间：2019-02-25 12:24:17 / 修改时间：17:27:16" itemprop="dateCreated datePublished" datetime="2019-02-25T12:24:17+08:00">2019-02-25</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/集合框架/" itemprop="url" rel="index"><span itemprop="name">集合框架</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -478,7 +507,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">5k</span>
               
 
               
@@ -492,7 +521,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -513,11 +542,22 @@
 
       
         
-          
-            <p>
-              
-              
-            </p>
+          <h3 id="一、TreeMap概述"><a href="#一、TreeMap概述" class="headerlink" title="一、TreeMap概述"></a>一、TreeMap概述</h3><ul>
+<li>因为TreeMap的通过多重继承 SortedMap 接口，所以有序</li>
+<li>底层数据结构：<strong>红黑树</strong>。查询<strong>时间复杂度 log(n)</strong>。</li>
+<li>TreeMap是 <strong>线程不安全</strong> 的。</li>
+<li>TreeMap有两种方式对key进行比较，从而实现排序效果：<ul>
+<li><strong>自然排序</strong>：通过key 实现Comparable接口，覆写compareTo方法进行比较。</li>
+<li><strong>比较器排序</strong>：通过Comparator对象来进行排序。</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>如果在构造方法中传递了Comparator对象，那么就会以Comparator对象的方法进行比较。否则，使用key实现了Comparable接口的compareTo(T o)方法来比较。</li>
+<li>如果使用的是compareTo(Object o)方法来比较，<strong>key</strong>一定是<strong>不能为null</strong>(空指针异常)，并且key得实现了Comparable接口的。</li>
+<li>即使是传入了Comparator对象，不用compareTo(T o)方法来比较，key也是不能为null的。</li>
+</ul>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -2787,7 +2827,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">46k</span>
+    <span title="本站总字数">51k</span>
   
 
   
@@ -2796,7 +2836,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">42 分钟</span>
+    <span title="站点阅读时长">46 分钟</span>
   
 </div>
 
