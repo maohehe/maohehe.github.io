@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="一、概述​   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：">
+  <meta name="description" content="一、概述   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：u">
 <meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java Class类文件结构">
+<meta property="og:title" content="jvm Class类文件结构">
 <meta property="og:url" content="https://maohehe.github.io/2019/02/23/jvmClassFile/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="一、概述​   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：">
+<meta property="og:description" content="一、概述   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：u">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-23T05:15:40.960Z">
+<meta property="og:updated_time" content="2019-02-26T05:35:22.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java Class类文件结构">
-<meta name="twitter:description" content="一、概述​   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：">
+<meta name="twitter:title" content="jvm Class类文件结构">
+<meta name="twitter:description" content="一、概述   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示：u">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>java Class类文件结构 | MaoHe's Blog</title>
+  <title>jvm Class类文件结构 | MaoHe's Blog</title>
   
 
 
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java Class类文件结构
+          <h1 class="post-title" itemprop="name headline">jvm Class类文件结构
 
               
             
@@ -436,12 +436,24 @@
                 
               
 
-              <time title="创建时间：2019-02-23 13:13:20 / 修改时间：13:15:40" itemprop="dateCreated datePublished" datetime="2019-02-23T13:13:20+08:00">2019-02-23</time>
+              <time title="创建时间：2019-02-23 13:13:20" itemprop="dateCreated datePublished" datetime="2019-02-23T13:13:20+08:00">2019-02-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-26 13:35:22" itemprop="dateModified" datetime="2019-02-26T13:35:22+08:00">2019-02-26</time>
               
             
           </span>
@@ -547,7 +559,7 @@
       
 
       
-        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>​   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。</p>
+        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>   Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。</p>
 <p>Class文件数据类型：<strong>无符号数</strong>和<strong>表</strong>。</p>
 <ul>
 <li><strong>无符号数</strong>：是基本的数据类型，无符号数<strong>用 u 表示</strong>：u1、u2、u4、u8分别代表1字节、2字节、4字节、8字节长度的无符号数。这些无符号数数可以用来描述数字、<strong>索引引用</strong>、数量值或按照<strong>UTF-8编码构成的字符串值</strong>（注意这个）。</li>
@@ -645,29 +657,29 @@
 </tr>
 </tbody>
 </table>
-<p>​   由以上可知，Class文件结构包含的内容就有：魔数、版本、常量池、访问标志、类索引、父类索引、接口索引集合、字段表、方法表、属性表，且顺序是固定的（暂且这么说）。</p>
-<h3 id="二、具体结构"><a href="#二、具体结构" class="headerlink" title="二、具体结构"></a>二、具体结构</h3><h4 id="1-magic-魔数"><a href="#1-magic-魔数" class="headerlink" title="1. magic 魔数"></a>1. magic 魔数</h4><p>​   Class文件的最初的 4 字节是魔数（值为0xCAFEBABE），唯一作用是来指明这个文件可以被 jvm 识别，换句话说，jvm只认识开头 4 字节为上述魔数的文件。</p>
-<p>​   java 使用魔数识别文件，不使用文件扩展名(.class)识别文件。</p>
-<h4 id="2-xx-version-版本"><a href="#2-xx-version-版本" class="headerlink" title="2. xx_version 版本"></a>2. xx_version 版本</h4><p>​   紧接着魔数的 4 个字节表示class文件的版本号，5,6 字节表示次版本号，7,8 字节表示主版本号。</p>
-<p>​   例如，主版本是从45 开始，JDK1.0对应 Class文件的主版本号为 45，JDK1.7主版本号为51。</p>
+<p>   由以上可知，Class文件结构包含的内容就有：魔数、版本、常量池、访问标志、类索引、父类索引、接口索引集合、字段表、方法表、属性表，且顺序是固定的（暂且这么说）。</p>
+<h3 id="二、具体结构"><a href="#二、具体结构" class="headerlink" title="二、具体结构"></a>二、具体结构</h3><h4 id="1-magic-魔数"><a href="#1-magic-魔数" class="headerlink" title="1. magic 魔数"></a>1. magic 魔数</h4><p>   Class文件的最初的 4 字节是魔数（值为0xCAFEBABE），唯一作用是来指明这个文件可以被 jvm 识别，换句话说，jvm只认识开头 4 字节为上述魔数的文件。</p>
+<p>   java 使用魔数识别文件，不使用文件扩展名(.class)识别文件。</p>
+<h4 id="2-xx-version-版本"><a href="#2-xx-version-版本" class="headerlink" title="2. xx_version 版本"></a>2. xx_version 版本</h4><p>   紧接着魔数的 4 个字节表示class文件的版本号，5,6 字节表示次版本号，7,8 字节表示主版本号。</p>
+<p>   例如，主版本是从45 开始，JDK1.0对应 Class文件的主版本号为 45，JDK1.7主版本号为51。</p>
 <p><strong>注意</strong>：</p>
 <ul>
 <li>高版本JDK可向上兼容低版本的Class文件，但不支持高版本的Class文件。如，一个class文件的版本号为50，则该文件只能被JDK1.6以上的虚拟机加载。</li>
 </ul>
-<h4 id="3-constant-pool-常量池（重要）"><a href="#3-constant-pool-常量池（重要）" class="headerlink" title="3. constant_pool 常量池（重要）"></a>3. constant_pool 常量池（重要）</h4><p>​   因为每个程序中常量池中的常量数量都是不固定的，所以有必要用一个无符号数来表示常量池中常量的个数，这个无符号数就是constant_pool_count（u2），在这个数之后的就是常量池。</p>
-<p>​   常量池中的常量索引从 1 开始，例如，constant_pool_count值换算为十进制为 24 ，这表示常量池有 23 个常量，常量索引为 1~23。因为索引 0 来表示”不引用任何一个常量池项目”。</p>
-<p>​   <strong>注意</strong>：常量池中的常量是在<strong>编译期</strong>就<strong>生成</strong>的，编译期根据源码生成的各种字面量和符号引用就保存在</p>
+<h4 id="3-constant-pool-常量池（重要）"><a href="#3-constant-pool-常量池（重要）" class="headerlink" title="3. constant_pool 常量池（重要）"></a>3. constant_pool 常量池（重要）</h4><p>   因为每个程序中常量池中的常量数量都是不固定的，所以有必要用一个无符号数来表示常量池中常量的个数，这个无符号数就是constant_pool_count（u2），在这个数之后的就是常量池。</p>
+<p>   常量池中的常量索引从 1 开始，例如，constant_pool_count值换算为十进制为 24 ，这表示常量池有 23 个常量，常量索引为 1~23。因为索引 0 来表示”不引用任何一个常量池项目”。</p>
+<p>   <strong>注意</strong>：常量池中的常量是在<strong>编译期</strong>就<strong>生成</strong>的，编译期根据源码生成的各种字面量和符号引用就保存在常量池中。</p>
 <p>常量池中的内容：<strong>字面量</strong> 与 <strong>符号引用</strong>。</p>
 <ul>
 <li>字面量：可认为 java 中的常量，如字符串常量、final声明的常量等。</li>
 <li>符号引用：主要有以下三种<ul>
 <li><strong>类和接口的全限定名</strong>：就是将源码中全限定名中的 . 改成了 / ,例如java.lang.Object在class文件中全限定名就是 java/lang/Object</li>
 <li><strong>字段名称和描述符</strong>（后文字段表有讲）</li>
-<li><strong>方法的名称和描述符</strong>（后文字段表有讲）</li>
+<li><strong>方法的名称和描述符</strong>（后文方法表有讲）</li>
 </ul>
 </li>
 </ul>
-<p>​   常量池中每一个常量都是<strong>表</strong>的结构，常量类型一共有 11 中，列表如下：</p>
+<p>   常量池中每一个常量都是<strong>表</strong>的结构，常量类型一共有 11 中，列表如下：</p>
 <table>
 <thead>
 <tr>
@@ -880,7 +892,7 @@
 <p>#2：分析得出CONSTANT_Fieldref_info类型变量，有凉个引用，分别是第 18和第 19个常量。</p>
 <p>javap 结果：#2 = Fieldref           #18.#19</p>
 <p>分析成功！</p>
-<h4 id="4-访问标志"><a href="#4-访问标志" class="headerlink" title="4. 访问标志"></a>4. 访问标志</h4><p>​   常量池所有的常量分析完毕之后，接下来的 2 字节（u2）代表访问标志，用来识别一些类或接口层次的访问信息，包括：该Class是类还是接口、是否是public、是否是abstract、是否是final类等，具体如下：</p>
+<h4 id="4-访问标志"><a href="#4-访问标志" class="headerlink" title="4. 访问标志"></a>4. 访问标志</h4><p>   常量池所有的常量分析完毕之后，接下来的 2 字节（u2）代表访问标志，用来识别一些类或接口层次的访问信息，包括：该Class是类还是接口、是否是public、是否是abstract、是否是final类等，具体如下：</p>
 <table>
 <thead>
 <tr>
@@ -932,17 +944,17 @@
 </tr>
 </tbody>
 </table>
-<p>​   例如，一个class文件的访问标志是0x0021,则表示它是public类型的类 0020 | 0001 = 0021。</p>
-<h4 id="5-this-class-类索引"><a href="#5-this-class-类索引" class="headerlink" title="5. this_class 类索引"></a>5. this_class 类索引</h4><p>​   类索引 用于确定类的全限定名。</p>
-<p>​   类索引 是 u2 类型，引用的是常量池中的 CONSTANT_Class_info 类型常量。然后根据Class_info 常量中的NameAndTye的索引值，可以获得 CONSTANT_Utf8_info 变量表示的类全限定名。</p>
-<h4 id="6-super-class-父类索引"><a href="#6-super-class-父类索引" class="headerlink" title="6. super_class 父类索引"></a>6. super_class 父类索引</h4><p>​   父类索引 用于确定父类的全限定名，由于单继承限制，所以父类索引只有一个（不像接口，有个集合），除了Object类外，每个java类都有父类（如果类没直接extends某个类的话，则其父类就是Object），所以出Object外，每个类的类索引都不为 0。</p>
-<p>​   父类索引和类索引一样，也是 u2 类型，也是引用的常量池中的 CONSTANT_Class_info 类型常量。</p>
-<h4 id="7-interfaces-接口索引集合"><a href="#7-interfaces-接口索引集合" class="headerlink" title="7. interfaces 接口索引集合"></a>7. interfaces 接口索引集合</h4><p>​   接口索引集合 用来描述该类 implements 了哪些接口，这些接口在集合中的顺序与 implements顺序相同。</p>
-<p>​   对于接口集合，入口的第一个 u2 数据（十进制）表示接口的个数，如果没接口，则该项 u2 为0000，索引表就为空，表示在Class表中没有接口集合。</p>
-<p>​   接口索引集合中的每个接口都是 u2 类型的数据，都表示指向常量池中CONSTANT_Class_info 类型常量。</p>
-<h4 id="8-字段表集合"><a href="#8-字段表集合" class="headerlink" title="8. 字段表集合"></a>8. 字段表集合</h4><p>​   接口索引集合之后，紧接着的 u2 类型数据表示类中字段的个数，之后就是具体的字段表。一个字段表集合中的每个字段都是一张表。</p>
-<p>​   字段表 用于描述接口或类中声明的变量，<strong>包括static变量和实例变量</strong>，不包括方法中声明的局部变量。</p>
-<p>​   字段表中的每个字段都包含有很多信息，例如字段访问修饰符(public,private等)，字段是否static，字段是否final，字段类型，字段名、字段是否有初始化等。前面的修饰符要么为true要么为false，可以使用访问标志来修饰，而字段类型、字段名都不是固定的，因此只能引用常量池中的常量描述。</p>
+<p>   例如，一个class文件的访问标志是0x0021,则表示它是public类型的类 0020 | 0001 = 0021。</p>
+<h4 id="5-this-class-类索引"><a href="#5-this-class-类索引" class="headerlink" title="5. this_class 类索引"></a>5. this_class 类索引</h4><p>   类索引 用于确定类的全限定名。</p>
+<p>   类索引 是 u2 类型，引用的是常量池中的 CONSTANT_Class_info 类型常量。然后根据Class_info 常量中的NameAndTye的索引值，可以获得 CONSTANT_Utf8_info 变量表示的类全限定名。</p>
+<h4 id="6-super-class-父类索引"><a href="#6-super-class-父类索引" class="headerlink" title="6. super_class 父类索引"></a>6. super_class 父类索引</h4><p>   父类索引 用于确定父类的全限定名，由于单继承限制，所以父类索引只有一个（不像接口，有个集合），除了Object类外，每个java类都有父类（如果类没直接extends某个类的话，则其父类就是Object），所以出Object外，每个类的类索引都不为 0。</p>
+<p>   父类索引和类索引一样，也是 u2 类型，也是引用的常量池中的 CONSTANT_Class_info 类型常量。</p>
+<h4 id="7-interfaces-接口索引集合"><a href="#7-interfaces-接口索引集合" class="headerlink" title="7. interfaces 接口索引集合"></a>7. interfaces 接口索引集合</h4><p>   接口索引集合 用来描述该类 implements 了哪些接口，这些接口在集合中的顺序与 implements顺序相同。</p>
+<p>   对于接口集合，入口的第一个 u2 数据（十进制）表示接口的个数，如果没接口，则该项 u2 为0000，索引表就为空，表示在Class表中没有接口集合。</p>
+<p>   接口索引集合中的每个接口都是 u2 类型的数据，都表示指向常量池中CONSTANT_Class_info 类型常量。</p>
+<h4 id="8-字段表集合"><a href="#8-字段表集合" class="headerlink" title="8. 字段表集合"></a>8. 字段表集合</h4><p>   接口索引集合之后，紧接着的 u2 类型数据表示类中字段的个数，之后就是具体的字段表。一个字段表集合中的每个字段都是一张表。</p>
+<p>   字段表 用于描述接口或类中声明的变量，<strong>包括static变量和实例变量</strong>，不包括方法中声明的局部变量。</p>
+<p>   字段表中的每个字段都包含有很多信息，例如字段访问修饰符(public,private等)，字段是否static，字段是否final，字段类型，字段名、字段是否有初始化等。前面的修饰符要么为true要么为false，可以使用访问标志来修饰，而字段类型、字段名都不是固定的，因此只能引用常量池中的常量描述。</p>
 <p><strong>字段表结构（每个字段都是这结构）：</strong></p>
 <table>
 <thead>
@@ -1071,8 +1083,8 @@
 <p>例如，<code>final static int i = 123;</code>字段其attributes_count 就为1，attributes就会有一个属性ConstantValue指向常量 123 。</p>
 </li>
 </ul>
-<p>​   <strong>注意</strong>：字段表中不包含从父类或接口中继承的字段。</p>
-<h4 id="9-方法表集合"><a href="#9-方法表集合" class="headerlink" title="9. 方法表集合"></a>9. 方法表集合</h4><p>​   毋庸置疑，方法表集合包含了很多方法表，每个方法都是一张表。每个方法的表的结构都和字段表结构有很大的相似之处。</p>
+<p>   <strong>注意</strong>：字段表中不包含从父类或接口中继承的字段。</p>
+<h4 id="9-方法表集合"><a href="#9-方法表集合" class="headerlink" title="9. 方法表集合"></a>9. 方法表集合</h4><p>   毋庸置疑，方法表集合包含了很多方法表，每个方法都是一张表。每个方法的表的结构都和字段表结构有很大的相似之处。</p>
 <p><strong>方法表结构（每个方法都是这结构）：</strong></p>
 <table>
 <thead>
@@ -1195,9 +1207,9 @@
 <p>方法的方法体是由很多代码的，而这些代码都保存在attributes属性集中的Code属性中。</p>
 </li>
 </ul>
-<p>​   <strong>注意</strong>：方法表中不包含从父类继承的方法，对于父类方法，只会包含重写的父类方法。</p>
-<h4 id="10-属性表集合"><a href="#10-属性表集合" class="headerlink" title="10. 属性表集合"></a>10. 属性表集合</h4><p>​   属性表示包含在字段或方法中(其他)的，单独拿出来讲，大概是因为它太大了…</p>
-<p>​   因为属性不是单独存在的，需要有依附。且属性表的长度不同，不同属性结构也不一样</p>
+<p>   <strong>注意</strong>：方法表中不包含从父类继承的方法，对于父类方法，只会包含重写的父类方法。</p>
+<h4 id="10-属性表集合"><a href="#10-属性表集合" class="headerlink" title="10. 属性表集合"></a>10. 属性表集合</h4><p>   属性表示包含在字段或方法中(其他)的，单独拿出来讲，大概是因为它太大了…</p>
+<p>   因为属性不是单独存在的，需要有依附。且属性表的长度不同，不同属性结构也不一样</p>
 <p>属性表结构：</p>
 <table>
 <thead>
@@ -1226,7 +1238,7 @@
 </tbody>
 </table>
 <p>虚拟机规范中定义了很多属性（不一一列举了），举一个</p>
-<h5 id="1-Code属性"><a href="#1-Code属性" class="headerlink" title="1. Code属性"></a>1. Code属性</h5><p>​   java程序编译后，方法中的代码最终变为字节码指令存储在Code属性中。Code属性主要存在于方法表中的属性集合中（用来保存方法体中的代码），当然没有方法体的方法就没有Code属性了（接口方法、抽象方法）。</p>
+<h5 id="1-Code属性"><a href="#1-Code属性" class="headerlink" title="1. Code属性"></a>1. Code属性</h5><p>   java程序编译后，方法中的代码最终变为字节码指令存储在Code属性中。Code属性主要存在于方法表中的属性集合中（用来保存方法体中的代码），当然没有方法体的方法就没有Code属性了（接口方法、抽象方法）。</p>
 <p>Code属性具体表结构：</p>
 <table>
 <thead>
@@ -1308,7 +1320,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/23/jvmClassFile/" title="java Class类文件结构">2019/02/23/jvmClassFile/</a>
+        <a href="/2019/02/23/jvmClassFile/" title="jvm Class类文件结构">2019/02/23/jvmClassFile/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -1467,7 +1479,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1593,7 +1605,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">51k</span>
+    <span title="本站总字数">62k</span>
   
 
   
@@ -1602,7 +1614,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">46 分钟</span>
+    <span title="站点阅读时长">56 分钟</span>
   
 </div>
 
