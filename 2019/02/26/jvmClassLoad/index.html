@@ -103,19 +103,19 @@
 
 
 
-  <meta name="description" content="一、概述**类的完整生命周期**：加载、验证、准备、解析、初始化、使用、卸载。  **类加载的周期**：加载、连接（验证、准备、解析）、初始化。  其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。  而解析阶段的开始时间">
+  <meta name="description" content="一、概述​    类的完整生命周期：加载、验证、准备、解析、初始化、使用、卸载。 ​    类加载的周期：加载、连接（验证、准备、解析）、初始化。 ​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。 ​    而">
 <meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm 类加载机制">
 <meta property="og:url" content="https://maohehe.github.io/2019/02/26/jvmClassLoad/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="一、概述**类的完整生命周期**：加载、验证、准备、解析、初始化、使用、卸载。  **类加载的周期**：加载、连接（验证、准备、解析）、初始化。  其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。  而解析阶段的开始时间">
+<meta property="og:description" content="一、概述​    类的完整生命周期：加载、验证、准备、解析、初始化、使用、卸载。 ​    类加载的周期：加载、连接（验证、准备、解析）、初始化。 ​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。 ​    而">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4491294-8edc15f60a58bd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468">
-<meta property="og:updated_time" content="2019-02-26T05:37:01.399Z">
+<meta property="og:updated_time" content="2019-02-26T05:43:02.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 类加载机制">
-<meta name="twitter:description" content="一、概述**类的完整生命周期**：加载、验证、准备、解析、初始化、使用、卸载。  **类加载的周期**：加载、连接（验证、准备、解析）、初始化。  其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。  而解析阶段的开始时间">
+<meta name="twitter:description" content="一、概述​    类的完整生命周期：加载、验证、准备、解析、初始化、使用、卸载。 ​    类加载的周期：加载、连接（验证、准备、解析）、初始化。 ​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。 ​    而">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/4491294-8edc15f60a58bd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468">
 
 
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="创建时间：2019-02-26 13:33:56 / 修改时间：13:37:01" itemprop="dateCreated datePublished" datetime="2019-02-26T13:33:56+08:00">2019-02-26</time>
+              <time title="创建时间：2019-02-26 13:33:56 / 修改时间：13:43:02" itemprop="dateCreated datePublished" datetime="2019-02-26T13:33:56+08:00">2019-02-26</time>
             
 
             
@@ -549,26 +549,20 @@
       
 
       
-        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><pre><code>**类的完整生命周期**：加载、验证、准备、解析、初始化、使用、卸载。
-
-**类加载的周期**：加载、连接（验证、准备、解析）、初始化。
-
-其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。
-
-而解析阶段的开始时间却是不确定的，一些情况下解析阶段可以在初始化之后才开始。
-</code></pre><a id="more"></a>
-<h3 id="二、类加载过程"><a href="#二、类加载过程" class="headerlink" title="二、类加载过程"></a>二、类加载过程</h3><h4 id="1-加载"><a href="#1-加载" class="headerlink" title="1. 加载"></a>1. 加载</h4><pre><code>对于一个类，什么时候开始加载？虚拟机并没有明确的规定一个类要在什么时候加载，虚拟机会在需要的时候自动进行加载，我们不用操心。
-
-虽然不知道类会在什么时候加载，但是它确实会有这个阶段。虚拟机在类的加载阶段会有如下**3个过程**：
-</code></pre><ol>
+        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>​    <strong>类的完整生命周期</strong>：加载、验证、准备、解析、初始化、使用、卸载。</p>
+<p>​    <strong>类加载的周期</strong>：加载、连接（验证、准备、解析）、初始化。</p>
+<p>​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。</p>
+<p>​    而解析阶段的开始时间却是不确定的，一些情况下解析阶段可以在初始化之后才开始。</p>
+<h3 id="二、类加载过程"><a href="#二、类加载过程" class="headerlink" title="二、类加载过程"></a>二、类加载过程</h3><h4 id="1-加载"><a href="#1-加载" class="headerlink" title="1. 加载"></a>1. 加载</h4><p>​    对于一个类，什么时候开始加载？虚拟机并没有明确的规定一个类要在什么时候加载，虚拟机会在需要的时候自动进行加载，我们不用操心。</p>
+<p>​    虽然不知道类会在什么时候加载，但是它确实会有这个阶段。虚拟机在类的加载阶段会有如下<strong>3个过程</strong>：</p>
+<ol>
 <li>通过类的全限定名来<strong>获取</strong>定义此<strong>类的二进制字节流</strong>（例如找到类的class文件）。了解：对于获取二进制字节流来说，并不只有找到class文件这一种，还有从ZIP压缩文件中（jar,war）、从网络获取、运行时计算生成（动态代理）、其他文件生成（Jsp）、数据库读取等。</li>
 <li>将这个字节流代表的<strong>静态存储结构转化为方法区的运行时数据结构</strong>。</li>
 <li>在内存（<strong>方法区）中生成这个类对应的Class对象</strong>，作为方法区中这个类的各种数据的访问入口。</li>
 </ol>
-<pre><code>而通过类的全限定名获取二进制字节流是通过 **“类加载器”** 实现的，类加载器是用户可以编写的程序，也就是说，用户通过实现类加载器可以自己决定到哪去获得这个二进制流。关于类加载器在后面会讲。
-
-对于**非数组的类**，可以使用类加载器（虚拟机自带或用户定义）进行加载来控制从哪如何获取二进制流。但是对于**数组类**来说，数组类不通过类加载器创建，是由虚拟机直接创建的，但是**数组类**中的**元素类型**还是由类加载器创建。
-</code></pre><p><strong>数组类创建过程：</strong></p>
+<p>​    而通过类的全限定名获取二进制字节流是通过 <strong>“类加载器”</strong> 实现的，类加载器是用户可以编写的程序，也就是说，用户通过实现类加载器可以自己决定到哪去获得这个二进制流。关于类加载器在后面会讲。</p>
+<p>​    对于<strong>非数组的类</strong>，可以使用类加载器（虚拟机自带或用户定义）进行加载来控制从哪如何获取二进制流。但是对于<strong>数组类</strong>来说，数组类不通过类加载器创建，是由虚拟机直接创建的，但是<strong>数组类</strong>中的<strong>元素类型</strong>还是由类加载器创建。</p>
+<p><strong>数组类创建过程：</strong></p>
 <ol>
 <li>若数组的<strong>组件类型是引用类型</strong>（组件类型就是数组去掉一个维度的类型），就递归采用“加载、验证、准备、解析、初始化”的过程加载组件类型。</li>
 <li>若数组的<strong>组件类型不是引用类型</strong>（基础类型 int[]等），虚拟机将会把数组标记为与 <strong>“引导类加载器”</strong> 关联。</li>
@@ -578,8 +572,8 @@
 <h4 id="2-验证"><a href="#2-验证" class="headerlink" title="2. 验证"></a>2. 验证</h4><blockquote>
 <p>验证的目的是为了确保Class文件的字节流中的信息是否合法，要保证它的内容不会危害虚拟机。</p>
 </blockquote>
-<pre><code>但是编译阶段就会筛选信息是否正确，错误的信息直接编译失败，那为什么还有不合法的信息危害虚拟机呢？那是因为Class文件并不仅仅是`java`源文件编译来的，因为它是二进制字节流，我们自己甚至都可以编写它（如果你够牛P的话），所以，通过其他过程获得的字节流可能是不合法滴。
-</code></pre><p>验证阶段大致分为下面 <strong>4 个检验动作：</strong></p>
+<p>​    但是编译阶段就会筛选信息是否正确，错误的信息直接编译失败，那为什么还有不合法的信息危害虚拟机呢？那是因为Class文件并不仅仅是<code>java</code>源文件编译来的，因为它是二进制字节流，我们自己甚至都可以编写它（如果你够牛P的话），所以，通过其他过程获得的字节流可能是不合法滴。</p>
+<p>验证阶段大致分为下面 <strong>4 个检验动作：</strong></p>
 <h5 id="1-文件格式验证"><a href="#1-文件格式验证" class="headerlink" title="1. 文件格式验证"></a>1. 文件格式验证</h5><blockquote>
 <p>该阶段要验证字节流是否符合Class文件格式的规范，是否能被虚拟机理解。</p>
 </blockquote>
@@ -622,12 +616,10 @@
 <li>符号引用中的类、字段、方法的访问性是否可被当前类访问。例如访问了private修饰的类或字段或方法等就是不行的。</li>
 </ul>
 <p>符号验证阶段<strong>目的是为了保证解析动作正常执行</strong>。</p>
-<h4 id="3-准备"><a href="#3-准备" class="headerlink" title="3. 准备"></a>3. 准备</h4><pre><code>准备阶段是为**类变量（static变量）分配内存并设置初始值**的阶段，这些static变量的内存都将分配在**方法区**。
-
-对static变量设置的初始值一般是数据类型的零值，例如int类型零值0，boolean类型零值为false，引用类型零值为null等。
-
-而对于 final 修饰的常量，在编译时期，就会将常量值保存在字段对应的字段属性表的`ConstantValue`属性中，在准备阶段，变量就会被初始化为`ConstantValue`属性指定的值，而不是零值。举例，`public static final int value = 123;`在编译阶段，123 被保存在value的字段属性表的`ConstantValue`属性中，准备阶段，会根据`ConstantValue`属性设置`value`的值为 123。
-</code></pre><h4 id="4-解析"><a href="#4-解析" class="headerlink" title="4. 解析"></a>4. 解析</h4><blockquote>
+<h4 id="3-准备"><a href="#3-准备" class="headerlink" title="3. 准备"></a>3. 准备</h4><p>​    准备阶段是为<strong>类变量（static变量）分配内存并设置初始值</strong>的阶段，这些static变量的内存都将分配在<strong>方法区</strong>。</p>
+<p>​    对static变量设置的初始值一般是数据类型的零值，例如int类型零值0，boolean类型零值为false，引用类型零值为null等。</p>
+<p>​    而对于 final 修饰的常量，在编译时期，就会将常量值保存在字段对应的字段属性表的<code>ConstantValue</code>属性中，在准备阶段，变量就会被初始化为<code>ConstantValue</code>属性指定的值，而不是零值。举例，<code>public static final int value = 123;</code>在编译阶段，123 被保存在value的字段属性表的<code>ConstantValue</code>属性中，准备阶段，会根据<code>ConstantValue</code>属性设置<code>value</code>的值为 123。</p>
+<h4 id="4-解析"><a href="#4-解析" class="headerlink" title="4. 解析"></a>4. 解析</h4><blockquote>
 <p>解析阶段就是虚拟机将<strong>常量池内的符号引用替换为直接引用</strong>的过程。</p>
 </blockquote>
 <p><strong>符号引用与直接引用</strong>：</p>
@@ -635,14 +627,10 @@
 <li><strong>符号引用：</strong> 啥是符号引用？书上的原话就不贴了。当我们的java源文件编译之后，会生成一个Class文件，文件中有常量池一块，里面就是保存的字面量和符号引用。常量池中的符号引用最终就是引用的字面量的内容。    编译后的Class文件中还有方法表，方法表中有Code属性用来保存方法体对应的字节码指令，这些都是编译期生成的，如果方法体重要引用另一个类的方法，这个类还没有被加载哎，那该怎么表示呢？    所以符号引用就是用来表示这些的。例如字节码指令中需要调用另一个类的方法，而这个类还没有加载，就找不到具体的方法在哪里，但是我可以使用“字符串描述”先表示一下我要调用这个方法。这个表示方式就是使用符号引用。</li>
 <li><strong>直接引用</strong>：直接引用可以使直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。如果有直接引用，那引用的目标必须已经在内存中存在。</li>
 </ul>
-<pre><code>同样，虚拟机并没有说确定在哪一个时间对符号引用进行解析，但是在遇到`anewarray、checkcast、getfield、getstatic、instanceof、invokedynamic、invokeinterface、invokespecial、invokestatic、invokevirtual、ldc、ldc_w、multianewarray、new、putfield、putstatic`指令之前，会先对他们使用的符号引用进行解析。
-
-对于上面的除`invokedynamic`之外的15个指令，虚拟机会对第一次解析结果进行缓存，后面再一个实体中，后续的引用解析请求就使用缓存的结果，成功或失败。
-
-
-
-解析的动作主要针对 类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符 7 类符号引用进行，分别对应常量池的`CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info、CONSTANT_InterfactMethodref_info、CONSTANT_MethodType_info、CONSTANT_MethodHandler_info、CONSTANT_InvokeDynamicinfo` 7 种常量类型。
-</code></pre><p><strong>1、类或接口解析</strong></p>
+<p>​    同样，虚拟机并没有说确定在哪一个时间对符号引用进行解析，但是在遇到<code>anewarray、checkcast、getfield、getstatic、instanceof、invokedynamic、invokeinterface、invokespecial、invokestatic、invokevirtual、ldc、ldc_w、multianewarray、new、putfield、putstatic</code>指令之前，会先对他们使用的符号引用进行解析。</p>
+<p>​    对于上面的除<code>invokedynamic</code>之外的15个指令，虚拟机会对第一次解析结果进行缓存，后面再一个实体中，后续的引用解析请求就使用缓存的结果，成功或失败。</p>
+<p>​    解析的动作主要针对 类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符 7 类符号引用进行，分别对应常量池的<code>CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info、CONSTANT_InterfactMethodref_info、CONSTANT_MethodType_info、CONSTANT_MethodHandler_info、CONSTANT_InvokeDynamicinfo</code> 7 种常量类型。</p>
+<p><strong>1、类或接口解析</strong></p>
 <p>假如类 A 中有符号引用 N 需要解析为类 B 的直接引用，则具体解析步骤为：</p>
 <ol>
 <li>类 B 不是数组类型，虚拟机就会把代表 N 的全限定名传给 D 的类加载器去加载 B。</li>
@@ -681,8 +669,8 @@
 <h4 id="5-初始化"><a href="#5-初始化" class="headerlink" title="5. 初始化"></a>5. 初始化</h4><blockquote>
 <p>在准备阶段，变量已经复制过一次初始值（零值），而在初始化阶段，就是根据程序员的设置去初始化类变量或其他资源的值了。</p>
 </blockquote>
-<pre><code>对于一个类的初始化阶段，虚拟机会在下面 5 种情况下立即初始化，当然在初始化之前，加载、验证、准备等阶段已经开始过了。
-</code></pre><p><strong>5 种情况：</strong></p>
+<p>​    对于一个类的初始化阶段，虚拟机会在下面 5 种情况下立即初始化，当然在初始化之前，加载、验证、准备等阶段已经开始过了。</p>
+<p><strong>5 种情况：</strong></p>
 <ol>
 <li><p>遇到 <code>new、getstatic、putstatic、invokestatic</code>这四条字节码指令时，会立即对该类初始化，当然前提是该类还没被初始化过。这四条指令对应源代码中的场景如下：<strong>new实例化对象、获取static变量、设置static变量、调用static方法</strong>。</p>
 </li>
