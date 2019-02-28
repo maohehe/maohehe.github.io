@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
-<meta name="keywords" content="java,jvm">
+  <meta name="description" content="作用在应用程序中保证最多只有一个实例对象。 应用场景 Spring 中，管理的每个Bean默认都是单例的。 Servlet 中，每个Servlet也都是单例的。 SpringMVC 中，控制器对象也都是单例的。 数据库连接池也是单例的，因为数据库资源只有一份，没必要每次都由新的对象加载。 项目中读取配置文件的类也是单例的，只有一个对象。配置文件只有一份，也没必要每次由新对象读取。">
+<meta name="keywords" content="设计模式,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新生代为何分为一个Eden区和两个Survivor区">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="https://maohehe.github.io/2019/02/28/javaSingleton/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta property="og:description" content="作用在应用程序中保证最多只有一个实例对象。 应用场景 Spring 中，管理的每个Bean默认都是单例的。 Servlet 中，每个Servlet也都是单例的。 SpringMVC 中，控制器对象也都是单例的。 数据库连接池也是单例的，因为数据库资源只有一份，没必要每次都由新的对象加载。 项目中读取配置文件的类也是单例的，只有一个对象。配置文件只有一份，也没必要每次由新对象读取。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-22T06:46:27.284Z">
+<meta property="og:updated_time" content="2019-02-28T07:45:19.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新生代为何分为一个Eden区和两个Survivor区">
-<meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="作用在应用程序中保证最多只有一个实例对象。 应用场景 Spring 中，管理的每个Bean默认都是单例的。 Servlet 中，每个Servlet也都是单例的。 SpringMVC 中，控制器对象也都是单例的。 数据库连接池也是单例的，因为数据库资源只有一份，没必要每次都由新的对象加载。 项目中读取配置文件的类也是单例的，只有一个对象。配置文件只有一份，也没必要每次由新对象读取。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/02/28/javaSingleton/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>新生代为何分为一个Eden区和两个Survivor区 | MaoHe's Blog</title>
+  <title>单例模式 | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/28/javaSingleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">新生代为何分为一个Eden区和两个Survivor区
+          <h1 class="post-title" itemprop="name headline">单例模式
 
               
             
@@ -436,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-02-21 20:09:04" itemprop="dateCreated datePublished" datetime="2019-02-21T20:09:04+08:00">2019-02-21</time>
+              <time title="创建时间：2019-02-28 15:41:28 / 修改时间：15:45:19" itemprop="dateCreated datePublished" datetime="2019-02-28T15:41:28+08:00">2019-02-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-22 14:46:27" itemprop="dateModified" datetime="2019-02-22T14:46:27+08:00">2019-02-22</time>
               
             
           </span>
@@ -470,14 +458,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/jvm/" itemprop="url" rel="index"><span itemprop="name">jvm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
 
                 
                 
@@ -495,8 +476,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" itemprop="commentCount"></span>
+                <a href="/2019/02/28/javaSingleton/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/28/javaSingleton/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -525,7 +506,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">4.4k</span>
               
 
               
@@ -539,7 +520,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -559,37 +540,69 @@
       
 
       
-        <p>问题：为什么新生代还要分为Eden区和两个Survivor区?</p>
-<p><strong>注意</strong>：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象</p>
-<h4 id="1、为什么要新生代要分区？"><a href="#1、为什么要新生代要分区？" class="headerlink" title="1、为什么要新生代要分区？"></a>1、为什么要新生代要分区？</h4><ul>
-<li>新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…</li>
+        <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在应用程序中保证最多只有一个实例对象。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>Spring 中，管理的每个Bean默认都是单例的。</li>
+<li>Servlet 中，每个Servlet也都是单例的。</li>
+<li>SpringMVC 中，控制器对象也都是单例的。</li>
+<li>数据库连接池也是单例的，因为数据库资源只有一份，没必要每次都由新的对象加载。</li>
+<li>项目中读取配置文件的类也是单例的，只有一个对象。配置文件只有一份，也没必要每次由新对象读取。</li>
 </ul>
 <a id="more"></a>
-<h4 id="2、为什么分Eden区和Survivor区比例不同？"><a href="#2、为什么分Eden区和Survivor区比例不同？" class="headerlink" title="2、为什么分Eden区和Survivor区比例不同？"></a>2、为什么分Eden区和Survivor区比例不同？</h4><ul>
-<li>新生代中的对象是比较多的，如果每次使用一半，空闲一半，浪费太严重，所以比例不同。</li>
-<li>80% 的空间分给Eden区域，10%+10% 分别分给from Survivor和to Survivor区，Eden区用来给新对象分配空间，Survivor用来保留存活对象。</li>
-<li>具体的 8:1:1 的比例是实验得出来的最优（当然不是我实验的）。</li>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>单例模式只生成一个实例对象，效率较高。挡生成一个对象需要比较多的资源时（读取配置、产生其他依赖对象），就可以通过产生单例对象解决，然后该对象永久留在内存中。</li>
+<li>单例模式可以在系统设置全局访问点，优化对共享资源的访问。例如设计一个单例类，负责所有数据表的映射。</li>
+</ol>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><h4 id="1-饿汉式"><a href="#1-饿汉式" class="headerlink" title="1. 饿汉式"></a>1. 饿汉式</h4><ul>
+<li>因为创建实例是在类初始化就创建的，不管是否使用它都会占用那一块内存，所以就没有了延时加载的优势。</li>
 </ul>
-<h4 id="3、为什么不是一个Eden-一个Survivor？"><a href="#3、为什么不是一个Eden-一个Survivor？" class="headerlink" title="3、为什么不是一个Eden + 一个Survivor？"></a>3、为什么不是一个Eden + 一个Survivor？</h4><ul>
-<li>如果只有Eden和一个Survivor空间的话，收集操作会产生碎片化。<ul>
-<li>举例：假设条件是Eden 80% + Survivor20%。新分配对象到Eden区，Eden满后，需要GC，将Eden区存活对象复制到Survivor，之后清理Eden区。接着又存对象到Eden区，再次满了需要GC，这次GC会将Eden区存活对象复制到Survivor区，但是Survivor也有死亡的对象需要回收，Survivor区存活的对象仍然保持原位置，Survivor中回收剩下的区域就变成碎片，因为复制算法不会自动整理空间。久而久之，内存碎片增多，造成资源浪费。</li>
-</ul>
+<p>实例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.GOF.Singleton;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo01</span> </span>&#123;    </span><br><span class="line">    <span class="comment">/**     </span></span><br><span class="line"><span class="comment">     * 虚拟机加载类时，会立即加载该static变量，创建一个对象     </span></span><br><span class="line"><span class="comment">     * 因为类加载过程执行&lt;clinit&gt;()方法是加锁的，所以该例没有线程安全问题 </span></span><br><span class="line"><span class="comment">     */</span>   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo01 instance = <span class="keyword">new</span> SingletonDemo01(); </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonDemo01</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">    &#125;    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonDemo01 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;       </span><br><span class="line">        <span class="keyword">return</span> instance;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-懒汉式"><a href="#2-懒汉式" class="headerlink" title="2. 懒汉式"></a>2. 懒汉式</h4><ul>
+<li><p>懒汉式采用延迟加载模式，每次需要使用时才去加载，不必在类初始化就创建对象，对资源利用率较高。</p>
 </li>
-<li>为什么每次GC完事不把Survivor区存活的对象再复制到Eden区？<ul>
-<li>似乎挺有道理，但是一是再次复制效率比较低，二来就没法判断哪些对象什么时候可以晋升至老年代了。</li>
-</ul>
-</li>
-</ul>
-<h4 id="4、一个80-的Eden加两个10-的Survivor试试？"><a href="#4、一个80-的Eden加两个10-的Survivor试试？" class="headerlink" title="4、一个80%的Eden加两个10%的Survivor试试？"></a>4、一个80%的Eden加两个10%的Survivor试试？</h4><ul>
-<li>将新生代分为 Eden(80%) + From Survivor(10%) + To Survivor(10%)，<strong>注意</strong>：这里的From和To不是和某一块Survivor区绑定的，即这次From是第一块Survivor，下次From就变成了第二块Survivor了。</li>
-<li>每次分配新对象还是分配到Eden区中，但是每次GC仍只使用Eden区和一块Survivor区。<ul>
-<li>第一次GC：首先分配内存给Eden区，Eden满后需要GC，将存活对象复制到一块Survivor中，然后清理Eden区域。</li>
-<li>第二次GC：将Eden和上次使用的Survivor区中的存活对象复制到另一块空闲的Survivor区中，再统一清理Eden区和上次使用的Survivor区。咦，这次又变成一块空闲的Survivor区和一块正在使用的Survivor区了，似乎碎片的问题也解决了（因为复制的对象顺序排列）</li>
-<li>第 3、4 … n 次GC：GC过程都和第二次一样。在Survivor中的对象每度过一次GC，对象的Age+1，等到了年龄阈值（默认15，可设置）就可晋升至老年代，当然还有其他方式晋升老年代（不阐述了，参考《jvm内存分配和垃圾收集》）。</li>
-</ul>
+<li><p>对于<code>getInstance()</code>方法由于每次调用都上锁，之后再进行判断是否已经有实例化对象，所以调用效率较低。</p>
 </li>
 </ul>
-<p>问题似乎就这么不完美的讲通了…</p>
+<p>实例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.GOF.Singleton;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现方式一：方法基础上的同步，调用效率低下</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo02</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 类初始化时，并没有初始化该对象，而是等到使用时才加载</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo02 instance;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonDemo02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法进行同步，保证线程安全</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> SingletonDemo02 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">            instance = <span class="keyword">new</span> SingletonDemo02();</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.GOF.Singleton;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现方式二：双重检查锁改进</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo02</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 类初始化时，并没有初始化该对象，而是等到使用时才加载</span></span><br><span class="line"><span class="comment">     * 如果不加volitale关键字，多线程环境下会出问题</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> volitale <span class="keyword">static</span> SingletonDemo02 instance;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonDemo02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 同步代码块实现同步，保证线程安全</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonDemo02 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (SingletonDemo02.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> SingletonDemo02();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在方法内部使用同步代码块，当已经创建实例对象时，多线程访问时，就不必再上锁，可以直接返回，调用效率自然也就高了。</span></span><br><span class="line"><span class="comment">//同步代码块将第一次创建对象进行同步，来保证只会实例化一个对象。</span></span><br></pre></td></tr></table></figure>
+<p>两次null判断解释：</p>
+<ul>
+<li>第一次null判断是同步代码块外的，用来判断是否已经有了实例对象。</li>
+<li>第二次null判断是同步代码块中的。假若线程 A 第一次判断 null 成功，即将进行对象的实例化，此时CPU将其挂起，线程 B 进来了，此时判断也为空，也进行实例化，而线程 B 成功实例化了，退出了。之后线程 A 又被调度，开始从同步代码块执行（上锁），因为之前 B 已经实例化了一个对象，如果代码块中不进行 null 判断的话，线程 A 又会实例化一个新对象，就不符合单例模式了。</li>
+</ul>
+<p><strong>双重检查锁方法的问题（多线程环境）：</strong></p>
+<p>先上双重检查锁相关代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonDemo02 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123; <span class="comment">//(1)</span></span><br><span class="line">        <span class="keyword">synchronized</span> (SingletonDemo02.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123; <span class="comment">//(2)</span></span><br><span class="line">                instance = <span class="keyword">new</span> SingletonDemo02();<span class="comment">//(3)</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于<code>(3)</code>处的代码，虽然源码中只有一句，但是对应的字节码文件中的字节码指令却有三条，分别是：</p>
+<ol>
+<li>为对象分配内存空间</li>
+<li>在内存空间中初始化对象</li>
+<li>将引用<code>instance</code>指向对象在内存中的地址</li>
+</ol>
+<p>对于上面的三条指令，其顺序并不是想象的那样是固定的，而是有可能发生重排序，即<code>1-&gt;3-&gt;2</code>的顺序，这样的后果是 instance 确实指向了给对象分配的地址，但是对象这时候还没有初始化啊，也就是还没有执行对象的构造方法，这样的对象是不完整的，对象中的变量值啊什么的都不是我们期望的值。</p>
+<p>再比如，线程 A 执行到<code>(3)</code>指令重排序了，就发生了上面的结果，此时线程 B 在执行<code>(1)</code>时，判断的是 instance 非空（指向了一块内存地址），就返回了这个 instance，但是返回的这个对象还没有被初始化，是不完整的，就带来了一些列问题。</p>
+<p><strong>注意</strong>：刚开始看这个问题的时候，就很疑惑，明明线程 A 已经通过<code>synchronized</code>关键字加锁了，就算内部指令重排序了，其他线程也进不来，为什么其他线程还会访问到这个不完整的对象？    后来发现原来是我的切入点错了，线程 A 对instance的修改是实时的，修改的过程中，其他线程在<code>(1)</code>处的判断也是可以访问到instance的。</p>
+<p><strong>解决办法：</strong></p>
+<ul>
+<li>可以使用 volatile 关键字来实现禁止指令重排序。这样顺序就会保证对象在内存中初始化之后，instance才会指向对象在内存中的地址，这样，其他线程判断instance仍然是null。</li>
+</ul>
+<p><code>private static volatile SingletonDemo02 instance;</code></p>
+<h4 id="3-静态内部类实现单例"><a href="#3-静态内部类实现单例" class="headerlink" title="3. 静态内部类实现单例"></a>3. 静态内部类实现单例</h4><ul>
+<li>由于外部类没有static变量和static{}代码块，所以不会立即加载对象（延迟加载）。</li>
+<li>只有调用了<code>getInstance()</code>方法才会加载静态内部类，来实例化<code>static变量</code>（类加载机制<code>&lt;clinit&gt;()</code>方法只加载一次）。保证了线程安全。</li>
+<li>调用效率也高，并且是延迟加载的。</li>
+</ul>
+<p>实例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.GOF.Singleton;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo03</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonDemo03</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//内部类被加载时，才会实例化static instance对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonClassInstance</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo03 instance = <span class="keyword">new</span> SingletonDemo03();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//该方法被调用时才会去加载内部类</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo03 <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonClassInstance.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-枚举实现单例"><a href="#4-枚举实现单例" class="headerlink" title="4. 枚举实现单例"></a>4. 枚举实现单例</h4><ul>
+<li>枚举本身就是单例模式，基于<code>jvm</code>底层实现，可以避免通过反射和反序列化的漏洞。</li>
+<li>实现过程相对简单。</li>
+<li>由于枚举类一加载就会实例化单例对象，所以这种方式没有延迟加载。</li>
+</ul>
+<p>实例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.GOF.Singleton;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SingletonDemo04 &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个枚举元素，该元素就代表了SingletonDemo4的一个实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 其他操作</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">singletonOperation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//功能处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -605,7 +618,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" title="新生代为何分为一个Eden区和两个Survivor区">2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/</a>
+        <a href="/2019/02/28/javaSingleton/" title="单例模式">2019/02/28/javaSingleton/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -661,9 +674,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
+            <a href="/tags/设计模式/" rel="tag"><i class="fa fa-tags"></i> 设计模式</a>
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
         </div>
       
@@ -676,8 +689,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/20/jvmGC/" rel="next" title="jvm 内存分配与垃圾收集">
-                <i class="fa fa-chevron-left"></i> jvm 内存分配与垃圾收集
+              <a href="/2019/02/26/jvmClassLoad/" rel="next" title="jvm 类加载机制">
+                <i class="fa fa-chevron-left"></i> jvm 类加载机制
               </a>
             
           </div>
@@ -686,8 +699,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/22/jvmMemoryArea/" rel="prev" title="jvm内存区域">
-                jvm内存区域 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/28/javaFactory/" rel="prev" title="工厂设计模式（简单工厂、工厂方法、抽象工厂）">
+                工厂设计模式（简单工厂、工厂方法、抽象工厂） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -870,7 +883,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、为什么要新生代要分区？"><span class="nav-number">1.</span> <span class="nav-text">1、为什么要新生代要分区？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、为什么分Eden区和Survivor区比例不同？"><span class="nav-number">2.</span> <span class="nav-text">2、为什么分Eden区和Survivor区比例不同？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、为什么不是一个Eden-一个Survivor？"><span class="nav-number">3.</span> <span class="nav-text">3、为什么不是一个Eden + 一个Survivor？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、一个80-的Eden加两个10-的Survivor试试？"><span class="nav-number">4.</span> <span class="nav-text">4、一个80%的Eden加两个10%的Survivor试试？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">4.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-饿汉式"><span class="nav-number">4.1.</span> <span class="nav-text">1. 饿汉式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-懒汉式"><span class="nav-number">4.2.</span> <span class="nav-text">2. 懒汉式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-静态内部类实现单例"><span class="nav-number">4.3.</span> <span class="nav-text">3. 静态内部类实现单例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-枚举实现单例"><span class="nav-number">4.4.</span> <span class="nav-text">4. 枚举实现单例</span></a></li></ol></li></ol></div>
             
 
           </div>
