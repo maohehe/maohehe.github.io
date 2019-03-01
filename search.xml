@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[冒泡排序]]></title>
+    <url>%2F2019%2F03%2F01%2FBubbleSort%2F</url>
+    <content type="text"><![CDATA[概述给定一组无序的数据，从第一个数据开始，依次向后比较，如果后面的数据小于该数据，就将两者调换，如果后面数据大于该数据，指针后移，继续进行这样的比较，经过一次循环比较后，该数据集中最大的数据就会移到最后，就像冒泡一样。 冒泡算法冒泡过程： 设置一个指针指向第一个元素。比较相邻的元素，如果第一个比第二个大，就交换他们两个，指针后移；否则，指针直接后移。 指针后移后，仍然进行（1）中的操作，直至指针到达数组末尾。 针对所有的元素重复以上的步骤，除了最后已经选出的元素（有序）。 持续每次对越来越少的元素（无序元素）重复上面的步骤，直到没有任何一对数字需要比较，则序列最终有序。 实例代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class BubbleSort &#123; public static void main(String[] args) &#123; int []arr=new int[]&#123;12,35,99,18,76&#125;; arr = bubbleSort2(arr); for (int a : arr) &#123; System.out.print(a+" "); &#125; &#125; //未优化版本 /*private static int[] bubbleSort(int[] arr) &#123; //控制冒泡次数 for (int i = 0; i &lt; arr.length - 1; i++) &#123; //每一轮冒泡进行比较 for (int j = 0; j &lt; arr.length - i - 1; j++) &#123; if (arr[j] &gt; arr[j + 1]) &#123; int temp = arr[j]; arr[j] = arr[j + 1]; arr[j + 1] = temp; &#125; &#125; &#125; return arr; &#125;*/ /** * 优化版本 */ private static int[] bubbleSort2(int []arr)&#123; int temp; //临时变量 int num = 0; //记录执行次数 int isChange; //表示循环中是否发生了交换 for (int i = 0; i &lt; arr.length-1; i++) &#123; isChange = 0; for (int j=0;j&lt;arr.length-i-1;j++)&#123; if (arr[j]&gt;arr[j+1])&#123; temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; isChange = 1; //为1标识进行了交换 &#125; &#125; // 如果这次排序期间没有发生交换，则表示当前顺序已经是有序 // 即后续的排序都不会发生交换，直接结束 if (isChange == 0) break; num++; &#125; return arr; &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+        <category>八大排序</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据结构与算法</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[快速排序]]></title>
+    <url>%2F2019%2F03%2F01%2FQuickSort%2F</url>
+    <content type="text"><![CDATA[概述快速排序采用分治策略，分而治之。 分治法：将原问题分解为若干个规模更小但结构与原问题相似的子问题。递归地解这些子问题，然后将这些子问题的解组合为原问题的解。 快排原理 在数据集之中，选择一个元素作为 “基准”（pivot）。 所有小于”基准”的元素，都移到“基准”的左边；所有大于”基准”的元素，都移到“基准”的右边。这个操作称为“分区”，分区操作结束后，基准元素所处的位置就是最终排序后它的位置。即基准左边的都比基准小，右边都比基准大，所以无论左右怎么变化，基准都是有序的了。 对“基准”左边和右边的两个子集，不断重复第一步和第二步，直到所有子集只剩下一个元素为止。这样整个数据集都是有序的了。 实例代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354public class QuickSortTest &#123; public static void main(String[] args) &#123; int[] arr = &#123;5,2,9,6,4,8,3,1,7,0&#125;; QuickSort(arr, 0, 9); for (int i = 0; i &lt; arr.length; i++) &#123; System.out.print(arr[i]+" "); &#125; &#125; /** * 每进行一次该方法都是将基准数归位的过程 * @param arr 待排序数组 * @param start 数组的起始位置 * @param end 数组的终止位置 */ private static void QuickSort(int[] arr, int start, int end) &#123; //判断arr是否符合规则 if (start &gt; end) return; //设置标准数 int stand = arr[start]; int low = start; int high = end; //循环操作，将大于stand的数移至右侧，小于stand的数移至左边 while (low &lt; high) &#123; //low和high会动态变化，因此需添加判断条件low&lt;high //循环判断右边，找到第一个比基准数小的数 while (arr[high] &gt;= stand &amp;&amp; low &lt; high) &#123; high--; &#125; //循环判断左边，找到第一个比基准数大的数 while (arr[low] &lt;= stand &amp;&amp; low &lt; high) &#123; low++; &#125; //将找到的右边小于基准数的数和左边大于基准数的数调换 if (low &lt; high) &#123; int t = arr[low]; arr[low] = arr[high]; arr[high] = t; &#125; &#125; //循环完成后，最终low和high交点位置就是基准数的位置 arr[start] = arr[low]; arr[low] = stand; //递归处理基准数左边的数组 QuickSort(arr, start, low - 1); //递归处理基准数右边的数组 QuickSort(arr, low + 1, end); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+        <category>八大排序</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据结构与算法</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[代理模式]]></title>
     <url>%2F2019%2F03%2F01%2FjavaProxy%2F</url>
     <content type="text"><![CDATA[概述 代理模式是Java常见的设计模式之一。所谓代理模式是指客户端并不直接调用实际的对象，而是通过调用代理，来间接的调用实际的对象。 代理就是代替别人做别人不想做的事情的意思。 举例来说，歌神要开演唱会，如果他没有经纪人的话，唱歌前的租场地、签合同、买车票机票，唱歌后的收钱等工作全都得自己来做，但是歌神专职是唱歌的，其他的工作自己可以做但没必要，如果能只专注如何在演唱会唱好歌，如何在演唱会上调动气氛就最好了。 于是歌神签约了一个经纪人，唱歌前的工作和唱歌后的工作就不需要自己做了，经纪人会帮他处理，自己只需要专注于唱歌就完事了。 对于歌神来说，经济人就是代理对象，实际对象（歌神）不想做的事情，可以交由代理对象（经济人）来做。如果代理对象不能做的事情，比如到了唱歌时间了，代理对象（经纪人）不会唱，还是得由实际对象（歌神）来完成唱歌这个动作。 几种代理模式静态代理代理模式有三个角色，分别是抽象主题（一个接口）、代理对象、委托对象。 抽象主题：将代理对象和委托对象能做的事情抽象起来。代理对象和委托对象都要实现此接口。 委托对象：就是实际对象，对于实现接口中的方法，都可以交由代理对象处理。 代理对象：委托对象委托给自己的事情，能做的都会做，不能做的再让委托对象自己做。 当客户端需要找实际对象（歌神）办事时（开演唱会），实际上是直接找的代理对象（经纪人），是客户端是接触不到实际对象的，而对于代理对象无法完成的工作，代理对象会去找十几对象来完成。 代码示例： 123456789101112131415161718192021222324252627282930313233343536373839404142// 抽象接口interface Subject &#123; void buyTicket(); void SingSong(); void getMoney();&#125;//委托类public class RealSubject implements Subject &#123; @Override public void buyTicket() &#123; System.out.println("歌神买机票"); &#125; @Override public void SingSong() &#123; System.out.println("歌神唱歌"); &#125; @Override public void getMoney() &#123; System.out.println("歌神收出场费"); &#125;&#125;//代理类public class ProxySubject implements Subject &#123; private RealSubject realSubject; public ProxySubject(RealSubject realSubject) &#123; this.realSubject = realSubject; &#125; @Override public void buyTicket() &#123; System.out.println("给歌神买票"); &#125; @Override public void SingSong() &#123; System.out.println("经济公司不会唱歌，还得请歌神来唱歌"); realSubject.SingSong(); &#125; @Override public void getMoney() &#123; System.out.println("替歌神收出场费"); &#125;&#125; 1234567891011121314// 客户端联系经济人请歌神开演唱会public class Client &#123; public static void main(String[] args) &#123; // 实际对象（歌神） RealSubject realSubject = new RealSubject(); // 代理对象（经纪人） ProxySubject proxySubject = new ProxySubject(realSubject); proxySubject.buyTicket(); // 这里调用的是经济人唱歌，但是内部还是调用的歌神对象的唱歌方法 proxySubject.SingSong(); proxySubject.getMoney(); &#125;&#125; 12345678// 执行结果D:\java\jdk\bin\java.exe ...给歌神买票经济公司不会唱歌，还得请歌神来唱歌歌神唱歌替歌神收出场费Process finished with exit code 0 动态代理对于静态代理来说，我们需要为每个实际对象撰写特定的代理对象，显然这样做并不灵活，我们希望可以有一个公用的代理，可以动态的实现对不同实际对象的代理，这就是动态代理。动态代理时通过反射实现的。 举例来说，歌神（实际对象）签了环球唱片经济公司（代理中介），公司为歌神指定了一个经纪人（代理对象），而这个经济公司不止有歌神一个艺人，每签一个艺人就为这个艺人生成一个经纪人（代理对象）。 1. jdk动态代理需要的接口： java.lang.reflect.Proxy：动态生成代理类对象； java.lang.reflect.InvocationHandler（处理器接口）：可以通过invoke方法实现对实际角色的代理访问。 每个代理中介（经纪公司）都需要实现InvocationHandler接口，并实现其中的invole方法，在方法中生成并返回实际对象（歌神）的代理对象（经纪人）. 代码示例： 123456789101112131415161718192021//抽象接口interface Subject &#123; void buyTicket(); void SingSong(); void getMoney();&#125;//委托类public class RealSubject implements Subject &#123; @Override public void buyTicket() &#123; System.out.println("歌神买机票"); &#125; @Override public void SingSong() &#123; System.out.println("歌神唱歌"); &#125; @Override public void getMoney() &#123; System.out.println("歌神收出场费"); &#125;&#125; 123456789101112131415161718192021222324252627282930//代理中介public class DynamicProxyHandler implements InvocationHandler &#123; //指明实际对象 private Object realSubject; public DynamicProxyHandler(Object realSubject) &#123; this.realSubject = realSubject; &#125; /** * 代理中介的处理器方法。该方法里面在再调用委托对象的具体方法。 * * @param proxy 代理类 * @param method 要调用的代理类的方法 * @param args 要调用的代理类方法的参数 */ @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123; //在唱歌方法前添加逻辑 if (method.getName().equals("SingSong"))&#123; System.out.println("歌神，演唱前来片润喉糖..."); method.invoke(realSubject,args); System.out.println("歌神，演唱完毕了，请您好好休息..."); &#125; else&#123; //对于其他方法，直接调用委托对象对应的方法 return method.invoke(realSubject, args); &#125; return null; &#125;&#125; 123456789101112131415//客户端public class DynamicClient &#123; public static void main(String[] args) &#123; //创建委托类对象 Subject realSubject = new RealSubject(); //创建代理中介（指定委托类对象） DynamicProxyHandler handler = new DynamicProxyHandler(realSubject); //生成代理对象 Subject proxyObject = (Subject) Proxy.newProxyInstance(realSubject.getClass().getClassLoader(), new Class[]&#123;Subject.class&#125;, handler); proxyObject.buyTicket(); proxyObject.SingSong(); proxyObject.getMoney(); &#125;&#125; 123456789//实验结果D:\java\jdk\bin\java.exe ...歌神买机票歌神，演唱前来片润喉糖...歌神唱歌歌神，演唱完毕了，请您好好休息...歌神出场费Process finished with exit code 0 解释生成代理对象方法： Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandle handler) ClassLoader：指定类加载器来生成代理对象，一般使用委托类对象的类加载器。 Class&lt;?&gt;[]：通过接口指定要生成哪个对象的代理对象（指定委托类实现的接口）。 InvlcationHandler：指定代理中介，代理对象调用的方法都会经过代理中介的invoke方法进行处理。对于指定的方法，可以在其执行前后加上自定义的逻辑处理代码。 实际上，代理对象调用每个方法，都会经过代理中介的invoke方法处理（Method method参数），最后实际还是调用的委托对象的方法。 不过我们可以在想要的方法前后添加一些逻辑，比如上面例子中在 SingSong 方法前添加了一些代码。 2. cglib动态代理对于上面的jdk动态代理来说，jdk动态代理只能为实现了接口的委托类来生成代理对象Proxy.newProxyInstance(.., Class&lt;?&gt;[] interfaces,..)，也就意味着**jdk动态代理是针对接口实现**的。 如果一个一个类没有实现接口，怎么生成代理对象呢？这就需要cglib动态代理了。 cglib动态代理 是 针对类实现的。原理是为目标类生成一个子类，覆盖其中的方法并在目标类方法的执行前后执行一些操作实现方法增强，但是因为采用的是继承关系，所以不能对final修饰的类实现代理（如String）。 实例代码： 123456789101112131415161718192021//拦截器类，用来拦截代理类的方法，并进行一些处理public class SongerMethodInterceptor implements MethodInterceptor &#123; /** * @param target 动态生成的代理类实例 * @param method 代理对象调用的方法 * @param objects 调用的方法参数 * @param methodProxy 代理类对方法的代理引用（引用的委托类的方法） */ @Override public Object intercept(Object target, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123; if (method.getName().equals("SingSong")) &#123; System.out.println("歌神，演唱前来片润喉糖..."); methodProxy.invokeSuper(target, objects); System.out.println("歌神，演唱完毕了，请您好好休息..."); &#125; else &#123; return methodProxy.invokeSuper(target,objects); &#125; return null; &#125;&#125; 123456789101112131415161718//测试类public class Testcglib &#123; public static void main(String[] args) &#123; //cglib字节码增强器，可以对处理的委托类进行扩展 Enhancer enhancer = new Enhancer(); //继承委托类 enhancer.setSuperclass(Songer.class); //设置拦截器 enhancer.setCallback(new SongerMethodInterceptor()); //生成代理类对象 Songer songerProxy = (Songer) enhancer.create(); //在调用代理类中方法时会被我们实现的方法拦截器SongerMethodInterceptor拦截 //所以所有代理类的方法调用最终都会执行到interceptor()方法中 songerProxy.butTicket(); songerProxy.SingSong(); songerProxy.getMoney(); &#125;&#125; 123456789//实验结果D:\java\jdk\bin\java.exe ...买机票歌神，演唱前来片润喉糖...歌神唱歌歌神，演唱完毕了，请您好好休息...拿出场费Process finished with exit code 0 静态代理与动态代理 静态代理要自己编写代理类，并且代理类和委托类实现相同的接口。而动态代理的代理类是动态生成的。 动态代理生成代理对象只要指定接口参数，代理对象会默认实现接口中的全部方法。]]></content>
@@ -8,8 +36,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
         <tag>java</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +61,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
         <tag>java</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +73,8 @@
         <category>设计模式</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
         <tag>java</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
