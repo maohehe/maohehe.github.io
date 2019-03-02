@@ -112,7 +112,7 @@
 <meta property="og:description" content="一、概述​    类的完整生命周期：加载、验证、准备、解析、初始化、使用、卸载。 ​    类加载的周期：加载、连接（验证、准备、解析）、初始化。 ​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。 ​    而">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4491294-8edc15f60a58bd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468">
-<meta property="og:updated_time" content="2019-02-28T07:52:37.747Z">
+<meta property="og:updated_time" content="2019-03-02T14:22:50.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 类加载机制">
 <meta name="twitter:description" content="一、概述​    类的完整生命周期：加载、验证、准备、解析、初始化、使用、卸载。 ​    类加载的周期：加载、连接（验证、准备、解析）、初始化。 ​    其中加载、验证、准备、初始化、卸载这5个阶段的开始顺序是确定的，也就是，准备阶段不能再验证开始前开始，但是只是规定了开始有顺序，运行的过程却是可以交叉运行，即验证阶段开始后，还没验证结束，准备阶段就开始了，期间他们可以交叉运行。 ​    而">
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-28 15:52:37" itemprop="dateModified" datetime="2019-02-28T15:52:37+08:00">2019-02-28</time>
+                <time title="修改时间：2019-03-02 22:22:50" itemprop="dateModified" datetime="2019-03-02T22:22:50+08:00">2019-03-02</time>
               
             
           </span>
@@ -646,7 +646,7 @@
 <p><strong>1、类或接口解析</strong></p>
 <p>假如类 A 中有符号引用 N 需要解析为类 B 的直接引用，则具体解析步骤为：</p>
 <ol>
-<li>类 B 不是数组类型，虚拟机就会把代表 N 的全限定名传给 D 的类加载器去加载 B。</li>
+<li>类 B 不是数组类型，虚拟机就会把代表 N 的全限定名传给 A 的类加载器去加载 B。</li>
 <li>类 B 是数组类型，那么它的描述符就是<code>[Ljava/lang/Object</code>形式，虚拟机就会按 1. 的方式去加载 B 的元素类型，接着虚拟机就会生成一个代表此数组维度和元素的数组对象。</li>
 <li>如果上面解析成功，B在虚拟机中实际就已经是有效的了，解析结束之前，还需要进行上面验证阶段的符号引用验证，验证 A 是否对 B 有访问权限（如果B是private就没有访问权限）。</li>
 </ol>
@@ -663,7 +663,7 @@
 <p><strong>3、类方法解析</strong></p>
 <p>要解析一个类方法，首先也解析它属于哪个类（解析方法表中<code>class_index</code>对应的<code>CONSTANT_Class_info</code>常量字段），解析类或接口成功后，会进行如下步骤的解析：</p>
 <ol>
-<li>如果解析<code>class_index</code>的结果是一个类，就直接抛出异常。</li>
+<li>如果解析<code>class_index</code>的结果是一个接口，就直接抛出异常。</li>
 <li>如果没有异常，则在方法所属类中查找是否有对应的方法，有则返回直接引用，查找结束。</li>
 <li>如果类中没有对应方法，就在父类中查找是否有对应方法，有则返回直接引用，查找结束。</li>
 <li>如果父类中也没有，就去父类实现的接口中查找是否有对应方法，如果有则说明该方法所属类是抽象类（接口方法都是抽象方法），查找结束，抛出异常。</li>
@@ -687,7 +687,7 @@
 <ol>
 <li><p>遇到 <code>new、getstatic、putstatic、invokestatic</code>这四条字节码指令时，会立即对该类初始化，当然前提是该类还没被初始化过。这四条指令对应源代码中的场景如下：<strong>new实例化对象、获取static变量、设置static变量、调用static方法</strong>。</p>
 </li>
-<li><p>使用<code>java.lang.reflect</code>包下的方法对类进行反射调用时，如果累没初始化，就先对其初始化，才能进行反射调用。例如反射中的 <strong><code>forName</code>方法</strong> 获取类的Class对象。</p>
+<li><p>使用<code>java.lang.reflect</code>包下的方法对类进行反射调用时，如果类没初始化，就先对其初始化，才能进行反射调用。例如反射中的 <strong><code>forName</code>方法</strong> 获取类的Class对象。</p>
 </li>
 <li><p>初始化一个类时，如果父类还没被初始化，就先<strong>初始化其父类</strong>。所以Object是最先初始化的类。</p>
 </li>
@@ -714,11 +714,11 @@
 <ul>
 <li><code>&lt;clinit&gt;()</code>方法是编译期自动收集类中所有 <code>static变量</code> 和 <code>static{}代码块</code>组合而成的方法，收集顺序和源码中顺序一致，所以<code>static{}</code>中只能访问之前定义的<code>static变量</code>，对于<code>static{}</code>之后定义的变量，虽然可以赋值，但是不能访问。</li>
 <li>类构造器<code>&lt;clinit&gt;()</code>方法与 实例构造器<code>&lt;init&gt;()</code>方法不同，它不会显示调用父类的类构造器，也就是可以保证在当前类的<code>&lt;clinit&gt;()</code>方法执行之前，其父类的<code>&lt;clinit&gt;()</code>方法已经执行过了。</li>
-<li>因为父类的<code>&lt;clinit&gt;()</code>方法先执行，所以父类的<code>static{}</code>块中代码先执行，父类<code>static变量</code>也会先进行赋值操作。</li>
+<li>因为父类的<code>&lt;clinit&gt;()</code>方法先执行，所以父类的<code>static{}</code>块中代码先执行，父类<code>static变量</code>也会先进行初始化操作。</li>
 <li>如果一个类没有<code>static变量</code>和<code>static{}代码块</code>，那么这个类可以没有<code>&lt;clinit&gt;()</code>方法。</li>
-<li><p>接口中没有<code>static{}</code>块，但仍然有变量初始化的赋值操作，所以接口中也有<code>&lt;clinit&gt;()</code>方法，但是接口执行<code>&lt;clinit&gt;()</code>方法并不要首先去执行父接口的<code>&lt;clinit&gt;()</code>方法。只有父接口中的变量使用时，父接口才会调用<code>&lt;clinit&gt;()</code>方法初始化。接口实现类初始化时也不会先执行接口的<code>&lt;clinit&gt;()</code>方法。</p>
+<li><p>接口中没有<code>static{}</code>块，但仍然有变量初始化的赋值操作，所以接口中也有<code>&lt;clinit&gt;()</code>方法，但是接口执行<code>&lt;clinit&gt;()</code>方法并不需要先去执行父接口的<code>&lt;clinit&gt;()</code>方法。只有父接口中的变量使用时，才会调用父接口的<code>&lt;clinit&gt;()</code>方法初始化。接口实现类初始化时也不会先执行接口的<code>&lt;clinit&gt;()</code>方法。</p>
 </li>
-<li><p>一个类的<code>&lt;clinit&gt;()</code>方法会在多线程环境中进行同步，也就是如果多个线程都需要初始化该类，那么只会有一个线程执行该<code>&lt;clinit&gt;()</code>方法，其余线程阻塞等待，知道<code>&lt;clinit&gt;()</code>方法执行完毕。</p>
+<li><p>一个类的<code>&lt;clinit&gt;()</code>方法会在多线程环境中进行同步，也就是如果多个线程都需要初始化该类，那么只会有一个线程执行该<code>&lt;clinit&gt;()</code>方法，其余线程阻塞等待，直到<code>&lt;clinit&gt;()</code>方法执行完毕。</p>
 </li>
 </ul>
 <h3 id="三、类加载器"><a href="#三、类加载器" class="headerlink" title="三、类加载器"></a>三、类加载器</h3><h4 id="1-类加载器概述"><a href="#1-类加载器概述" class="headerlink" title="1. 类加载器概述"></a>1. 类加载器概述</h4><blockquote>
@@ -735,11 +735,11 @@
 <li>启动类加载器：C++语言实现，是虚拟机的一部分。</li>
 <li>其他类加载器：java语言实现，都继承自<code>java.lang.ClassLoader</code>类。</li>
 </ul>
-<p>对程序员来说，有 4 种类加载器，其中有 3 中系统提供的：</p>
+<p>对程序员来说，有 4 种类加载器，其中有 3 种是系统提供的：</p>
 <ul>
 <li>启动类加载器（<code>Bootstrap ClassLoader</code>）：也叫引导类加载器。该类加载器负责将<code>&lt;JAVA_HOME&gt;\lib</code>目录或被<code>-Xbootclasspath</code>参数指定的路径中的类库加载到虚拟机内存。开发者不能直接使用启动类加载器，自定义类加载器时，如果需要把加载请求委派给启动类加载器，直接使用<code>null</code>代替即可。</li>
 <li>扩展类加载器（<code>Extension ClassLoader</code>）：该类加载器负责加载<code>&lt;JAVA_HOME&gt;\lib\ext</code>目录或者被<code>java.ext.dirs</code>变量指定的路径的类库。开发者可直接使用扩展类加载器。</li>
-<li>应用程序类加载器（<code>Application Classloader</code>）：一般也成为系统类加载器。负责加载用户类路径（<code>ClassPath</code>）上指定类库，开发者可直接使用该类加载器。该加载器是默认的类加载器。</li>
+<li>应用程序类加载器（<code>Application Classloader</code>）：一般也称为系统类加载器。负责加载用户类路径（<code>ClassPath</code>）上指定类库，开发者可直接使用该类加载器。该加载器是默认的类加载器。</li>
 <li>自定义类加载器（<code>UserClassLoader</code>）：该类加载器是由用户自定义的。</li>
 </ul>
 <p><img src="https://upload-images.jianshu.io/upload_images/4491294-8edc15f60a58bd0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468" alt="双亲委派模型"></p>
@@ -750,7 +750,7 @@
 </ul>
 <p>为什么要这样工作呢？</p>
 <ul>
-<li>这种关系可以保证系统的稳定，并且一个类和它的类加载器一起具备了一种带有优先级的层次关系。例如类<code>java.lang.Object</code>存放在<code>rt.jar</code>中，是由启动类加载器加载的。如果用户也编写了一个<code>java.lang.Object</code>，并放在程序 ClassPath 中，那么系统将会有多个不同的Object类，这样调用 Object 就不是最基础的那个 Object 类了。    而使用双亲委派机制，可以保证每个程序加载的 Object 都是启动类加载的那个。</li>
+<li>这种关系可以保证系统的稳定，并且一个类和它的类加载器一起具备了一种带有优先级的层次关系。例如类<code>java.lang.Object</code>存放在<code>rt.jar</code>中，是由启动类加载器加载的。如果用户也编写了一个<code>java.lang.Object</code>，并放在程序 <code>ClassPath</code> 中，那么系统将会有多个不同的<code>Object</code>类，这样调用 <code>Object</code> 就不是最基础的那个<code>Object</code>类了。    而使用双亲委派机制，可以保证每个程序加载的 <code>Object</code> 都是启动类加载的那个。</li>
 </ul>
 <p>双亲委派模型的实现：</p>
 <ul>
@@ -1076,7 +1076,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">84k</span>
+    <span title="本站总字数">86k</span>
   
 
   
@@ -1085,7 +1085,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:16</span>
+    <span title="站点阅读时长">1:18</span>
   
 </div>
 
