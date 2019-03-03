@@ -103,25 +103,27 @@
 
 
 
-  <meta name="description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
-<meta name="keywords" content="MySQL,数据库">
+  <meta name="description" content="一、Redis事务1、事务简介Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。 2、事务操作的命令1. multi语法：multi作用：标记一个事务的开始。事务内的多条命令会按照先后顺序被放进一个队列中。在遇到exec之前，命令都不会执行。返回值：总是返回OK。 2、exec语法：exec作用：执行所有事务块内的命令返回值：事务内">
+<meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="联合索引的最左前缀匹配原则">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/28/DBIndexLeft/index.html">
+<meta property="og:title" content="四、Redis五种基本数据类型">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/03/redisValueOperation/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
+<meta property="og:description" content="一、Redis事务1、事务简介Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。 2、事务操作的命令1. multi语法：multi作用：标记一个事务的开始。事务内的多条命令会按照先后顺序被放进一个队列中。在遇到exec之前，命令都不会执行。返回值：总是返回OK。 2、exec语法：exec作用：执行所有事务块内的命令返回值：事务内">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T07:47:10.803Z">
+<meta property="og:image" content="en-resource://database/866:1">
+<meta property="og:updated_time" content="2019-03-03T15:02:44.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="联合索引的最左前缀匹配原则">
-<meta name="twitter:description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
+<meta name="twitter:title" content="四、Redis五种基本数据类型">
+<meta name="twitter:description" content="一、Redis事务1、事务简介Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。 2、事务操作的命令1. multi语法：multi作用：标记一个事务的开始。事务内的多条命令会按照先后顺序被放进一个队列中。在遇到exec之前，命令都不会执行。返回值：总是返回OK。 2、exec语法：exec作用：执行所有事务块内的命令返回值：事务内">
+<meta name="twitter:image" content="en-resource://database/866:1">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/28/DBIndexLeft/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/03/redisValueOperation/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>联合索引的最左前缀匹配原则 | MaoHe's Blog</title>
+  <title>四、Redis五种基本数据类型 | MaoHe's Blog</title>
   
 
 
@@ -393,7 +395,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/28/DBIndexLeft/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/03/redisValueOperation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +412,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">联合索引的最左前缀匹配原则
+          <h1 class="post-title" itemprop="name headline">四、Redis五种基本数据类型
 
               
             
@@ -436,7 +438,7 @@
                 
               
 
-              <time title="创建时间：2019-02-28 15:42:32 / 修改时间：15:47:10" itemprop="dateCreated datePublished" datetime="2019-02-28T15:42:32+08:00">2019-02-28</time>
+              <time title="创建时间：2019-03-03 22:50:48 / 修改时间：23:02:44" itemprop="dateCreated datePublished" datetime="2019-03-03T22:50:48+08:00">2019-03-03</time>
             
 
             
@@ -458,14 +460,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/数据库原理/" itemprop="url" rel="index"><span itemprop="name">数据库原理</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
 
                 
                 
@@ -483,8 +478,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/28/DBIndexLeft/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/28/DBIndexLeft/" itemprop="commentCount"></span>
+                <a href="/2019/03/03/redisValueOperation/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/03/redisValueOperation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -513,7 +508,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">4.5k</span>
               
 
               
@@ -527,7 +522,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -547,92 +542,164 @@
       
 
       
-        <p>表结构：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`abcd`</span> (</span><br><span class="line">  <span class="string">`a`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`b`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`c`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`d`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`a`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`inx_b_c_d`</span> (<span class="string">`b`</span>,<span class="string">`c`</span>,<span class="string">`d`</span>),</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">8</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure>
-<p>该表有 4 列，其中有一个联合索引由<code>b,c,d</code>三列联合。</p>
-<a id="more"></a>
-<h3 id="一、联合索引"><a href="#一、联合索引" class="headerlink" title="一、联合索引"></a>一、联合索引</h3><p>索引可以是一个列<code>(a)</code>，而由多个列组成的索引<code>(b,c,d)</code>就称为联合索引（复合索引）。</p>
-<p>联合索引的排序是由做到右排序的，首先根据<code>b</code>排序，之后对于<code>b</code>值相同的记录，再根据<code>c</code>排序，以此类推，所以<code>c</code>的顺序是建立在<code>b</code>等值的基础上的。</p>
-<p>对于<code>c</code>来说，如果不考虑<code>b</code>的话，c 本身仍然是无序的。如下，对于相等的 b 来说，c 是有序的。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">b</th>
-<th style="text-align:center">c</th>
-<th style="text-align:center">d</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>4</strong></td>
-<td style="text-align:center"><strong>3</strong></td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>4</strong></td>
-<td style="text-align:center"><strong>5</strong></td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>4</strong></td>
-<td style="text-align:center"><strong>6</strong></td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">7</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">8</td>
-</tr>
-</tbody>
-</table>
-<h3 id="二、什么是最左前缀匹配"><a href="#二、什么是最左前缀匹配" class="headerlink" title="二、什么是最左前缀匹配"></a>二、什么是最左前缀匹配</h3><blockquote>
-<p>首先明确，最左前缀匹配原则是发生在联合索引上的。</p>
-<p>最左前缀匹配就是根据建立的联合索引的顺序来匹配查询语句的条件。</p>
+        <h2 id="一、Redis事务"><a href="#一、Redis事务" class="headerlink" title="一、Redis事务"></a>一、Redis事务</h2><h3 id="1、事务简介"><a href="#1、事务简介" class="headerlink" title="1、事务简介"></a>1、事务简介</h3><p>Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。</p>
+<h3 id="2、事务操作的命令"><a href="#2、事务操作的命令" class="headerlink" title="2、事务操作的命令"></a>2、事务操作的命令</h3><h4 id="1-multi"><a href="#1-multi" class="headerlink" title="1. multi"></a>1. multi</h4><p>语法：<strong>multi</strong><br>作用：标记一个<strong>事务的开始</strong>。事务内的<strong>多条命令</strong>会<strong>按照先后顺序被放进一个队列</strong>中。在遇到exec之前，命令都不会执行。<br>返回值：总是返回OK。</p>
+<h4 id="2、exec"><a href="#2、exec" class="headerlink" title="2、exec"></a>2、exec</h4><p>语法：<strong>exec</strong><br>作用：<strong>执行所有事务块内的命令</strong><br>返回值：事务内的所有执行语句内容，事务被打断返回nil。</p>
+<h4 id="3、discard"><a href="#3、discard" class="headerlink" title="3、discard"></a>3、discard</h4><p>语法：<strong>discard</strong><br>作用：<strong>取消事务</strong>，放弃执行事务块内的所有命令。<br>返回值：总是返回ok。</p>
+<h4 id="4、watch"><a href="#4、watch" class="headerlink" title="4、watch"></a>4、watch</h4><p>语法：<strong>watch key [key…]</strong><br>作用：<strong>监视</strong>一个或多个<strong>key</strong>，如果事务执行之前这些key被其他命令改动，则事务被打断。。<br>返回值：总是返回ok。</p>
+<h4 id="5、unwatch"><a href="#5、unwatch" class="headerlink" title="5、unwatch"></a>5、unwatch</h4><p>语法：<strong>watch key [key…]</strong><br>作用：取消watch命令对所有key的监视，如果在执行watch之后，exec或discard命令被执行了，那么就不需要再执行unwatch了。<br>返回值：总是返回OK。</p>
+<h2 id="二、持久化"><a href="#二、持久化" class="headerlink" title="二、持久化"></a>二、持久化</h2><h3 id="1、持久化概述"><a href="#1、持久化概述" class="headerlink" title="1、持久化概述"></a>1、持久化概述</h3><p>Redis的数据存储在内存中，内存是瞬时的，如果Linux宕机或重启，或者Redis崩溃或重启，所有的内存数据都会丢失，为了解决这个问题，Redis提供了两种机制对数据进行持久化存储，便于发生故障后能迅速恢复数据。</p>
+<h3 id="2、持久化方式"><a href="#2、持久化方式" class="headerlink" title="2、持久化方式"></a>2、持久化方式</h3><h4 id="1-RDB方式"><a href="#1-RDB方式" class="headerlink" title="1. RDB方式"></a>1. RDB方式</h4><h5 id="1-RDB介绍"><a href="#1-RDB介绍" class="headerlink" title="1. RDB介绍"></a>1. RDB介绍</h5><blockquote>
+<p>Redis Database 内存快照，就是在指定的时间间隔内，将内存中的数据及快照写入到磁盘，数据恢复时将快照文件直接读到内存中。</p>
 </blockquote>
-<p>对于一个联合索引，可以看做是多个索引的组合，例如前面的根据<code>(b,c,d)</code>建立的索引，就具有<code>(b)</code>、<code>(b,c)</code>、<code>(b,c,d)</code>这三个索引的作用。所以对于任何一个查询语句来说，只要有 b 条件就会使用索引查询，之后在看有没有 c ，d 而已。</p>
-<p>对于上表的联合索引顺序<code>(b,c,d)</code></p>
-<ul>
-<li>当执行了一条查询语句时，查询的条件是根据 <code>b,c,d</code> 作为条件的，例如<code>SELECT * FROM abcd WHERE b=2 and c=5 and d=1;</code>这条语句会使用联合索引<code>inx_b_c_d</code>进行查询。</li>
-<li>当执行了一条查询语句时，查询的条件是根据 <code>b,c</code> 作为条件的，如<code>SELECT * FROM abcd WHERE b=2 and c=5;</code>这条语句也会使用联合索引<code>inx_b_c_d</code>进行查询。</li>
+<blockquote>
+<p>RDB保存了某个时间点的数据集，存储在一个二进制文件中，默认是dump.rdb。RDB数据恢复时比AOF快。</p>
+</blockquote>
+<blockquote>
+<p>默认启用RDB。</p>
+</blockquote>
+<h5 id="2-配置RDB"><a href="#2-配置RDB" class="headerlink" title="2. 配置RDB"></a>2. 配置RDB</h5><p>RDB是默认开启的持久化方式。</p>
+<p>在redis.conf 文件中的SNAPSHOTTING模块中配置。</p>
+<ol>
+<li><p>配置执行RDB生成快照文件的时间策略。<br>格式：<strong>save seconds keychanges</strong><br>作用：只要满足在N秒内有M个key发生了变动这一策略，就生成快照，自动保存数据。<br>save 900 1<br>save 300 10<br>save 60 10000</p>
+</li>
+<li><p>dbfilename：设置RDB的磁盘保存数据的文件名。</p>
+</li>
+<li>dir：指定RDB文件的存储位置，默认是 ./ 当前目录。</li>
+</ol>
+<h5 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h5><p><strong>优点：</strong> 由于存储的是数据快照文件，恢复数据比较快。<br><strong>缺点：</strong></p>
+<ol>
+<li>会丢失最后一次快照以后更改的数据。</li>
+<li>由于需要经常操作磁盘，RDB会分出一个子进程，如果数据很大，子进程可能会占用比较多的时间。</li>
+</ol>
+<h4 id="2-AOF方式"><a href="#2-AOF方式" class="headerlink" title="2. AOF方式"></a>2. AOF方式</h4><h5 id="1-AOF介绍"><a href="#1-AOF介绍" class="headerlink" title="1. AOF介绍"></a>1. AOF介绍</h5><p>Append-only file，Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，不记录读操作），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</p>
+<h5 id="2-AOF配置"><a href="#2-AOF配置" class="headerlink" title="2. AOF配置"></a>2. AOF配置</h5><p>AOF默认是不开启的。</p>
+<p>在redis.conf文件中修改：</p>
+<ol>
+<li>appendonly：默认是 no ，改成yes 即开启了AOF持久化。</li>
+<li>appendfilename：指定AOF文件名，默认为 appendonly.aof。</li>
+<li>dir：指定RDB和AOF文件存储位置，默认 ./ 当前目录。</li>
+<li>appendfsync：配置项aof文件写命令数据的策略：<ul>
+<li>no：不主动进行同步操作，完全由操作系统进行。速度快但不安全。</li>
+<li>always：每次执行写入都会执行同步，慢但安全。</li>
+<li>everysec：每秒执行一次同步操作，比较平衡。<strong>默认选项</strong>。</li>
 </ul>
+</li>
+<li>auto-aof-rewrite-min-size：允许重写的最小AOF文件大小，默认64M，当文件大于64M，开始整理AOF文件。去掉无用的操作命令，来缩小AOF文件。</li>
+</ol>
+<h2 id="三、主从复制"><a href="#三、主从复制" class="headerlink" title="三、主从复制"></a>三、主从复制</h2><h3 id="1、主从复制-读写分离"><a href="#1、主从复制-读写分离" class="headerlink" title="1、主从复制-读写分离"></a>1、主从复制-读写分离</h3><blockquote>
+<p>通过RDB或AOF持久化，可以将内存数据保存在磁盘，数据不易丢失或丢失少量数据。如果磁盘损坏，仍然会丢失数据。</p>
+</blockquote>
+<blockquote>
+<p>为避免单点故障，需要将数据复制多份，部署在多台不同的服务器上。可以保证即使偶一台服务器出现故障，其他服务器仍然可以提供服务。<br>同时这就要求当一台服务器上的数据更新后，自动将更新的数据同步到其他服务器，利用Redis的主从复制实现。</p>
+</blockquote>
+<p><img src="en-resource://database/866:1" alt="f039db1bdcab1fa14dd458afcd84399c.png"></p>
+<p>主Redis主要用于写操作，并将写后的操作同步到从Redis服务器上，从Redis服务器主要用于读操作，从而实现<strong>读写分离</strong>。</p>
+<h4 id="1-Redis主从复制的实现"><a href="#1-Redis主从复制的实现" class="headerlink" title="1. Redis主从复制的实现"></a>1. Redis主从复制的实现</h4><blockquote>
+<p>修改配置文件，启动时，服务器读取配置文件，并自动成为指定服务器的从服务器，从而构成主从复制关系。</p>
+</blockquote>
+<p>主从测试：开启redis-server三次，三个进程代表三个服务器。主Redis的port为6380，两个从Redis的port为6382,6384。</p>
+<ol>
+<li><p>新建三个Redis的配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf redis6380.conf</span><br><span class="line"><span class="comment">//将文件清空</span></span><br><span class="line"> &gt; redis6380.conf</span><br><span class="line">cp redis6380.conf redis6382.conf</span><br><span class="line">cp redis6380.conf redis6384.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 主Redis 配置文件redis6380.conf</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">include /usr/redis/redis.conf</span><br><span class="line"><span class="comment">//设置为后台启动</span></span><br><span class="line">daemonize yes</span><br><span class="line">port <span class="number">6380</span></span><br><span class="line">pidfile /<span class="keyword">var</span>/run/redis_6380.pid</span><br><span class="line">logfile <span class="number">6380</span>.log</span><br><span class="line"><span class="comment">//指定RDB持久化文件</span></span><br><span class="line">dbfilename dump6380.rdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 从Redis 配置文件redis6382.conf,redis6384.conf</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">include /usr/redis/redis.conf</span><br><span class="line">daemonize yes</span><br><span class="line">port <span class="number">6382</span></span><br><span class="line">pidfile /<span class="keyword">var</span>/run/redis_6382.pid</span><br><span class="line">logfile <span class="number">6382</span>.log</span><br><span class="line">dbfilename dump6382.rdb</span><br><span class="line"><span class="comment">//配置主Redis的 IP+Port</span></span><br><span class="line">slaveof <span class="number">127.0</span>.0.1 <span class="number">6380</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-容灾处理"><a href="#2-容灾处理" class="headerlink" title="2. 容灾处理"></a>2. 容灾处理</h4><blockquote>
+<p>当Master服务出现故障，需手动将 Slave 中的一个提升为 Master，剩下的 Slave 挂至新的Master上（冷处理：机器故障，之后再处理）</p>
+</blockquote>
+<blockquote>
+<p>命令：</p>
 <ul>
-<li>而对于以 <code>c,d</code> 作为查询条件是无法使用联合索引<code>inx_b_c_d</code>进行查询的，因为它不是以 b 开始的，上面说了，脱离了 b ，c 就是无序的，既然无序，索引页没有意义了，总不能对无序的数据列使用二分查找吧。</li>
-<li>那如果查询条件是 <code>b,d</code> 呢？当然也会使用联合索引的，但是索引只匹配到了<code>(b)</code>，d 是无法使用索引查询的。</li>
+<li>slaveof no one，将一台slave服务器提升为master。</li>
+<li>slaverof 127.0.0.1 6381，将其他slave挂至新的master。</li>
 </ul>
-<p>所以说，最左匹配就是从索引的左边开始匹配给定的条件项。如果没有最左边的那一列，那后面都是无序的了，也就不能使用索引了。</p>
-<p>那<strong>如果查询条件和索引顺序不一致</strong>呢？</p>
-<p>即查询语句如果是 <code>SELECT * FROM abcd WHERE c=5 and d=1 b=2 and;</code> 呢？对于这个查询语句，最后执行的时候，条件的顺序会被<code>mysql</code>查询优化器转换成 <code>b,c,d</code> 的顺序的。    </p>
-<p>查询优化器会自动判断这条语句以什么形式执行起来效率会更高，最后将语句纠正为效率最高的形式。例如对于上面的语句来说，如果不纠正，就无法使用联合索引，就需要一个个记录的来查询搜索，效率肯定地，而如果调换查询条件顺序为 <code>b,c,d</code> 顺序的话，就可以使用联合索引了，效率会更高（拙见，不知道可不可以这么理解）。</p>
-<p>当然最左匹配对于查询条件还是有要求的：</p>
+</blockquote>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>将主Redis进程停掉，模拟主Redis故障。</li>
+<li><p>将一个从Redis升级为主Redis。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6382</span>&gt;slaveof no one</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将剩余的从Redis挂至新升级的主Redis上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6384</span>&gt;slaveof <span class="number">127.0</span>.0.1 <span class="number">6382</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原来的故障服务器修复后加入到现有的主从结构中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6380</span>&gt;slaveof <span class="number">127.0</span>.0.1 <span class="number">6382</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2、高可用Sentinel哨兵"><a href="#2、高可用Sentinel哨兵" class="headerlink" title="2、高可用Sentinel哨兵"></a>2、高可用Sentinel哨兵</h3><h4 id="1-Redis-Sentinel（哨兵）简介"><a href="#1-Redis-Sentinel（哨兵）简介" class="headerlink" title="1. Redis Sentinel（哨兵）简介"></a>1. Redis Sentinel（哨兵）简介</h4><blockquote>
+<p>Sentinel哨兵是Redis官方提供的高可用方案，可以用它来监控多个Redis服务实例的运行情况。<strong>Redis Sentinel 是一个运行在特殊模式下的Redis服务器</strong>，Redis Sentinel是在多个Sentinel进程环境下互相协作的。</p>
+</blockquote>
+<blockquote>
+<p>Sentinel系统主要任务：</p>
+<ol>
+<li>监控：哨兵不间断地检查主Redis和从Redis是否按照预期正常工作。</li>
+<li>提醒：被监控的Redis出现问题时，哨兵会通知管理员或其他应用程序。</li>
+<li>自动故障转移：监控的主Redis不能正常工作，哨兵会考试进行故障迁移操作，</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Sentinel哨兵系统通过监控主Redis，就可以间接监控从Redis。每个哨兵都会通过向Redis发送Ping命令来验证Redis是否正常（<strong>心跳检测</strong>）。<br>Sentinel哨兵系统采用少数服从多数的方式，来决定Redis服务器是否正常，所以哨兵数量得是奇数个（至少有3个）。</p>
+</blockquote>
+<p><strong>三个定时任务：</strong></p>
 <ul>
-<li>最左匹配向右依次匹配，如果遇到范围查询条件<code>(&gt;、&lt;、between、like)</code>就会停止匹配。例如<code>b = 2 and c &gt; 3 and d = 4</code>如果建立<code>(b,c,d)</code>顺序的索引，d是用不到索引的。</li>
-<li>查询条件中 = 和 in 可以乱序，比如<code>b = 1 and c = 2 and d = 3</code>建立<code>(b,c,d)</code>索引可以任意顺序，<code>mysql</code>的查询优化器会优化成索引可以识别的形式。</li>
+<li>每10秒每个sentinel会对master和slave执行<strong>info命令</strong>，这个任务达到两个目的：发现slave节点；确认主从关系。</li>
+<li>每2秒每个sentinel通过master节点的channel交换信息。</li>
+<li>每1秒每个sentinel对其他sentinel和redis节点执行ping操作（相互监控），这个其实是一个心跳检测，是失败判定的依据。</li>
 </ul>
+<h4 id="2-配置Redis-Sentinel系统"><a href="#2-配置Redis-Sentinel系统" class="headerlink" title="2. 配置Redis Sentinel系统"></a>2. 配置Redis Sentinel系统</h4><ol>
+<li><p>Sentinel配置文件<br>哨兵配置文件默认为 sentinel.conf。哨兵系统默认port为 26379。<br>复制三份 sentinel.conf，为三个哨兵的配置文件。</p>
+</li>
+<li><p>修改复制的配置文件</p>
+<ul>
+<li>修改哨兵端口号 port</li>
+<li>修改监控的主Redis的信息。<ul>
+<li>格式：sentinel monitor <mastername> <masterip> <masterport> &lt;投票数&gt; </masterport></masterip></mastername></li>
+<li>示例：sentinel monitor myMaster 127.0.0.1 6379 2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>启动Redis主从复制</p>
+</li>
+<li><p>启动哨兵<br>通过加载对应的配置文件来启动哨兵。默认前台启动，查看日志信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel /usr/redis/sentinel26380.conf</span><br><span class="line">redis-sentinel /usr/redis/sentinel26382.conf</span><br><span class="line">redis-sentinel /usr/redis/sentinel26384.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主Redis故障</p>
+<blockquote>
+<p>主Redis发生故障后，哨兵系统会推选出一个从Redis作为主Redis，并自动将其他从Redis挂到新的主Redis上。</p>
+</blockquote>
+</li>
+<li><p>新的Redis加入到主从结构<br>故障Redis修复后，重新加入到主从结构中，哨兵系统会监控并将其作为从Redis挂到主Redis下。</p>
+</li>
+</ol>
+<h2 id="四、安全设置"><a href="#四、安全设置" class="headerlink" title="四、安全设置"></a>四、安全设置</h2><h3 id="1、设置密码"><a href="#1、设置密码" class="headerlink" title="1、设置密码"></a>1、设置密码</h3><blockquote>
+<p><strong>简介:</strong> 访问Redis默认没有密码，不安全，需要设置需要密码登录访问Redis。在redis.conf文件中修改requirepass行来启用密码。</p>
+</blockquote>
+<ol>
+<li><p>开启访问密码设置<br>修改redis.conf，取消注释 requirepass 密码。</p>
+</li>
+<li><p>开启redis-server，并加载redis.conf文件</p>
+</li>
+<li>开启客户端<ul>
+<li>第一种：redis-cli -a passwd</li>
+<li>第二种：redis-cli ，进去之后使用 auth passwd 方式来密码登录。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2、绑定IP"><a href="#2、绑定IP" class="headerlink" title="2、绑定IP"></a>2、绑定IP</h3><blockquote>
+<p>修改redis.conf文件，把# bind 127.0.0.1 前面的注释去掉，并将IP地址改为可以访问redis服务器的地址，表示只允许这些IP进行访问。多个IP地址使用空格分隔。</p>
+</blockquote>
+<p><strong>#bind 192.168.0.100 192.168.0.101</strong></p>
+<h3 id="3、修改默认端口"><a href="#3、修改默认端口" class="headerlink" title="3、修改默认端口"></a>3、修改默认端口</h3><blockquote>
+<p>修改redis的端口，不使用默认端口，将redis.conf文件中的port改为自定义端口，范围 1024-65535 。</p>
+</blockquote>
 
       
     </div>
@@ -648,7 +715,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/28/DBIndexLeft/" title="联合索引的最左前缀匹配原则">2019/02/28/DBIndexLeft/</a>
+        <a href="/2019/03/03/redisValueOperation/" title="四、Redis五种基本数据类型">2019/03/03/redisValueOperation/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -704,9 +771,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tags"></i> MySQL</a>
-          
-            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tags"></i> 数据库</a>
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tags"></i> redis</a>
           
         </div>
       
@@ -719,8 +784,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/28/javaFactory/" rel="next" title="工厂设计模式（简单工厂、工厂方法、抽象工厂）">
-                <i class="fa fa-chevron-left"></i> 工厂设计模式（简单工厂、工厂方法、抽象工厂）
+              <a href="/2019/03/03/redisOtherTopics/" rel="next" title="四、高级话题">
+                <i class="fa fa-chevron-left"></i> 四、高级话题
               </a>
             
           </div>
@@ -728,10 +793,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/01/javaProxy/" rel="prev" title="代理模式">
-                代理模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -925,7 +986,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、联合索引"><span class="nav-number">1.</span> <span class="nav-text">一、联合索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、什么是最左前缀匹配"><span class="nav-number">2.</span> <span class="nav-text">二、什么是最左前缀匹配</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Redis事务"><span class="nav-number">1.</span> <span class="nav-text">一、Redis事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、事务简介"><span class="nav-number">1.1.</span> <span class="nav-text">1、事务简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、事务操作的命令"><span class="nav-number">1.2.</span> <span class="nav-text">2、事务操作的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-multi"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. multi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、exec"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、exec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、discard"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、discard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、watch"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、watch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、unwatch"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、unwatch</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、持久化"><span class="nav-number">2.</span> <span class="nav-text">二、持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、持久化概述"><span class="nav-number">2.1.</span> <span class="nav-text">1、持久化概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、持久化方式"><span class="nav-number">2.2.</span> <span class="nav-text">2、持久化方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-RDB方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. RDB方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-RDB介绍"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">1. RDB介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置RDB"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">2. 配置RDB</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-总结"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">3. 总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-AOF方式"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. AOF方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-AOF介绍"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">1. AOF介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-AOF配置"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">2. AOF配置</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、主从复制"><span class="nav-number">3.</span> <span class="nav-text">三、主从复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、主从复制-读写分离"><span class="nav-number">3.1.</span> <span class="nav-text">1、主从复制-读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Redis主从复制的实现"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. Redis主从复制的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-容灾处理"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. 容灾处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、高可用Sentinel哨兵"><span class="nav-number">3.2.</span> <span class="nav-text">2、高可用Sentinel哨兵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Redis-Sentinel（哨兵）简介"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. Redis Sentinel（哨兵）简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-配置Redis-Sentinel系统"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 配置Redis Sentinel系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、安全设置"><span class="nav-number">4.</span> <span class="nav-text">四、安全设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、设置密码"><span class="nav-number">4.1.</span> <span class="nav-text">1、设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、绑定IP"><span class="nav-number">4.2.</span> <span class="nav-text">2、绑定IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、修改默认端口"><span class="nav-number">4.3.</span> <span class="nav-text">3、修改默认端口</span></a></li></ol></li></ol></div>
             
 
           </div>
