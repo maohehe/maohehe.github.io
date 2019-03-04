@@ -103,23 +103,25 @@
 
 
 
-  <meta name="description" content="要做一个勤奋的人。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaoHe&#39;s Blog">
-<meta property="og:url" content="https://maohehe.github.io/tags/java/index.html">
+  <meta name="description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存雪崩 缓存穿透 缓存更新">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/04/redisTopics/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="要做一个勤奋的人。">
+<meta property="og:description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-04T07:12:07.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaoHe&#39;s Blog">
-<meta name="twitter:description" content="要做一个勤奋的人。">
+<meta name="twitter:title" content="缓存雪崩 缓存穿透 缓存更新">
+<meta name="twitter:description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/tags/java/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/04/redisTopics/">
 
 
 
@@ -129,7 +131,7 @@
   };
 </script>
 
-  <title>标签: java | MaoHe's Blog</title>
+  <title>缓存雪崩 缓存穿透 缓存更新 | MaoHe's Blog</title>
   
 
 
@@ -177,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -371,323 +373,418 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>java<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/04/redisTopics/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maohe">
+      <meta itemprop="description" content="要做一个勤奋的人。">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaoHe's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/03/01/BubbleSort/" itemprop="url">
-            
-              <span itemprop="name">冒泡排序</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">缓存雪崩 缓存穿透 缓存更新
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-01T21:28:42+08:00" content="2019-03-01">
-          03-01
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-04 15:10:47 / 修改时间：15:12:07" itemprop="dateCreated datePublished" datetime="2019-03-04T15:10:47+08:00">2019-03-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/03/04/redisTopics/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/04/redisTopics/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/01/QuickSort/" itemprop="url">
-            
-              <span itemprop="name">快速排序</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-01T21:28:24+08:00" content="2019-03-01">
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/01/javaProxy/" itemprop="url">
-            
-              <span itemprop="name">代理模式</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-01T16:00:48+08:00" content="2019-03-01">
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/28/javaFactory/" itemprop="url">
-            
-              <span itemprop="name">工厂设计模式（简单工厂、工厂方法、抽象工厂）</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-28T15:41:52+08:00" content="2019-02-28">
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/28/javaSingleton/" itemprop="url">
-            
-              <span itemprop="name">单例模式</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-28T15:41:28+08:00" content="2019-02-28">
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/26/jvmClassLoad/" itemprop="url">
-            
-              <span itemprop="name">jvm 类加载机制</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-26T13:33:56+08:00" content="2019-02-26">
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/25/javaTreeMap/" itemprop="url">
-            
-              <span itemprop="name">java集合框架之TreeMap</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T12:24:17+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/25/javaLinkedHashMap/" itemprop="url">
-            
-              <span itemprop="name">java集合框架之LinkedHashMap</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T12:24:01+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/25/javaHashMap/" itemprop="url">
-            
-              <span itemprop="name">java集合框架之HashMap</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T12:23:44+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/25/javaLinkedList/" itemprop="url">
-            
-              <span itemprop="name">java集合框架之LinkedList</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T12:23:29+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h3 id="1-缓存"><a href="#1-缓存" class="headerlink" title="1. 缓存"></a>1. 缓存</h3><ul>
+<li>提高性能：缓存查询速度比数据库查询速度快。</li>
+<li>提高并发能力：缓存分担了部分请求，支持更高的并发。</li>
+</ul>
+<a id="more"></a>
+<h3 id="2-缓存雪崩"><a href="#2-缓存雪崩" class="headerlink" title="2. 缓存雪崩"></a>2. 缓存雪崩</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，也会给后端数据库系统带来很大压力。</p>
+</blockquote>
+<p>如果缓存正常，那我们请求数据时，就会先走缓存，如果有的话，直接返回缓存里的数据，如果没有，就查询数据库，再返回结果。这样可以为数据库分担不小的压力。</p>
+<p>因为<code>Redis</code>可以设置key的过期时间，在一定的时间之后，key就会过期，然后被自动删除。而如果现在缓存了一批数据，他们的key的过期时间都一样，一段时间后，这些数据全部被删除，如果此时有大量访问请求 Redis，而请求的数据刚好全被删除掉，那么这些请求就会全部访问数据库，导致数据库压力骤增。</p>
+<p><strong>总结</strong>：</p>
+<ol>
+<li>Redis 服务器系统挂掉，导致请求全部由数据库处理。</li>
+<li>对缓存的数据设置相同的过期时间，导致某段时间缓存失效，请求也全由数据库处理。</li>
+</ol>
+<p>如果发生缓存雪崩，那数据库很可能会崩溃，导致整个服务瘫痪。</p>
+<h4 id="缓存雪崩解决办法"><a href="#缓存雪崩解决办法" class="headerlink" title="缓存雪崩解决办法"></a>缓存雪崩解决办法</h4><ol>
+<li>Redis服务器宕机导致雪崩：<ul>
+<li>宕机前预防：实现 Redis 高可用。主从复制+哨兵机制。</li>
+<li>宕机中补救：如果Redis挂掉，可以设置<strong>本地缓存</strong>，并且<strong>限制请求流量</strong>（限流），来保护数据库。</li>
+<li>宕机后恢复：Redis 持久化机制。<strong><code>RDB/AOF</code>机制</strong>来从磁盘加载，快速恢复缓存数据。</li>
+</ul>
+</li>
+<li>键过期时间导致雪崩：<ul>
+<li>key不设置相同的过期时间就完事了。可以对<strong>过期时间</strong>设置一个<strong>随机值</strong>，减少过期时间相同的概率。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-缓存穿透"><a href="#3-缓存穿透" class="headerlink" title="3. 缓存穿透"></a>3. 缓存穿透</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>缓存穿透是指查询一个<strong>一定不存在</strong>的数据。由于数据肯定不存在，所以缓存中没有，该请求就会交由数据库处理，而数据库中也没有该数据，处于容错考虑，这个不存在的数据在数据库中的查询结果也不会写入缓存，这就会导致对这个不存在数据的每次请求都会走数据库去查询，这样缓存就没有意义了。</p>
+</blockquote>
+<p>例如我的数据表有一些数据，ID是从1开始递增，没有负数。如果有一个闲人对我的数据库进行访问，每次访问的数据ID都是负数，这样我的Redis缓存中没有该数据，这些查询就会走数据库，数据库也没有对应数据，就会返回空对象，而且这个空对象也不会写到缓存中。如果这个闲人开始丧心病狂起来，疯狂访问我的数据库，这样我的数据库就会增加这些没必要的压力，早晚得完蛋。</p>
+<p><strong>总结</strong>：</p>
+<ol>
+<li>请求的数据在缓存中大量都不命中，导致这些未命中的请求都走数据库。</li>
+</ol>
+<h4 id="缓存穿透解决办法"><a href="#缓存穿透解决办法" class="headerlink" title="缓存穿透解决办法"></a>缓存穿透解决办法</h4><ol>
+<li>对于请求不合法的参数（请求不存在的数据），可以对其进行过滤（boomfilter或压缩filter），提前拦截。直接拒绝它，不让其走到数据库。编程复杂，不过比较省缓存空间。</li>
+<li>对于合法的请求，但是数据库却找不到，我们也将这个空对象写到缓存，下次请求就可以从缓存中获取。不过这个空对象的存活时间一般会很短，很快就过期。编程简单，不过会占用缓存空间。</li>
+</ol>
+<h3 id="4-缓存更新"><a href="#4-缓存更新" class="headerlink" title="4. 缓存更新"></a>4. 缓存更新</h3><h4 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h4><p>一般缓存流程（读操作）：</p>
+<ol>
+<li>对于一个请求，如果缓存中有请求的数据，就直接返回缓存中的数据。</li>
+<li>如果缓存没有命中数据，就走数据库，之后将数据库查询的数据写入到缓存。</li>
+<li>最后返回数据。</li>
+</ol>
+<h4 id="缓存与数据库双写一致"><a href="#缓存与数据库双写一致" class="headerlink" title="缓存与数据库双写一致"></a>缓存与数据库双写一致</h4><p>如果对于写操作，我们要更新数据库，这时候没有更新缓存，导致缓存的数据和数据库的数据不一致。在没有发现缓存与数据库的数据不一致的这段时间内，如果有请求，走的是缓存，最后返回的数据就不是数据库中新更新的数据了。</p>
+<p>幸运的是，Redis 中有键过期时间这一项，过期时间一到，缓存中的对应数据就会被删除，下次再请求就会走数据库，并将数据进行缓存，理论上可以保证缓存和数据库的数据一致。</p>
+<p>如果在未过期的这段时间发生数据库更新，导致还是不一致呢？</p>
+<p>那就对缓存中的数据也进行更新吧…</p>
+<h4 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h4><p>可进行的更新操作：</p>
+<ol>
+<li>先更新数据库，再更新缓存。</li>
+<li>先更新缓存，再更新数据库。</li>
+</ol>
+<p>对于上面两种操作，要么都成功，要么都失败，如果一个成功一个失败，那还是会有数据不一致的问题。    如果第一个更新操作（不论是先更新数据库还是先更新缓存）都失败了，那第二个更新也没必要了，直接抛出异常得了。</p>
+<h5 id="1-操作缓存"><a href="#1-操作缓存" class="headerlink" title="1. 操作缓存"></a>1. 操作缓存</h5><p>对数据没什么可操作的，更新就完事了，但是对于缓存可以有两种操作：</p>
+<ol>
+<li><p>更新缓存</p>
+</li>
+<li><p>删除缓存</p>
+</li>
+</ol>
+<p>但是，如果在多线程高并发环境下，更新数据库和更新缓存容易导致线程安全问题，最后两者数据还是不一样。    再者，每次更新数据库还得附带上更新缓存，请求少还好，更新请求一旦多起来，性能上就会受影响，毕竟平白无故增加了额外的更新操作。</p>
+<p>所以，一般都是<strong>采用删除缓存策略</strong>，直接删除，一了百了，简单又安全。一发生更新，就直接删除缓存里对应的数据，下次请求该数据直接请求数据库再缓存就完事了，数据还是一致的。</p>
+<h5 id="2-先更新数据库，再删除缓存"><a href="#2-先更新数据库，再删除缓存" class="headerlink" title="2. 先更新数据库，再删除缓存"></a>2. 先更新数据库，再删除缓存</h5><p>一般流程：</p>
+<ul>
+<li>先更新数据库，成功</li>
+<li>再删除缓存，成功</li>
+</ul>
+<p>如果原子性被破坏，会发生什么呢？</p>
+<ol>
+<li>如果在更新数据库就失败了，就直接返回异常，缓存也不用删除了，这样两者数据还是旧数据，也是一致的。</li>
+<li>更新数据库成功，删除缓存失败了，导致缓存里是旧数据，数据库里是新数据，导致数据不一致。<ul>
+<li>如果发生这种情况，就将要删除的key发送到消息队列，然后获取要删除的key，不断地进行删除，直到删除成功。</li>
+</ul>
+</li>
+</ol>
+<p>如果上面一般流程的操作都成功了，理论上是没问题的，但是在多线程并发环境下还是可能发生问题的，例如</p>
+<ol>
+<li>缓存失效了，线程 A 查询数据，查询请求走数据库。</li>
+<li>此时线程A的请求内容还没写进缓存，就被挂起了。</li>
+<li>线程 B 更新数据，先<strong>更新数据库</strong>，完事又删除了缓存。</li>
+<li>之后线程 A 又被调度了，将它查询数据库的<strong>旧数据写入缓存</strong>。</li>
+</ol>
+<p>所以就又出现了缓存与数据库数据不一致的问题。</p>
+<p>当然这种概率特别特别小，因为这是线程读写操作并发的条件下，写操作速度远慢于读操作，而且还要锁表，上述例子的条件必须要符合<strong>读操作必需在写操作前进入数据库操作，而又要晚于写操作更新缓存</strong>，这个条件概率又是特别小的。</p>
+<h5 id="3-先删除缓存，再更新数据库"><a href="#3-先删除缓存，再更新数据库" class="headerlink" title="3. 先删除缓存，再更新数据库"></a>3. 先删除缓存，再更新数据库</h5><p>一般流程：</p>
+<ul>
+<li>先删除缓存，成功</li>
+<li>再更新数据库，成功</li>
+</ul>
+<p>如果原子性被破坏，会发生什么呢？</p>
+<ol>
+<li>如果删除缓存就失败了，就直接返回异常，也不用更新数据库了，这样两者的数据还是旧数据，也是一致的。</li>
+<li>如果删除缓存成功，更新数据库失败了？那也没啥事，数据库没更新，缓存还删除了。下次请求数据库，数据再写入缓存，两者数据库还是一致的。</li>
+</ol>
+<p>如果上面一般流程的操作都成功了，理论上是没问题的，但是在多线程并发环境下还是可能发生问题的，例如</p>
+<ol>
+<li>线程 A 删除了缓存。</li>
+<li>此时线程 A 的新数据还没更新到数据库，就被挂起了。</li>
+<li>线程 B 被调度，查询操作，发现缓存没有命中，就去数据库查，然后在将旧数据写入到缓存。</li>
+<li>线程 A 又被调度，接着执行上次未执行的操作，将讯数据更新到数据库。</li>
+</ol>
+<p>所以，最后出现了两者数据不一致的问题。</p>
+<p><strong>解决办法</strong>：</p>
+<ul>
+<li>将删除缓存、更新数据库、读取缓存等操作放到一个队列里，串行执行。</li>
+</ul>
+<h4 id="更新缓存的两种操作对比"><a href="#更新缓存的两种操作对比" class="headerlink" title="更新缓存的两种操作对比"></a>更新缓存的两种操作对比</h4><ol>
+<li>先更新数据库，再删除缓存<ul>
+<li>高并发情况下比较好，极小的概率发生不一致问题，可认为不会发生。</li>
+<li>原子性被破坏时，表现较差。</li>
+</ul>
+</li>
+<li>先删除缓存，再更新数据库<ul>
+<li>高并发环境下表现较差，容易发生不一致问题。</li>
+<li>原子性被破坏时，表现较好，不会发生数据不一致问题。</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a href="https://segmentfault.com/a/1190000017882763#articleHeader8" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017882763#articleHeader8</a></li>
+</ul>
 
       
     </div>
 
+    
+
+  <div>    
+    
+    
+    <ul class="post-copyright">
+      <li class="post-copyright-author">
+          <strong>本文作者：</strong>maohe
+      </li>
+      <li class="post-copyright-link">
+        <strong>本文链接：</strong>
+        <a href="/2019/03/04/redisTopics/" title="缓存雪崩 缓存穿透 缓存更新">2019/03/04/redisTopics/</a>
+      </li>
+      <li class="post-copyright-license">
+        <strong>版权声明： </strong>
+        本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！
+      </li>
+    </ul>
+    
+  </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="maohe 微信">
+        <p>微信</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="maohe 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tags"></i> redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/redisValueOperation/" rel="next" title="三、Redis五种基本数据类型">
+                <i class="fa fa-chevron-left"></i> 三、Redis五种基本数据类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/java/page/2/">2</a><a class="extend next" rel="next" href="/tags/java/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -708,8 +805,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -833,6 +939,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-缓存"><span class="nav-number">1.</span> <span class="nav-text">1. 缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-缓存雪崩"><span class="nav-number">2.</span> <span class="nav-text">2. 缓存雪崩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存雪崩解决办法"><span class="nav-number">2.2.</span> <span class="nav-text">缓存雪崩解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-缓存穿透"><span class="nav-number">3.</span> <span class="nav-text">3. 缓存穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述-1"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存穿透解决办法"><span class="nav-number">3.2.</span> <span class="nav-text">缓存穿透解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-缓存更新"><span class="nav-number">4.</span> <span class="nav-text">4. 缓存更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存流程"><span class="nav-number">4.1.</span> <span class="nav-text">缓存流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存与数据库双写一致"><span class="nav-number">4.2.</span> <span class="nav-text">缓存与数据库双写一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新操作"><span class="nav-number">4.3.</span> <span class="nav-text">更新操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-操作缓存"><span class="nav-number">4.3.1.</span> <span class="nav-text">1. 操作缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-先更新数据库，再删除缓存"><span class="nav-number">4.3.2.</span> <span class="nav-text">2. 先更新数据库，再删除缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-先删除缓存，再更新数据库"><span class="nav-number">4.3.3.</span> <span class="nav-text">3. 先删除缓存，再更新数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新缓存的两种操作对比"><span class="nav-number">4.4.</span> <span class="nav-text">更新缓存的两种操作对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">4.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -988,6 +1111,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -1027,6 +1154,8 @@
 
 
 
+
+  
 
 
   
