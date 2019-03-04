@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
 <meta property="og:description" content="一、概述​    Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-04T09:02:49.758Z">
+<meta property="og:updated_time" content="2019-03-04T09:39:38.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm Class类文件结构">
 <meta name="twitter:description" content="一、概述​    Class文件存储的都是二进制流(0和1)，每8 位为一组，每个数据项严格按照顺序进行排列，数据项之间没有添加任何分隔符，所以整个Class文件中存储的内容几乎全部是程序运行的必要数据，没有空隙存在。通俗来讲，Class文件中有哪些东西，哪个位置存放哪些东西，以及数据项的顺序都是规定好的。 Class文件数据类型：无符号数和表。  无符号数：是基本的数据类型，无符号数用 u 表示">
@@ -453,7 +453,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 17:02:49" itemprop="dateModified" datetime="2019-03-04T17:02:49+08:00">2019-03-04</time>
+                <time title="修改时间：2019-03-04 17:39:38" itemprop="dateModified" datetime="2019-03-04T17:39:38+08:00">2019-03-04</time>
               
             
           </span>
@@ -1060,13 +1060,60 @@
 <p>描述符是用来描述字段的数据类型、方法的参数列表（参数数量、类型、顺序）和方法返回值。</p>
 <p><strong>描述符规则（字段）</strong>：</p>
 <ul>
-<li><p>八大基本类型和void类型：由一个大写字母表示。<br>| 类型    | 描述符 |<br>| ——- | —— |<br>| byte    | B      |<br>| char    | C      |<br>| double  | D      |<br>| float   | F      |<br>| int     | I      |<br>| long    | J      |<br>| short   | S      |<br>| boolean | Z      |<br>| void    | v      |</p>
+<li>八大基本类型和void类型：由一个大写字母表示。</li>
+</ul>
 </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>B</td>
+</tr>
+<tr>
+<td>char</td>
+<td>C</td>
+</tr>
+<tr>
+<td>double</td>
+<td>D</td>
+</tr>
+<tr>
+<td>float</td>
+<td>F</td>
+</tr>
+<tr>
+<td>int</td>
+<td>I</td>
+</tr>
+<tr>
+<td>long</td>
+<td>J</td>
+</tr>
+<tr>
+<td>short</td>
+<td>S</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>void</td>
+<td>v</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><p>对象类型：用  L加对象全限定名表示。如 <code>Ljava/lang/Object</code></p>
 </li>
 <li><p>数组类型：几维数组前面就加几个<code>[</code>，例如<code>String[][]</code>,描述符就是<code>[[Ljava/lang/String</code>，<code>int[]</code>描述符就是<code>[I</code></p>
-</li>
-</ul>
 </li>
 </ul>
 <p>  <strong>描述符规则（方法）</strong>：先参数列表后返回值的规则。</p>
@@ -1631,7 +1678,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:30</span>
+    <span title="站点阅读时长">1:29</span>
   
 </div>
 
