@@ -111,12 +111,12 @@
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
 <meta property="og:description" content="一、垃圾收集概述回收区域：  栈：栈中的栈帧根据方法的开始和结束来执行入栈和出栈的操作，而每个栈帧要分配的内存在类结构确定下来就可以确定了。方法或线程结束，栈帧内存就回收。 堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20180217140343264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU5NTQxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-03-02T13:25:04.783Z">
+<meta property="og:image" content="http://pnsnkgpv4.bkt.clouddn.com/GCqi.png">
+<meta property="og:updated_time" content="2019-03-04T08:50:01.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 内存分配与垃圾收集">
 <meta name="twitter:description" content="一、垃圾收集概述回收区域：  栈：栈中的栈帧根据方法的开始和结束来执行入栈和出栈的操作，而每个栈帧要分配的内存在类结构确定下来就可以确定了。方法或线程结束，栈帧内存就回收。 堆和方法区：堆中一个接口的多个实现类需要的内存可能不同，方法区中一个方法的多个分支需要的内存也不一样，程序运行期才知道创建哪些对象，所以堆和方法区的内存分配不是开始就确定的(动态的)，回收也是动态的。">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180217140343264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU5NTQxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="http://pnsnkgpv4.bkt.clouddn.com/GCqi.png">
 
 
 
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-02 21:25:04" itemprop="dateModified" datetime="2019-03-02T21:25:04+08:00">2019-03-02</time>
+                <time title="修改时间：2019-03-04 16:50:01" itemprop="dateModified" datetime="2019-03-04T16:50:01+08:00">2019-03-04</time>
               
             
           </span>
@@ -629,7 +629,7 @@
 <li>新生代：对象比较短命，存活的少，采用 8:1:1 的复制算法。</li>
 <li>老年代：对象比较能活（<del>老不死</del>），采用标记 - 清理或者标记 - 整理算法。</li>
 </ul>
-<h3 id="四、垃圾收集器"><a href="#四、垃圾收集器" class="headerlink" title="四、垃圾收集器"></a>四、垃圾收集器</h3><p><img src="https://img-blog.csdn.net/20180217140343264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzU5NTQxOQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图示"></p>
+<h3 id="四、垃圾收集器"><a href="#四、垃圾收集器" class="headerlink" title="四、垃圾收集器"></a>四、垃圾收集器</h3><p><img src="http://pnsnkgpv4.bkt.clouddn.com/GCqi.png" alt="垃圾收集器"></p>
 <p><strong>说明：</strong> 图片上部Young generation表示新生代，Tenured generation表示老年代，收集器之间的连线表示两者可以配套使用。</p>
 <h4 id="1-Serial收集器（新生代、单线程）"><a href="#1-Serial收集器（新生代、单线程）" class="headerlink" title="1. Serial收集器（新生代、单线程）"></a>1. Serial收集器（新生代、单线程）</h4><p>收集算法：<strong>复制算法</strong>。</p>
 <p>   单线程收集器，只会使用一个CPU或一条收集线程去完成垃圾收集工作，并且在进行收集时，必须暂停其他所有的工作线程（包括用户正常的工作线程），直到收集完成。</p>
@@ -908,7 +908,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1058,7 +1058,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">101k</span>
+    <span title="本站总字数">98k</span>
   
 
   
@@ -1067,7 +1067,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:32</span>
+    <span title="站点阅读时长">1:30</span>
   
 </div>
 
