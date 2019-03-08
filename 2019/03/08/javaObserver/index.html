@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="GitPages Hexo搭建GitHub博客1、下载安装node.jsNode.js官网下载注意： 可以选择自定义安装位置。">
-<meta name="keywords" content="分享,其他">
+  <meta name="description" content="概述 观察者模式定义了对象之间的一对多依赖，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。  观察者可以理解为“发布-订阅模式”，有一个发布者发布消息（被观察者），一个订阅者（观察者）订阅发布者，发布者发布消息就会通知订阅者，订阅者可对消息进行查看或处理等，订阅者也可选择取消订阅发布者，这样就收不到发布者发布的消息。">
+<meta name="keywords" content="java,设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用GitPages+Hexo搭建并开通博客">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/18/StartMyBlog/index.html">
+<meta property="og:title" content="观察者模式">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/08/javaObserver/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="GitPages Hexo搭建GitHub博客1、下载安装node.jsNode.js官网下载注意： 可以选择自定义安装位置。">
+<meta property="og:description" content="概述 观察者模式定义了对象之间的一对多依赖，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。  观察者可以理解为“发布-订阅模式”，有一个发布者发布消息（被观察者），一个订阅者（观察者）订阅发布者，发布者发布消息就会通知订阅者，订阅者可对消息进行查看或处理等，订阅者也可选择取消订阅发布者，这样就收不到发布者发布的消息。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-20T07:22:23.634Z">
+<meta property="og:updated_time" content="2019-03-08T14:32:14.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用GitPages+Hexo搭建并开通博客">
-<meta name="twitter:description" content="GitPages Hexo搭建GitHub博客1、下载安装node.jsNode.js官网下载注意： 可以选择自定义安装位置。">
+<meta name="twitter:title" content="观察者模式">
+<meta name="twitter:description" content="概述 观察者模式定义了对象之间的一对多依赖，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。  观察者可以理解为“发布-订阅模式”，有一个发布者发布消息（被观察者），一个订阅者（观察者）订阅发布者，发布者发布消息就会通知订阅者，订阅者可对消息进行查看或处理等，订阅者也可选择取消订阅发布者，这样就收不到发布者发布的消息。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/18/StartMyBlog/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/08/javaObserver/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>使用GitPages+Hexo搭建并开通博客 | MaoHe's Blog</title>
+  <title>观察者模式 | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/18/StartMyBlog/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/08/javaObserver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用GitPages+Hexo搭建并开通博客
+          <h1 class="post-title" itemprop="name headline">观察者模式
 
               
             
@@ -436,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-02-18 19:52:09" itemprop="dateCreated datePublished" datetime="2019-02-18T19:52:09+08:00">2019-02-18</time>
+              <time title="创建时间：2019-03-08 22:30:47 / 修改时间：22:32:14" itemprop="dateCreated datePublished" datetime="2019-03-08T22:30:47+08:00">2019-03-08</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-20 15:22:23" itemprop="dateModified" datetime="2019-02-20T15:22:23+08:00">2019-02-20</time>
               
             
           </span>
@@ -470,7 +458,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
 
                 
                 
@@ -488,8 +476,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/18/StartMyBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/18/StartMyBlog/" itemprop="commentCount"></span>
+                <a href="/2019/03/08/javaObserver/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/08/javaObserver/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -518,7 +506,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.1k</span>
+                <span title="本文字数">3.4k</span>
               
 
               
@@ -532,7 +520,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -552,55 +540,31 @@
       
 
       
-        <h3 id="GitPages-Hexo搭建GitHub博客"><a href="#GitPages-Hexo搭建GitHub博客" class="headerlink" title="GitPages Hexo搭建GitHub博客"></a>GitPages Hexo搭建GitHub博客</h3><h4 id="1、下载安装node-js"><a href="#1、下载安装node-js" class="headerlink" title="1、下载安装node.js"></a>1、下载安装node.js</h4><p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">Node.js官网下载</a><br><strong>注意：</strong> 可以选择自定义安装位置。</p>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>观察者模式定义了对象之间的一对多依赖，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。</p>
+</blockquote>
+<p>观察者可以理解为“发布-订阅模式”，有一个发布者发布消息（被观察者），一个订阅者（观察者）订阅发布者，发布者发布消息就会通知订阅者，订阅者可对消息进行查看或处理等，订阅者也可选择取消订阅发布者，这样就收不到发布者发布的消息。</p>
 <a id="more"></a>
-<h4 id="2、安装-Sublime-text-3"><a href="#2、安装-Sublime-text-3" class="headerlink" title="2、安装 Sublime text 3"></a>2、安装 Sublime text 3</h4><p><a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime Text 3下载地址</a><br>下载速度较慢，不过安装包较小。<br>安装位置可自己选择。</p>
-<h4 id="3、注册GitHub账号"><a href="#3、注册GitHub账号" class="headerlink" title="3、注册GitHub账号"></a>3、注册GitHub账号</h4><ol>
-<li><p><a href="https://github.com/join?source=header-home" target="_blank" rel="noopener">GitHub注册地址</a></p>
-<ul>
-<li>注册用户名</li>
-<li>邮箱</li>
-<li>密码</li>
+<h3 id="观察者模式的角色"><a href="#观察者模式的角色" class="headerlink" title="观察者模式的角色"></a>观察者模式的角色</h3><ol>
+<li>抽象被观察者角色（发布者接口）：是一个抽象接口，里面定义了发布者应该遵循的一些规则。可以在接口中定义如下几种方法：<ul>
+<li>增加订阅者：每当有订阅者订阅，就将该订阅者添加进集合。</li>
+<li>删除订阅者：订阅者取消订阅，就将其从集合中删除。</li>
+<li>发布消息：用来发布消息，并通知订阅者查看消息。</li>
 </ul>
 </li>
-<li><p>添加新的仓库(new repository)：</p>
-<ul>
-<li>Repository name：注册用户名.github.io（.github.io为强制要求）</li>
-<li>Description（仓库描述）：选填。</li>
-<li>Public：勾选，表示可以供他人访问。</li>
-<li>Initialize this repository with a README：可选。<br>最后点击 create repository 即可。</li>
+<li>具体被观察者角色（发布者）：就是一个具体的发布者对象，实现了发布者接口并覆写其中的方法。每个发布者都包含一个集合，用于保存所有的订阅者对象引用，发布者对象可以具体的定义发布消息。</li>
+<li>抽象观察者角色（订阅者接口）：是一个抽象接口，定义了订阅者应该遵循的一些规则。该接口包含一个通知方法，每当自己订阅的发布者发布消息后，该方法被调用用来通知自己。</li>
+<li>具体观察者角色（订阅者）：具体的订阅者对象。</li>
+</ol>
+<h3 id="场景举例"><a href="#场景举例" class="headerlink" title="场景举例"></a>场景举例</h3><p>过年了，微信发红包功能开始活跃起来。大爷（发布者）想给家里的一群小孩发红包，就创建了一个群，小孩们（订阅者）申请加群（增加订阅者方法）。大爷趁孩子们不注意就发红包（发布消息），之后@全体成员提醒孩子抢红包（通知订阅者），不知道为什么这些孩子中混进了一个大人，原来是大娘，大娘一看，群里10个人，发了一块钱红包，太无聊了，就退群了（取消订阅，删除订阅者）。</p>
+<h3 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 发布者接口</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observerable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer observer)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发布者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Uncle</span> <span class="keyword">implements</span> <span class="title">Observerable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//集合用来保存订阅者对象引用</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Observer&gt; list;</span><br><span class="line">    <span class="comment">//消息</span></span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Uncle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        list = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加订阅者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer observer)</span> </span>&#123;</span><br><span class="line">        list.add(observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除订阅者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!list.isEmpty()) &#123;</span><br><span class="line">            list.remove(observer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通知订阅者，已经发布消息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            Observer observer = list.get(i);</span><br><span class="line">            observer.update(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发消息，并通知订阅者</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMoney</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">        System.out.println(message);</span><br><span class="line">        notifyObserver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 订阅者接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(String message)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 订阅者</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Child</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//更新通知</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">        getMoney();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"抢到了红包"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestObserver</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Uncle uncle = <span class="keyword">new</span> Uncle();</span><br><span class="line">        Observer zhang = <span class="keyword">new</span> Child(<span class="string">"小张"</span>);</span><br><span class="line">        Observer li = <span class="keyword">new</span> Child(<span class="string">"小李"</span>);</span><br><span class="line">        Observer wang = <span class="keyword">new</span> Child(<span class="string">"小王"</span>);</span><br><span class="line">        Observer daNiang = <span class="keyword">new</span> Child(<span class="string">"大娘"</span>);</span><br><span class="line">        <span class="comment">//添加订阅者</span></span><br><span class="line">        uncle.registerObserver(zhang);</span><br><span class="line">        uncle.registerObserver(li);</span><br><span class="line">        uncle.registerObserver(wang);</span><br><span class="line">        uncle.registerObserver(daNiang);</span><br><span class="line">        <span class="comment">//发送消息</span></span><br><span class="line">        uncle.sendMoney(<span class="string">"大爷发红包了"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"============="</span>);</span><br><span class="line">        <span class="comment">//订阅者取消订阅</span></span><br><span class="line">        uncle.removeObserver(daNiang);</span><br><span class="line">        <span class="comment">//再次发送消息，取消订阅的已经收不到消息</span></span><br><span class="line">        uncle.sendMoney(<span class="string">"大爷又发红包了"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实验结果</span></span><br><span class="line">D:\java\jdk\bin\java.exe ...</span><br><span class="line">大爷发红包了</span><br><span class="line">小张抢到了红包</span><br><span class="line">小李抢到了红包</span><br><span class="line">小王抢到了红包</span><br><span class="line">大娘抢到了红包</span><br><span class="line">=======================</span><br><span class="line">大爷又发红包了</span><br><span class="line">小张抢到了红包</span><br><span class="line">小李抢到了红包</span><br><span class="line">小王抢到了红包</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>低耦合：可以看出，发布或订阅的一方发生改变都不会影响另一方。</li>
+<li>jdk 也有自带的观察者模式，不过其被观察者是类不是接口，复用性降低。</li>
 </ul>
-</li>
-</ol>
-<h4 id="4、安装Git"><a href="#4、安装Git" class="headerlink" title="4、安装Git"></a>4、安装Git</h4><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git下载地址</a><br>下载安装Git，安装位置可自由选择。</p>
-<h4 id="5、配置GitHubSSH"><a href="#5、配置GitHubSSH" class="headerlink" title="5、配置GitHubSSH"></a>5、配置GitHubSSH</h4><h4 id="6、初始化配置Hexo"><a href="#6、初始化配置Hexo" class="headerlink" title="6、初始化配置Hexo"></a>6、初始化配置Hexo</h4><p><strong>简介：</strong> Hexo详细说明参考<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a>，Hexo就是一个用Node.js编写的静态网站生成器(所以需要安装Node.js)，可以用来做博客框架，恰好它还可以将静态网站部署到GitHub，所以你编写的博客通过Hexo生成静态页面，然后在部署到GitHub中，通过访问GitHub中的页面也都是静态页面。</p>
-<ol>
-<li><p>在写博客的地方创建文件夹<br>例如，我在D盘创建Hexo文件夹。</p>
-</li>
-<li><p>在D:/Hexo文件夹按住shift点击鼠标右键选择<strong>在此处打开Powershell窗口</strong></p>
-</li>
-<li>输入<code>npm install hexo-cli -g</code>命令，等待</li>
-<li>等待完成后输入 hexo -v查看是否安装。</li>
-<li>打开D:/hexo文件夹，鼠标右键选择<strong>git bash here</strong>,输入<code>hexo init blog</code>命令来初始化blog目录，该目录用来存放博客相关。</li>
-<li><p>git bash窗口中输入以下命令：</p>
-<ul>
-<li>cd blog</li>
-<li>npm install</li>
-<li>hexo s</li>
-</ul>
-</li>
-<li><p>浏览器输入 localhost:4000,看能否打开Hexo默认主题。</p>
-</li>
-</ol>
-<p>至此，博客系统搭建完成，需要手动配置博客主题(为了好看)。</p>
-<h4 id="7、Next主题使用"><a href="#7、Next主题使用" class="headerlink" title="7、Next主题使用"></a>7、Next主题使用</h4><p>在<a href="https://hexo.io" target="_blank" rel="noopener">Hexo官网</a> 上方有主题栏，可供选择。<br>这里采用使用比较多的主题：<a href="https://theme-next.org/" target="_blank" rel="noopener">NexT主题</a>。</p>
-<p>仓库下载地址：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT仓库</a>，可选择git clone或下载压缩包形式下载。</p>
-<ol>
-<li>解压缩压缩包，并将文件夹更名为next，移动到blog/themes目录中。</li>
-<li>修改Hexo配置文件_config.yml</li>
-</ol>
-<p>修改配置文件详情即接下来的步骤，请参考<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT文档</a> 或者博客末尾的第二个视频，文档和视频都非常详细。</p>
-<p><strong>参考视频教程(B站)：</strong><br><a href="https://www.bilibili.com/video/av24897960/" target="_blank" rel="noopener">GitHub+hexo搭建博客</a><br><a href="https://www.bilibili.com/video/av17653359/" target="_blank" rel="noopener">使用Next主题优化博客</a></p>
 
       
     </div>
@@ -616,7 +580,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/18/StartMyBlog/" title="使用GitPages+Hexo搭建并开通博客">2019/02/18/StartMyBlog/</a>
+        <a href="/2019/03/08/javaObserver/" title="观察者模式">2019/03/08/javaObserver/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -672,9 +636,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分享/" rel="tag"><i class="fa fa-tags"></i> 分享</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
-            <a href="/tags/其他/" rel="tag"><i class="fa fa-tags"></i> 其他</a>
+            <a href="/tags/设计模式/" rel="tag"><i class="fa fa-tags"></i> 设计模式</a>
           
         </div>
       
@@ -687,15 +651,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/04/jvmObjectCreate/" rel="next" title="jvm中对象的创建、布局和访问">
+                <i class="fa fa-chevron-left"></i> jvm中对象的创建、布局和访问
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/20/jvmGC/" rel="prev" title="jvm 内存分配与垃圾收集">
-                jvm 内存分配与垃圾收集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -889,7 +853,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitPages-Hexo搭建GitHub博客"><span class="nav-number">1.</span> <span class="nav-text">GitPages Hexo搭建GitHub博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、下载安装node-js"><span class="nav-number">1.1.</span> <span class="nav-text">1、下载安装node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装-Sublime-text-3"><span class="nav-number">1.2.</span> <span class="nav-text">2、安装 Sublime text 3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、注册GitHub账号"><span class="nav-number">1.3.</span> <span class="nav-text">3、注册GitHub账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、安装Git"><span class="nav-number">1.4.</span> <span class="nav-text">4、安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、配置GitHubSSH"><span class="nav-number">1.5.</span> <span class="nav-text">5、配置GitHubSSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、初始化配置Hexo"><span class="nav-number">1.6.</span> <span class="nav-text">6、初始化配置Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、Next主题使用"><span class="nav-number">1.7.</span> <span class="nav-text">7、Next主题使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式的角色"><span class="nav-number">2.</span> <span class="nav-text">观察者模式的角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#场景举例"><span class="nav-number">3.</span> <span class="nav-text">场景举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例代码"><span class="nav-number">4.</span> <span class="nav-text">实例代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
