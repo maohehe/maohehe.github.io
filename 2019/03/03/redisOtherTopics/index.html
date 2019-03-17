@@ -112,7 +112,7 @@
 <meta property="og:description" content="一、Redis事务1、事务简介Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pnsnkgpv4.bkt.clouddn.com/rediszhucong.png">
-<meta property="og:updated_time" content="2019-03-04T05:11:25.819Z">
+<meta property="og:updated_time" content="2019-03-17T14:32:39.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四、高级话题 - 事务，持久化，主从复制，安全设置">
 <meta name="twitter:description" content="一、Redis事务1、事务简介Redis中的事务是一组命令的集合，至少是两个或两个以上的命令，事务保证这些命令被执行时中间不会被任何其他操作打断。">
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 13:11:25" itemprop="dateModified" datetime="2019-03-04T13:11:25+08:00">2019-03-04</time>
+                <time title="修改时间：2019-03-17 22:32:39" itemprop="dateModified" datetime="2019-03-17T22:32:39+08:00">2019-03-17</time>
               
             
           </span>
@@ -472,7 +472,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
 
                 
                 
@@ -572,13 +579,13 @@
 <p>默认启用RDB。</p>
 </blockquote>
 <h5 id="2-配置RDB"><a href="#2-配置RDB" class="headerlink" title="2. 配置RDB"></a>2. 配置RDB</h5><p>RDB是默认开启的持久化方式。</p>
-<p>在redis.conf 文件中的SNAPSHOTTING模块中配置。</p>
+<p>在<code>redis.conf</code> 文件中的SNAPSHOTTING模块中配置。</p>
 <ol>
-<li><p>配置执行RDB生成快照文件的时间策略。<br> 格式：<strong>save seconds keychanges</strong><br> 作用：只要满足在N秒内有M个key发生了变动这一策略，就生成快照，自动保存数据。<br> save 900 1<br> save 300 10<br> save 60 10000</p>
+<li><p>配置执行<code>RDB</code>生成快照文件的时间策略。<br> 格式：<strong><code>save seconds keychanges</code></strong><br> 作用：只要满足在 N 秒内有 M 个key发生了变动这一策略，就生成快照，自动保存数据。<br> <code>save 900 1</code><br> <code>save 300 10</code><br> <code>save 60 10000</code></p>
 </li>
-<li><p>dbfilename：设置RDB的磁盘保存数据的文件名。</p>
+<li><p><code>dbfilename</code>：设置<code>RDB</code>的磁盘保存数据的文件名。</p>
 </li>
-<li>dir：指定RDB文件的存储位置，默认是 ./ 当前目录。</li>
+<li><code>dir</code>：指定<code>RDB</code>文件的存储位置，默认是<code>./</code>当前目录。</li>
 </ol>
 <h5 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h5><p><strong>优点：</strong> 由于存储的是数据快照文件，恢复数据比较快。<br><strong>缺点：</strong></p>
 <ol>
@@ -587,18 +594,18 @@
 </ol>
 <h4 id="2-AOF方式"><a href="#2-AOF方式" class="headerlink" title="2. AOF方式"></a>2. AOF方式</h4><h5 id="1-AOF介绍"><a href="#1-AOF介绍" class="headerlink" title="1. AOF介绍"></a>1. AOF介绍</h5><p>Append-only file，Redis每次接收到一条改变数据的命令时，它将把该命令写到一个AOF文件中（只记录写操作，不记录读操作），当Redis重启时，它通过执行AOF文件中所有的命令来恢复数据。</p>
 <h5 id="2-AOF配置"><a href="#2-AOF配置" class="headerlink" title="2. AOF配置"></a>2. AOF配置</h5><p>AOF默认是不开启的。</p>
-<p>在redis.conf文件中修改：</p>
+<p>在<code>redis.conf</code>文件中修改：</p>
 <ol>
-<li>appendonly：默认是 no ，改成yes 即开启了AOF持久化。</li>
-<li>appendfilename：指定AOF文件名，默认为 appendonly.aof。</li>
-<li>dir：指定RDB和AOF文件存储位置，默认 ./ 当前目录。</li>
-<li>appendfsync：配置项aof文件写命令数据的策略：<ul>
-<li>no：不主动进行同步操作，完全由操作系统进行。速度快但不安全。</li>
-<li>always：每次执行写入都会执行同步，慢但安全。</li>
-<li>everysec：每秒执行一次同步操作，比较平衡。<strong>默认选项</strong>。</li>
+<li><code>appendonly</code>：默认是 no ，改成yes 即开启了AOF持久化。</li>
+<li><code>appendfilename</code>：指定AOF文件名，默认为 appendonly.aof。</li>
+<li><code>dir</code>：指定RDB和AOF文件存储位置，默认 ./ 当前目录。</li>
+<li><code>appendfsync</code>：配置项aof文件写命令数据的策略：<ul>
+<li><code>no</code>：不主动进行同步操作，完全由操作系统进行。速度快但不安全。</li>
+<li><code>always</code>：每次执行写入都会执行同步，慢但安全。</li>
+<li><code>everysec</code>：每秒执行一次同步操作，比较平衡。<strong>默认选项</strong>。</li>
 </ul>
 </li>
-<li>auto-aof-rewrite-min-size：允许重写的最小AOF文件大小，默认64M，当文件大于64M，开始整理AOF文件。去掉无用的操作命令，来缩小AOF文件。</li>
+<li><code>auto-aof-rewrite-min-size</code>：允许重写的最小AOF文件大小，默认64M，当文件大于64M，开始整理AOF文件。去掉无用的操作命令，来缩小AOF文件。</li>
 </ol>
 <h2 id="三、主从复制"><a href="#三、主从复制" class="headerlink" title="三、主从复制"></a>三、主从复制</h2><h3 id="1、主从复制-读写分离"><a href="#1、主从复制-读写分离" class="headerlink" title="1、主从复制-读写分离"></a>1、主从复制-读写分离</h3><blockquote>
 <p>通过RDB或AOF持久化，可以将内存数据保存在磁盘，数据不易丢失或丢失少量数据。如果磁盘损坏，仍然会丢失数据。</p>
@@ -885,7 +892,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1037,7 +1044,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">109k</span>
+    <span title="本站总字数">110k</span>
   
 
   
@@ -1046,7 +1053,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:39</span>
+    <span title="站点阅读时长">1:40</span>
   
 </div>
 
