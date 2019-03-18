@@ -103,25 +103,27 @@
 
 
 
-  <meta name="description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
-<meta name="keywords" content="java,jvm">
+  <meta name="description" content="一、概述某些情况下，会把一个类放到另一个类的内部定义，这中定义在其他类里面的类就被称为内部类，包含内部类的类叫外部类。 作用：  内部类提供了更好的封装，可以把内部类隐藏在外部类里面，即使是同一包下的类也不允许访问该内部类。 内部类成员可以直接访问外部类的私有数据，因为内部类被当成其外部类的成员，同一类的成员之间当然可以互相访问，包括私有数据。但外部类不能访问内部类的实现细节，例如内部类的成员变量">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新生代为何分为一个Eden区和两个Survivor区">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/index.html">
+<meta property="og:title" content="java内部类">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/18/javaInnerClass/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta property="og:description" content="一、概述某些情况下，会把一个类放到另一个类的内部定义，这中定义在其他类里面的类就被称为内部类，包含内部类的类叫外部类。 作用：  内部类提供了更好的封装，可以把内部类隐藏在外部类里面，即使是同一包下的类也不允许访问该内部类。 内部类成员可以直接访问外部类的私有数据，因为内部类被当成其外部类的成员，同一类的成员之间当然可以互相访问，包括私有数据。但外部类不能访问内部类的实现细节，例如内部类的成员变量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T05:26:39.238Z">
+<meta property="og:image" content="http://pnsnkgpv4.bkt.clouddn.com/InnerClassMem.png">
+<meta property="og:updated_time" content="2019-03-18T03:30:27.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新生代为何分为一个Eden区和两个Survivor区">
-<meta name="twitter:description" content="问题：为什么新生代还要分为Eden区和两个Survivor区? 注意：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象 1、为什么要新生代要分区？ 新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…">
+<meta name="twitter:title" content="java内部类">
+<meta name="twitter:description" content="一、概述某些情况下，会把一个类放到另一个类的内部定义，这中定义在其他类里面的类就被称为内部类，包含内部类的类叫外部类。 作用：  内部类提供了更好的封装，可以把内部类隐藏在外部类里面，即使是同一包下的类也不允许访问该内部类。 内部类成员可以直接访问外部类的私有数据，因为内部类被当成其外部类的成员，同一类的成员之间当然可以互相访问，包括私有数据。但外部类不能访问内部类的实现细节，例如内部类的成员变量">
+<meta name="twitter:image" content="http://pnsnkgpv4.bkt.clouddn.com/InnerClassMem.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/18/javaInnerClass/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>新生代为何分为一个Eden区和两个Survivor区 | MaoHe's Blog</title>
+  <title>java内部类 | MaoHe's Blog</title>
   
 
 
@@ -393,7 +395,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/18/javaInnerClass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +412,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">新生代为何分为一个Eden区和两个Survivor区
+          <h1 class="post-title" itemprop="name headline">java内部类
 
               
             
@@ -436,24 +438,12 @@
                 
               
 
-              <time title="创建时间：2019-02-21 20:09:04" itemprop="dateCreated datePublished" datetime="2019-02-21T20:09:04+08:00">2019-02-21</time>
+              <time title="创建时间：2019-03-18 11:27:52 / 修改时间：11:30:27" itemprop="dateCreated datePublished" datetime="2019-03-18T11:27:52+08:00">2019-03-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-14 13:26:39" itemprop="dateModified" datetime="2019-03-14T13:26:39+08:00">2019-03-14</time>
               
             
           </span>
@@ -477,7 +467,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java虚拟机/" itemprop="url" rel="index"><span itemprop="name">java虚拟机</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
 
                 
                 
@@ -495,8 +485,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" itemprop="commentCount"></span>
+                <a href="/2019/03/18/javaInnerClass/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/18/javaInnerClass/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -525,7 +515,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">4.1k</span>
               
 
               
@@ -539,7 +529,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -559,37 +549,74 @@
       
 
       
-        <p>问题：为什么新生代还要分为Eden区和两个Survivor区?</p>
-<p><strong>注意</strong>：新生代GC是对所有存放对象的区域进行垃圾收集，并不只是Eden区，因为Survivor区保留的存活对象</p>
-<h4 id="1、为什么要新生代要分区？"><a href="#1、为什么要新生代要分区？" class="headerlink" title="1、为什么要新生代要分区？"></a>1、为什么要新生代要分区？</h4><ul>
-<li>新生代采用复制算法进行垃圾收集，复制算法是需要分区的，原本是 1:1 分，进行垃圾收集时，A区中的存活对象复制到B区中，并将A区格式化，下次存对象就存到B区，收集时也是从B区复制到A区，循环往复…</li>
-</ul>
+        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>某些情况下，会把一个类放到另一个类的内部定义，这中定义在其他类里面的类就被称为内部类，包含内部类的类叫外部类。</p>
+<p>作用：</p>
+<ol>
+<li>内部类提供了更好的封装，可以把内部类隐藏在外部类里面，即使是同一包下的类也不允许访问该内部类。</li>
+<li>内部类成员可以<strong>直接访问</strong>外部类的<strong>私有数据</strong>，因为内部类被当成其外部类的成员，同一类的成员之间当然可以互相访问，包括私有数据。但外部类不能访问内部类的实现细节，例如内部类的成员变量。</li>
+<li>匿名内部类适合用于创建哪些仅需要一次使用的类。</li>
+</ol>
 <a id="more"></a>
-<h4 id="2、为什么分Eden区和Survivor区比例不同？"><a href="#2、为什么分Eden区和Survivor区比例不同？" class="headerlink" title="2、为什么分Eden区和Survivor区比例不同？"></a>2、为什么分Eden区和Survivor区比例不同？</h4><ul>
-<li>新生代中的对象是比较多的，如果每次使用一半，空闲一半，浪费太严重，所以比例不同。</li>
-<li>80% 的空间分给Eden区域，10%+10% 分别分给from Survivor和to Survivor区，Eden区用来给新对象分配空间，Survivor用来保留存活对象。</li>
-<li>具体的 8:1:1 的比例是实验得出来的最优（当然不是我实验的）。</li>
+<p>与外部类语法上的区别：</p>
+<ol>
+<li>内部类可以额外的使用<code>private,protected,static</code>修饰符修饰，外部类则不可以。</li>
+<li>普通内部类（无<code>static</code>修饰）不能含有静态成员。</li>
+</ol>
+<h3 id="二、四种内部类"><a href="#二、四种内部类" class="headerlink" title="二、四种内部类"></a>二、四种内部类</h3><p>内部类的定义方式很简单，和定义类的方式一致，只是类的定义外置在另一个类的内部，包括类内部的任何位置，即使是方法内部也可以。</p>
+<p>内部类根据其位置又分为<strong>成员内部类</strong>和<strong>非成员内部类</strong>，成员内部类是一种与成员变量、方法、构造器、初始代码块相似的类成员；而非成员内部类是定义在方法中的，如局部内部类和匿名内部类。</p>
+<h4 id="1、成员内部类"><a href="#1、成员内部类" class="headerlink" title="1、成员内部类"></a>1、成员内部类</h4><p>因为成员内部类是作为外部类的成员，所以和类的成员变量类似，当然也可以使用<code>private、protected</code>等关键词修饰。</p>
+<h5 id="1-非静态内部类"><a href="#1-非静态内部类" class="headerlink" title="1. 非静态内部类"></a>1. 非静态内部类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">    <span class="comment">//此处可定义内部类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>非静态内部类不使用<code>static</code>修饰，内部类中可以访问外部类的<strong>私有实例变量</strong>。</p>
+<p>例如，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cow</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cow</span><span class="params">(<span class="keyword">double</span> weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//非静态内部类</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">CowLeg</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">double</span> length;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">CowLeg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">CowLeg</span><span class="params">(<span class="keyword">double</span> length)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.length = length;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"牛腿长度"</span> + length);</span><br><span class="line">            <span class="comment">//内部类中访问外部类私有成员weight</span></span><br><span class="line">            System.out.println(<span class="string">"牛重："</span> + weight);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CowLeg leg = <span class="keyword">new</span> CowLeg(<span class="number">12.5</span>);</span><br><span class="line">        leg.info();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Cow cow = <span class="keyword">new</span> Cow(<span class="number">500</span>);</span><br><span class="line">        cow.test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实验结果</span></span><br><span class="line">D:\java\jdk\bin\java.exe ...</span><br><span class="line">牛腿长度<span class="number">12.5</span></span><br><span class="line">牛重：<span class="number">500.0</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>为什么非静态内部类可以访问外部类的<code>private</code>成员变量呢？</p>
+<ul>
+<li>因为在非静态内部类对象里面，保存了一个它寄生的<strong>外部类对象的引用</strong>，注意是外部类对象，也就是说，调用内部类的实例方法时，必须得有内部类的实例对象，而内部类实例对象又寄生在外部类实例对象里面，所以必须得有外部类实例对象。</li>
 </ul>
-<h4 id="3、为什么不是一个Eden-一个Survivor？"><a href="#3、为什么不是一个Eden-一个Survivor？" class="headerlink" title="3、为什么不是一个Eden + 一个Survivor？"></a>3、为什么不是一个Eden + 一个Survivor？</h4><ul>
-<li>如果只有Eden和一个Survivor空间的话，收集操作会产生碎片化。<ul>
-<li>举例：假设条件是Eden 80% + Survivor20%。新分配对象到Eden区，Eden满后，需要GC，将Eden区存活对象复制到Survivor，之后清理Eden区。接着又存对象到Eden区，再次满了需要GC，这次GC会将Eden区存活对象复制到Survivor区，但是Survivor也有死亡的对象需要回收，Survivor区存活的对象仍然保持原位置，Survivor中回收剩下的区域就变成碎片，因为复制算法不会自动整理空间。久而久之，内存碎片增多，造成资源浪费。</li>
+<p><img src="http://pnsnkgpv4.bkt.clouddn.com/InnerClassMem.png" alt="内存"></p>
+<p>非静态内部类中查找一个变量的顺序是：方法内、内部类成员变量、外部类成员变量。如果仍旧没查找到，就抛出异常。</p>
+<p>如果某一变量在外部类、内部类、内部类方法中都存在，则使用以下方法区分：</p>
+<ul>
+<li><code>OuterClass.this.变量</code> ：获取外部类的成员变量。</li>
+<li><code>this.变量</code> ：获取内部类的实例变量。</li>
+<li><code>变量</code> ：获取方法内的局部变量。</li>
 </ul>
+<p><strong>几种注意事项</strong>：</p>
+<ol>
+<li><p>非静态内部类可以访问外部类的私有成员，但外部类不可以访问内部类的私有成员，必须通过创建内部类对象来访问内部类私有成员变量。</p>
 </li>
-<li>为什么每次GC完事不把Survivor区存活的对象再复制到Eden区？<ul>
-<li>似乎挺有道理，但是一是再次复制效率比较低，二来就没法判断哪些对象什么时候可以晋升至老年代了。</li>
-</ul>
+<li><p>根据静态成员不能访问非静态成员的规则，外部类的静态方法、静态代码块等都不能访问非静态内部类，也不能使用非静态内部类定义变量、创建实例对象等。即，不允许在外部类的静态成员中直接使用非静态内部类。</p>
 </li>
-</ul>
-<h4 id="4、一个80-的Eden加两个10-的Survivor试试？"><a href="#4、一个80-的Eden加两个10-的Survivor试试？" class="headerlink" title="4、一个80%的Eden加两个10%的Survivor试试？"></a>4、一个80%的Eden加两个10%的Survivor试试？</h4><ul>
-<li>将新生代分为 Eden(80%) + From Survivor(10%) + To Survivor(10%)，<strong>注意</strong>：这里的From和To不是和某一块Survivor区绑定的，即这次From是第一块Survivor，下次From就变成了第二块Survivor了。</li>
-<li>每次分配新对象还是分配到Eden区中，但是每次GC仍只使用Eden区和一块Survivor区。<ul>
-<li>第一次GC：首先分配内存给Eden区，Eden满后需要GC，将存活对象复制到一块Survivor中，然后清理Eden区域。</li>
-<li>第二次GC：将Eden和上次使用的Survivor区中的存活对象复制到另一块空闲的Survivor区中，再统一清理Eden区和上次使用的Survivor区。咦，这次又变成一块空闲的Survivor区和一块正在使用的Survivor区了，似乎碎片的问题也解决了（因为复制的对象顺序排列）</li>
-<li>第 3、4 … n 次GC：GC过程都和第二次一样。在Survivor中的对象每度过一次GC，对象的Age+1，等到了年龄阈值（默认15，可设置）就可晋升至老年代，当然还有其他方式晋升老年代（不阐述了，参考《jvm内存分配和垃圾收集》）。</li>
-</ul>
-</li>
-</ul>
-<p>问题似乎就这么不完美的讲通了…</p>
+</ol>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//编译错误</span></span><br><span class="line">        <span class="keyword">new</span> InnerClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>非静态内部类中也不能有静态方法、静态成员变量、静态代码块等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        <span class="comment">//下面三种都编译错误</span></span><br><span class="line">        <span class="keyword">static</span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-静态内部类"><a href="#2-静态内部类" class="headerlink" title="2. 静态内部类"></a>2. 静态内部类</h5><p>使用<code>static</code>修饰的内部类属于类本身，而不是属于类对象，类似于<code>static</code>变量属于类一样。</p>
+<p>根据静态只能访问静态的规则，<strong>静态内部类中只能访问外部类的静态成员</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClassTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">10</span>; <span class="comment">//静态成员</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> b = <span class="number">20</span>; <span class="comment">//实例成员</span></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accessOuterA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(a); <span class="comment">//正确</span></span><br><span class="line">            System.out.println(b); <span class="comment">//错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>几种注意事项</strong>：</p>
+<ol>
+<li>静态内部类是外部类的一个静态成员，所以外部类的所有方法、代码块中都可以使用静态内部类来定义变量、创建对象等。</li>
+<li>外部类依然无法直接访问内部类的成员，但可以使用静态内部类类名访问静态内部类的静态成员，使用静态内部类对象访问内部类的实例成员。</li>
+</ol>
+<h4 id="2、非成员内部类"><a href="#2、非成员内部类" class="headerlink" title="2、非成员内部类"></a>2、非成员内部类</h4><h5 id="1-局部内部类"><a href="#1-局部内部类" class="headerlink" title="1. 局部内部类"></a>1. 局部内部类</h5><p>把内部类放在方法中定义，就是局部内部类，仅在方法中有效，不能在外部类的方法以外的地方使用。</p>
+<p>局部内部类只在方法中有效，所以使用的很少，了解即可。</p>
+<h5 id="2-匿名内部类"><a href="#2-匿名内部类" class="headerlink" title="2. 匿名内部类"></a>2. 匿名内部类</h5><p>匿名内部类适合创建只需要一次使用的类。</p>
+<p>创建匿名内部类时会立即创建一个该类的实例。并且不能重复使用。</p>
+<p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> 实现接口()&#123;</span><br><span class="line">    <span class="comment">//类体</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">new</span> 父类构造器(参数)&#123;</span><br><span class="line">    <span class="comment">//类体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>匿名内部类也是一个类，并且会立即创建实例对象，所以不能定义成抽象类，因为抽象类不能进行实例化对象。</li>
+<li>为什么可以定义实现接口呢？接口不是也没有实例对象吗？ 因为一个类实现接口之后要覆写接口中所有方法，之后这个类就可以实例化对象了。</li>
+<li>匿名内部类没有类名，所以也没有构造方法。但是可以定义初始代码块，来进行初始化。</li>
+</ol>
+<p>实例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(Product p)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"买了一个产品："</span> + p.getName());</span><br><span class="line">        System.out.println(<span class="string">"花了大洋数："</span> + p.getPrice());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ProductTest test=<span class="keyword">new</span> ProductTest();</span><br><span class="line">        test.test(<span class="keyword">new</span> Product() &#123; <span class="comment">//定义内部类</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">6599.99</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"华为mate20pro"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>tets()</code>方法参数中定义了一个匿名内部类，立即初始化了一个<code>Product</code>对象作为方法参数。</p>
 
       
     </div>
@@ -605,7 +632,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" title="新生代为何分为一个Eden区和两个Survivor区">2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/</a>
+        <a href="/2019/03/18/javaInnerClass/" title="java内部类">2019/03/18/javaInnerClass/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -663,8 +690,6 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
-          
         </div>
       
 
@@ -676,8 +701,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/20/jvmGC/" rel="next" title="jvm 内存分配与垃圾收集">
-                <i class="fa fa-chevron-left"></i> jvm 内存分配与垃圾收集
+              <a href="/2019/03/17/redisKeyDel/" rel="next" title="redis键过期策略与内存淘汰机制">
+                <i class="fa fa-chevron-left"></i> redis键过期策略与内存淘汰机制
               </a>
             
           </div>
@@ -685,10 +710,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/22/jvmMemoryArea/" rel="prev" title="jvm内存区域">
-                jvm内存区域 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -884,7 +905,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、为什么要新生代要分区？"><span class="nav-number">1.</span> <span class="nav-text">1、为什么要新生代要分区？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、为什么分Eden区和Survivor区比例不同？"><span class="nav-number">2.</span> <span class="nav-text">2、为什么分Eden区和Survivor区比例不同？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、为什么不是一个Eden-一个Survivor？"><span class="nav-number">3.</span> <span class="nav-text">3、为什么不是一个Eden + 一个Survivor？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、一个80-的Eden加两个10-的Survivor试试？"><span class="nav-number">4.</span> <span class="nav-text">4、一个80%的Eden加两个10%的Survivor试试？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、四种内部类"><span class="nav-number">2.</span> <span class="nav-text">二、四种内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、成员内部类"><span class="nav-number">2.1.</span> <span class="nav-text">1、成员内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-非静态内部类"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 非静态内部类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-静态内部类"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 静态内部类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、非成员内部类"><span class="nav-number">2.2.</span> <span class="nav-text">2、非成员内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-局部内部类"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 局部内部类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-匿名内部类"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 匿名内部类</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
