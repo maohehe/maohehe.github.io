@@ -103,27 +103,25 @@
 
 
 
-  <meta name="description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
-<meta name="keywords" content="java,jvm">
+  <meta name="description" content="抽象类一、概述首先应明确，抽象类不能创建实例对象，只能被其他类当做父类来继承。 当编写几个类时，通常会定义一些方法，作为描述这个类的行为方式，这些方法都有具体的实现动作（方法体）。如果某个父类只知道子类应该有哪些方法，而不知道子类对这些方法的具体实现，怎么办呢？">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm中对象的创建、布局和访问">
-<meta property="og:url" content="https://maohehe.github.io/2019/03/04/jvmObjectCreate/index.html">
+<meta property="og:title" content="java抽象类与接口">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/18/javaAbstractClassInterface/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
+<meta property="og:description" content="抽象类一、概述首先应明确，抽象类不能创建实例对象，只能被其他类当做父类来继承。 当编写几个类时，通常会定义一些方法，作为描述这个类的行为方式，这些方法都有具体的实现动作（方法体）。如果某个父类只知道子类应该有哪些方法，而不知道子类对这些方法的具体实现，怎么办呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://camo.githubusercontent.com/5923998f8408ea936a0416291faf1b2a1d215108/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f342f32372f313633303662393537333936383934363f773d37383626683d33363226663d706e6726733d313039323031">
-<meta property="og:updated_time" content="2019-03-14T05:26:30.591Z">
+<meta property="og:updated_time" content="2019-03-18T15:41:13.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm中对象的创建、布局和访问">
-<meta name="twitter:description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
-<meta name="twitter:image" content="https://camo.githubusercontent.com/5923998f8408ea936a0416291faf1b2a1d215108/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f342f32372f313633303662393537333936383934363f773d37383626683d33363226663d706e6726733d313039323031">
+<meta name="twitter:title" content="java抽象类与接口">
+<meta name="twitter:description" content="抽象类一、概述首先应明确，抽象类不能创建实例对象，只能被其他类当做父类来继承。 当编写几个类时，通常会定义一些方法，作为描述这个类的行为方式，这些方法都有具体的实现动作（方法体）。如果某个父类只知道子类应该有哪些方法，而不知道子类对这些方法的具体实现，怎么办呢？">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/03/04/jvmObjectCreate/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/18/javaAbstractClassInterface/">
 
 
 
@@ -133,7 +131,7 @@
   };
 </script>
 
-  <title>jvm中对象的创建、布局和访问 | MaoHe's Blog</title>
+  <title>java抽象类与接口 | MaoHe's Blog</title>
   
 
 
@@ -395,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/04/jvmObjectCreate/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/18/javaAbstractClassInterface/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -412,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jvm中对象的创建、布局和访问
+          <h1 class="post-title" itemprop="name headline">java抽象类与接口
 
               
             
@@ -438,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-03-04 16:30:57" itemprop="dateCreated datePublished" datetime="2019-03-04T16:30:57+08:00">2019-03-04</time>
+              <time title="创建时间：2019-03-18 23:39:49 / 修改时间：23:41:13" itemprop="dateCreated datePublished" datetime="2019-03-18T23:39:49+08:00">2019-03-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-14 13:26:30" itemprop="dateModified" datetime="2019-03-14T13:26:30+08:00">2019-03-14</time>
               
             
           </span>
@@ -479,7 +465,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java虚拟机/" itemprop="url" rel="index"><span itemprop="name">java虚拟机</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
 
                 
                 
@@ -497,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/03/04/jvmObjectCreate/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/04/jvmObjectCreate/" itemprop="commentCount"></span>
+                <a href="/2019/03/18/javaAbstractClassInterface/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/18/javaAbstractClassInterface/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -527,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">2.6k</span>
               
 
               
@@ -561,60 +547,44 @@
       
 
       
-        <h3 id="java堆中对象的创建、布局和访问"><a href="#java堆中对象的创建、布局和访问" class="headerlink" title="java堆中对象的创建、布局和访问"></a>java堆中对象的创建、布局和访问</h3><h4 id="1-对象的创建"><a href="#1-对象的创建" class="headerlink" title="1. 对象的创建"></a>1. 对象的创建</h4><p>创建对象的过程：<strong>类加载检查、分配内存、初始化零值、设置对象头、执行<code>&lt;init&gt;</code>方法</strong></p>
+        <h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><h4 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h4><p>首先应明确，抽象类不能创建实例对象，只能被其他类当做父类来继承。</p>
+<p>当编写几个类时，通常会定义一些方法，作为描述这个类的行为方式，这些方法都有具体的实现动作（方法体）。如果某个父类只知道子类应该有哪些方法，而不知道子类对这些方法的具体实现，怎么办呢？</p>
 <a id="more"></a>
-<ol>
-<li><p><strong>类加载检查</strong>：当我们用new关键字实例化对象时，最后到虚拟机执行的就变成 new 指令，虚拟机遇到一条 new 指令时，首先检查 new 指令的参数是否能在常量池中定位到这个类的符号引用，如果常量池中有符号引用，就检查这个符号引用的类是否已被加载、解析、初始化过。如果常量池没有该符号引用，那必须先将参数表示的类进行加载。</p>
-</li>
-<li><p><strong>分配内存</strong>：对象需要的内存在经过类加载之后就可以确定，之后就在堆中划一块内存给这个对象，具体的划分内存的方式有两种：</p>
-<ol>
-<li><strong>指针碰撞</strong>：要求内存整齐，就是分配过对象的内存在一边，按照顺序分配。这样在最后一个对象尾部有一个指针，当要分配新对象时，就指针后移对象需要的距离分配给对象。</li>
-<li><strong>空闲列表</strong>：内存不是整齐的，使用过的和空闲的可能交错。虚拟机维护了一个”空闲列表”，列表上记录了空闲的内存区，当给对象分配内存，就从列表上找一块装得下该对象的内存给对象，同时将这块内存从列表中去掉。</li>
+<p>例如有一个父类<code>Shape</code>，定义了许多二维形状，其有很多子类，像<code>circle</code>圆形，<code>triangle</code>三角形等，这些方法都有共同的行为特征，求周长，求面积，但是父类<code>shape</code>却不知道每种子类的方法具体应该如何实现，所以就将该<code>shape</code>父类定义为抽象类，只用来表明子类的通用特性。</p>
+<p>总的来说，抽象类就是从多个具体类中抽象出来的父类，它具有更高层次的抽象。<strong>从多个具有相同特征的类中抽象出来一个抽象类</strong>，以这个类作为其子类的模版，可以避免子类设计的随意性。</p>
+<h4 id="二、抽象类的规则"><a href="#二、抽象类的规则" class="headerlink" title="二、抽象类的规则"></a>二、抽象类的规则</h4><ol>
+<li>抽象类使用<code>abstract</code>关键字修饰，<strong>有抽象方法的类只能被定义成抽象类</strong>，但是抽象类并不一定要有抽象方法。</li>
+<li>抽象类<strong>不可以被实例化</strong>，因为它只定义了方法却未实现，没法调用。</li>
+<li>抽象类中并不只有抽象方法，还可以包含成员变量、普通方法、构造器、初始化块、内部类等。因为抽象类不可以实例化对象，所以构造方法是用来给子类调用的。</li>
 </ol>
+<p>什么时候一个类会被包含抽象方法呢？</p>
 <ul>
-<li>思考：为什么有规整的和不规整的内存区域呢？因为和垃圾收集有关，有的内存经过垃圾收集之后内存是整齐的（复制算法、标记整理算法），有的收集之后就是不规整的（标记清除算法），详情参考我的《jvm内存分配与垃圾收集》一文。</li>
+<li>类中直接定义抽象方法。</li>
+<li>类继承了一个抽象父类，但是没有实现其中的所有抽象方法，部分抽象方法被继承了下来。</li>
+<li>类实现了接口，但是也没有完全实现接口的所有方法，未实现的方法就是抽象方法被继承了下来。</li>
 </ul>
-<p>（了解）如果涉及<strong>多线程分配内存</strong>呢？就是一个线程正在分配内存，指针还没开始移动，另一个线程就在原来的区域进行分配了，造成冲突。解决方式有两种：</p>
-<ul>
-<li>同步处理：一个线程分配内存就上锁，别的线程不能同时分配。虚拟机采用<strong>CAS</strong>加<strong>失败重试</strong>方式更新。</li>
-<li>TLAB(Thread Local Allocation Buffer)：本地线程分配缓冲。就是给每个线程在堆中先分配一块区域，线程在自己的内存区域给自己的对象分配内存。当有线程的TLAB用完了，继续向堆申请内存，就要采用同步的方式进行上锁了，不然其他的线程也要同时申请就又冲突了。</li>
-</ul>
-</li>
-<li><p><strong>初始化零值</strong>：给对象分配内存后，jvm要将分配到的内存空间都初始化为零值，可以保证对象的实例字段在不赋初始值就直接使用，程序访问到的是这些字段的数据类型所对应的零值。（零值：如int是0，boolean是false，引用类型为null）。</p>
-</li>
-<li><p><strong>设置对象头</strong>：之后要设置对象头，对象头包括对象是哪个类的实例、对象Hash值、对象GC的Age、类的元数据等。</p>
-</li>
-<li><p><strong>执行<code>&lt;init&gt;</code>方法</strong>：经过以上步骤，对于虚拟机来说，一个新对象已经产生，但对java程序来说，对象创建才刚开始，因为所有字段还为零值，对象还没有根据程序员的意愿初始化。一般来说，执行 new 指令之后会接着执行 <code>&lt;init&gt;</code> 方法，把对象初始化为程序员期望的值，这样一个真正可用的对象才算完全产生。</p>
-</li>
+<h4 id="三、代码实例"><a href="#三、代码实例" class="headerlink" title="三、代码实例"></a>三、代码实例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1、抽象类定义初始代码块</span></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"执行抽象类Shape的初始化块..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2、抽象类定义普通成员变量</span></span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//抽象方法计算周长</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">calPerimeter</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="comment">//抽象方法返回形状</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getType</span><span class="params">()</span></span>;   </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//3、抽象类定义构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shape</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Shape</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4、抽象类定义普通成员方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(String color)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子类继承Shape类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> radius;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(String color, <span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(color); <span class="comment">//子类调用父类的构造器</span></span><br><span class="line">        <span class="keyword">this</span>.radius = radius;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//子类实现抽象方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * <span class="number">3.14</span> * radius;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getColor() + <span class="string">"圆形"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getRadius</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> radius;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRadius</span><span class="params">(<span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.radius = radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="四、abstract关键字与其他关键字的关系"><a href="#四、abstract关键字与其他关键字的关系" class="headerlink" title="四、abstract关键字与其他关键字的关系"></a>四、<code>abstract</code>关键字与其他关键字的关系</h4><ol>
+<li><code>abstract</code>关键字就表明这个类是要被继承的，方法要被覆写的。而<code>final</code>拒绝被继承，拒绝方法被覆写，所以<code>abstract</code>和<code>final</code>关键字不能同时使用。</li>
+<li><code>abstract</code> 关键字修饰方法表示方法没有方法体，无法被调用。而<code>static</code>关键字修饰方法，即表示该方法属于类的，可以通过类名调用。所以两者修饰一个方法是冲突的。</li>
+<li><code>abstract</code> 关键字修饰的方法必须得被子类重写，因此子类应该对该方法有访问权限。所以被<code>abstract</code>修饰的方法不能被<code>private(私有)</code> 修饰。</li>
 </ol>
-<h4 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2. 对象的内存布局"></a>2. 对象的内存布局</h4><p>对象在内存中的布局分为三个区域：<strong>对象头</strong>、<strong>实例数据</strong>、<strong>对齐补充</strong>。</p>
-<h5 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h5><p>对象头包括两部分，第一部分是用于存储<strong>对象自身的运行时数据</strong>，另一部分是<strong>类型指针</strong>。</p>
-<p><strong>对象自身运行时数据</strong>：哈希吗、对象GC的Age、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等。32bit/64bit（和虚拟机位数相同）。</p>
-<p><strong>类型指针</strong>：对象指向它的类元数据的指针，通过这个指针来确定这个对象是哪个类的实例。32bit长度。</p>
-<p><strong>数组长度（可选）</strong>：如果<strong>对象是数组类型（String []）</strong>，还需要32bit记录数组长度。</p>
-<h5 id="2-实例数据"><a href="#2-实例数据" class="headerlink" title="2. 实例数据"></a>2. 实例数据</h5><blockquote>
-<p>实例数据是对象真正存储的有效信息，即程序代码中定义的字段的实际值。</p>
-</blockquote>
-<p>​    实例数据记录的数据包含父类继承下来的，自身定义的，子类定义的。而这几种数据的存储数据受<strong>虚拟机分配策略参数</strong>和字段在java<strong>源码中定义顺序</strong>影响。</p>
-<h5 id="3-对齐补充"><a href="#3-对齐补充" class="headerlink" title="3. 对齐补充"></a>3. 对齐补充</h5><blockquote>
-<p>对齐补充没什么意义，只起占位符作用。</p>
-</blockquote>
-<p>​    虚拟机要求对象的起始地址必须是8字节 的整数倍，即对象占的空间也得是8字节 的整数倍，因为对象头是8字节 的整数倍，实例数据大小不固定，所以需要对齐补充来补全实例数据为8字节的整数倍。</p>
-<h4 id="3-对象的访问"><a href="#3-对象的访问" class="headerlink" title="3. 对象的访问"></a>3. 对象的访问</h4><p>​    我们知道具体对象是在堆中创建的，而我们的java程序是通过栈上的 reference 数据来引用具体对象。那么 reference 数据是怎么指向堆中的具体对象呢？</p>
-<p><strong>访问对象的方式</strong>：</p>
-<ol>
-<li><strong>句柄访问</strong>：java堆中会划分出一块内存作为句柄池，句柄中保存的就是对象的实例数据（堆中）和类型数据（方法区中）具体地址。reference中存储的就是具体对象的句柄信息。<img src="https://camo.githubusercontent.com/5923998f8408ea936a0416291faf1b2a1d215108/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f342f32372f313633303662393537333936383934363f773d37383626683d33363226663d706e6726733d313039323031" alt="图示"></li>
-<li><strong>直接指针访问</strong>：直接指针方式就是reference中保存的就是对象在堆中的具体地址。而对象在方法区中的类型数据信息就由java堆去考虑。</li>
+<h3 id="抽象类与接口的关系"><a href="#抽象类与接口的关系" class="headerlink" title="抽象类与接口的关系"></a>抽象类与接口的关系</h3><h4 id="一、对比"><a href="#一、对比" class="headerlink" title="一、对比"></a>一、对比</h4><ol>
+<li>包含的方法：抽象类可以包含非抽象方法；接口中只有抽象方法。</li>
+<li>方法访问修饰符：抽象类中抽象方法不能使用private修饰，其他都可以；接口中方法默认且只能使用public修饰符。</li>
+<li>实现方式：普通类extends继承抽象类，并实现所有抽象方法；普通类implements实现接口，并实现所有方法。</li>
+<li>构造方法：抽象类可以有构造器，供子类调用；接口中无构造方法。</li>
+<li>与普通类区别：抽象类本身就是一个类，只是不能实例化；而接口和类差别就大了。</li>
+<li>main方法：抽象类可以有main方法并可以运行；接口没有main方法。</li>
+<li>继承关系：抽象方法可以继承类和实现多个接口；接口只能继承接口。</li>
+<li>添加方法：抽象类中添加方法，可以给方法直接实现，子类并不改动；接口中添加方法，子类都要实现它，做出大改动（<code>jdk1.8</code>新特性支持接口默认方法实现）。</li>
 </ol>
-<p>两种方式比较：</p>
-<ul>
-<li>使用句柄访问的话，对象被移动时（如垃圾收集中标记整理、复制算法对象的地址都会变动），只需要修改句柄中的地址，reference数据本身不需要变。</li>
-<li>直接指针访问速度更快，不用先定位句柄，句柄在定位对象，节省一次定位时间。</li>
-</ul>
-<p><strong>参考：</strong></p>
-<ul>
-<li>《深入理解Java虚拟机 - 周志明》</li>
-</ul>
+<h4 id="二、使用抽象类还是接口？"><a href="#二、使用抽象类还是接口？" class="headerlink" title="二、使用抽象类还是接口？"></a>二、使用抽象类还是接口？</h4><ol>
+<li>如果想有一些方法有默认实现，就使用抽象类。接口不允许默认实现（<code>jdk1.8</code>除外）。</li>
+<li>如果想复用父类的方法就是用抽象类，接口中没有方法实现，没法复用。</li>
+<li>如果基本功能不断增加，改变，就使用抽象类，子类做出的相应改变会减少。</li>
+</ol>
 
       
     </div>
@@ -630,7 +600,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/03/04/jvmObjectCreate/" title="jvm中对象的创建、布局和访问">2019/03/04/jvmObjectCreate/</a>
+        <a href="/2019/03/18/javaAbstractClassInterface/" title="java抽象类与接口">2019/03/18/javaAbstractClassInterface/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -688,8 +658,6 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
-          
         </div>
       
 
@@ -701,8 +669,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/04/redisTopics/" rel="next" title="缓存雪崩 缓存穿透 缓存更新">
-                <i class="fa fa-chevron-left"></i> 缓存雪崩 缓存穿透 缓存更新
+              <a href="/2019/03/18/javaInnerClass/" rel="next" title="java内部类">
+                <i class="fa fa-chevron-left"></i> java内部类
               </a>
             
           </div>
@@ -710,10 +678,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/javaObserver/" rel="prev" title="观察者模式">
-                观察者模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -909,7 +873,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java堆中对象的创建、布局和访问"><span class="nav-number">1.</span> <span class="nav-text">java堆中对象的创建、布局和访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对象的创建"><span class="nav-number">1.1.</span> <span class="nav-text">1. 对象的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-对象的内存布局"><span class="nav-number">1.2.</span> <span class="nav-text">2. 对象的内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-对象头"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 对象头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实例数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 实例数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-对齐补充"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 对齐补充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象的访问"><span class="nav-number">1.3.</span> <span class="nav-text">3. 对象的访问</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.</span> <span class="nav-text">抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、概述"><span class="nav-number">1.1.</span> <span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、抽象类的规则"><span class="nav-number">1.2.</span> <span class="nav-text">二、抽象类的规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、代码实例"><span class="nav-number">1.3.</span> <span class="nav-text">三、代码实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、abstract关键字与其他关键字的关系"><span class="nav-number">1.4.</span> <span class="nav-text">四、abstract关键字与其他关键字的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口的关系"><span class="nav-number">2.</span> <span class="nav-text">抽象类与接口的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、对比"><span class="nav-number">2.1.</span> <span class="nav-text">一、对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、使用抽象类还是接口？"><span class="nav-number">2.2.</span> <span class="nav-text">二、使用抽象类还是接口？</span></a></li></ol></li></ol></div>
             
 
           </div>
