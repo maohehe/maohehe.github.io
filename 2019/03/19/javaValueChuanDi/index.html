@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="注意：LinkedList底层数据结构是双向链表，还实现了Deque接口，可作为Queue和Stack使用。 12345678910111213/*** 内部节点类，作为双向链表的节点。*/private static class Node&amp;lt;E&amp;gt; &amp;#123;    E item;    Node&amp;lt;E&amp;gt; next;    Node&amp;lt;E&amp;gt; prev;    Nod">
-<meta name="keywords" content="java,java集合">
+  <meta name="description" content="首先明确一下，java中没有引用传递，只有值传递！ 基本类型的传递基本数据类型作为参数传递给方法时，传递的都是变量的副本。">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java集合框架之LinkedList">
-<meta property="og:url" content="https://maohehe.github.io/2019/02/25/javaLinkedList/index.html">
+<meta property="og:title" content="java值传递与引用传递？">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/19/javaValueChuanDi/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="注意：LinkedList底层数据结构是双向链表，还实现了Deque接口，可作为Queue和Stack使用。 12345678910111213/*** 内部节点类，作为双向链表的节点。*/private static class Node&amp;lt;E&amp;gt; &amp;#123;    E item;    Node&amp;lt;E&amp;gt; next;    Node&amp;lt;E&amp;gt; prev;    Nod">
+<meta property="og:description" content="首先明确一下，java中没有引用传递，只有值传递！ 基本类型的传递基本数据类型作为参数传递给方法时，传递的都是变量的副本。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-04T12:17:29.244Z">
+<meta property="og:updated_time" content="2019-03-19T06:14:28.669Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java集合框架之LinkedList">
-<meta name="twitter:description" content="注意：LinkedList底层数据结构是双向链表，还实现了Deque接口，可作为Queue和Stack使用。 12345678910111213/*** 内部节点类，作为双向链表的节点。*/private static class Node&amp;lt;E&amp;gt; &amp;#123;    E item;    Node&amp;lt;E&amp;gt; next;    Node&amp;lt;E&amp;gt; prev;    Nod">
+<meta name="twitter:title" content="java值传递与引用传递？">
+<meta name="twitter:description" content="首先明确一下，java中没有引用传递，只有值传递！ 基本类型的传递基本数据类型作为参数传递给方法时，传递的都是变量的副本。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/02/25/javaLinkedList/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/19/javaValueChuanDi/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>java集合框架之LinkedList | MaoHe's Blog</title>
+  <title>java值传递与引用传递？ | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/02/25/javaLinkedList/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/19/javaValueChuanDi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java集合框架之LinkedList
+          <h1 class="post-title" itemprop="name headline">java值传递与引用传递？
 
               
             
@@ -436,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-02-25 12:23:29" itemprop="dateCreated datePublished" datetime="2019-02-25T12:23:29+08:00">2019-02-25</time>
+              <time title="创建时间：2019-03-19 14:13:33 / 修改时间：14:14:28" itemprop="dateCreated datePublished" datetime="2019-03-19T14:13:33+08:00">2019-03-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-04 20:17:29" itemprop="dateModified" datetime="2019-03-04T20:17:29+08:00">2019-03-04</time>
               
             
           </span>
@@ -477,7 +465,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java集合/" itemprop="url" rel="index"><span itemprop="name">java集合</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
 
                 
                 
@@ -495,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/02/25/javaLinkedList/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/02/25/javaLinkedList/" itemprop="commentCount"></span>
+                <a href="/2019/03/19/javaValueChuanDi/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/javaValueChuanDi/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -559,14 +547,32 @@
       
 
       
-        <p><strong>注意：</strong>LinkedList底层数据结构是<strong>双向链表</strong>，还实现了Deque接口，可作为Queue和Stack使用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 内部节点类，作为双向链表的节点。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        <span class="keyword">this</span>.item = element;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">        <span class="keyword">this</span>.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>首先明确一下，<strong><code>java</code>中没有引用传递，只有值传递</strong>！</p>
+<h3 id="基本类型的传递"><a href="#基本类型的传递" class="headerlink" title="基本类型的传递"></a>基本类型的传递</h3><p>基本数据类型作为参数传递给方法时，传递的都是变量的副本。</p>
 <a id="more"></a>
-<h3 id="一、LinkedList属性"><a href="#一、LinkedList属性" class="headerlink" title="一、LinkedList属性"></a>一、LinkedList属性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 链表中元素节点的个数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 双向链表的头节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; first;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 双向链表的尾节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; last;</span><br></pre></td></tr></table></figure>
-<h3 id="二、LinkedList构造方法"><a href="#二、LinkedList构造方法" class="headerlink" title="二、LinkedList构造方法"></a>二、LinkedList构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 无参构造方法，啥也没有</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 集合作为参数的构造方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">LinkedList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>();</span><br><span class="line">    addAll(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="三、常用方法"><a href="#三、常用方法" class="headerlink" title="三、常用方法"></a>三、常用方法</h3><h4 id="1-add方法"><a href="#1-add方法" class="headerlink" title="1. add方法"></a>1. add方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>&#123;</span><br><span class="line">    linkLast(e);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 操作双向链表，将元素插入到双向链表尾部</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">linkLast</span><span class="params">(E e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; l = last;</span><br><span class="line">    <span class="comment">//构造新节点，值为e,上一个节点指向链表 last</span></span><br><span class="line">    <span class="keyword">final</span> Node&lt;E&gt; newNode = <span class="keyword">new</span> Node&lt;&gt;(l,e,<span class="keyword">null</span>);</span><br><span class="line">    last = newNode; </span><br><span class="line">    <span class="comment">//如果链表为空，将这个节点作为链表头 fitst</span></span><br><span class="line">    <span class="keyword">if</span>(l == <span class="keyword">null</span>) &#123;</span><br><span class="line">        first = newNode;</span><br><span class="line">    <span class="comment">//链表不为空，设置链表的尾节点的next为插入的节点e</span></span><br><span class="line">    &#125; esle &#123;</span><br><span class="line">        l.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2、remove方法"><a href="#2、remove方法" class="headerlink" title="2、remove方法"></a>2、remove方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * remove:删除指定的节点方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="keyword">null</span>; x = x.next) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x.item == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">//即双向链表删除节点操作的具体实现。</span></span><br><span class="line">                unlink(x);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="keyword">null</span>; x = x.next) &#123;</span><br><span class="line">            <span class="keyword">if</span> (o.equals(x.item)) &#123;</span><br><span class="line">                unlink(x);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3、set方法"><a href="#3、set方法" class="headerlink" title="3、set方法"></a>3、set方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改指定的下标index元素值，并返回该index的原来的元素值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//检查index下标是否正确</span></span><br><span class="line">    checkElementIndex(index);</span><br><span class="line">    <span class="comment">//该node方法会返回index对应的节点。不过其内部会自动进行选择从表头遍历还是从表尾遍历的方式，实际就是判断index靠近表头还是靠近表尾。</span></span><br><span class="line">    Node&lt;E&gt; x = node(index);</span><br><span class="line">    </span><br><span class="line">    E oldVal = x.item;</span><br><span class="line">    x.item = element;</span><br><span class="line">    <span class="keyword">return</span> oldVal;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* node:返回index下标对应的节点</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">Node&lt;E&gt; <span class="title">node</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;</span><br><span class="line">        Node&lt;E&gt; x = first;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">            x = x.next;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;E&gt; x = last;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size - <span class="number">1</span>; i &gt; index; i--)</span><br><span class="line">            x = x.prev;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChuanDi2</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将number的值100拷贝给num</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ChangeNumber</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="comment">//方法中对num的操作和main方法中的number变量没有关系</span></span><br><span class="line">        num = <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> number = <span class="number">100</span>;</span><br><span class="line">        ChangeNumber(number);</span><br><span class="line">        System.out.println(number); <span class="comment">//输出100</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与引用类型不同，基本数据类型的值都是存放在变量里的，而引用类型栈中存放变量，堆中存放对象实例，栈中变量的值是堆中对象的地址值。</p>
+<p>当一个基本数据类型的变量作为参数传递给一个方法时，是拷贝一个变量值，传递给方法中的一个变量，实际操作的是方法中的这个变量，而原来的那个变量是根本没有改变的。</p>
+<h3 id="引用类型的传递"><a href="#引用类型的传递" class="headerlink" title="引用类型的传递"></a>引用类型的传递</h3><p>除了八大基本数据类型之外，其他的都是引用类型了</p>
+<ul>
+<li>类</li>
+<li>接口</li>
+<li>数组</li>
+<li>集合</li>
+</ul>
+<p>上面说了，引用类型在栈和堆中都有占用内存，对于<code>Person p = new Person();</code>来说，首先<code>new Person()</code>在堆中开辟一块内存用来保存这条指令创建的对象，然后在栈中保存一个变量<code>p</code>，这个变量中保存的就是堆中创建的那个对象的地址，也就是常说的，<code>p</code>指向堆中的那块地址。</p>
+<p>如果一个方法将引用类型作为参数的话，传递的<code>p</code>变量的一个副本，也就是将<code>p</code>变量指向的地址复制一份传递给方法的参数指定的那个变量。在方法中其实是对该变量进行操作，由于是传递的地址值，所以相应的改变在原来的变量那里也会显示出来。</p>
+<p>说不清道不明，看实例，</p>
+<p>实例1，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//...省略了构造器（有参和无参都省略）...</span></span><br><span class="line">    <span class="comment">//...省略了get set toString方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Student student;</span><br><span class="line">	<span class="comment">//对传递的堆内存地址上的对象属性进行操作</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Student <span class="title">ChangeStudentValue</span><span class="params">(Student student)</span> </span>&#123;</span><br><span class="line">        student.setName(<span class="string">"李四"</span>);</span><br><span class="line">        student.setNumber(<span class="number">10086</span>);</span><br><span class="line">        <span class="keyword">return</span> student;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student student = <span class="keyword">new</span> Student(<span class="string">"张三"</span>,<span class="number">10010</span>);</span><br><span class="line">        System.out.println(student); <span class="comment">//第1次输出student</span></span><br><span class="line">        Student student1 = ChangeStudentValue(student);</span><br><span class="line">        System.out.println(student); <span class="comment">//第2次输出student</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//判断操作前后，student指向的堆内存是否发生改变</span></span><br><span class="line">        System.out.println(<span class="string">"内存地址没有改变？"</span> + student.equals(student1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实验结果</span></span><br><span class="line">Student&#123;name=<span class="string">'张三'</span>, number=<span class="number">10010</span>&#125;</span><br><span class="line">Student&#123;name=<span class="string">'李四'</span>, number=<span class="number">10086</span>&#125;</span><br><span class="line">内存地址没有改变？<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p>可以看出，两次输出的<code>student</code>结果发生了改变，是因为在<code>ChangeStudentValue</code>方法中操作的堆内存地址上面的对象属性，由于<code>p</code>变量也指向那块内存，所以对象属性的改变<code>p</code>变量也能反映出来。</p>
+<p>由于<code>Student</code>类没有覆写<code>equals</code>方法，所以<code>equals</code>比较的还是对象的内存地址，可以看出，方法前后，内存地址并没有发生改变。</p>
+<p>实例2，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Student student; </span><br><span class="line">    <span class="comment">//方法中改变了student的内地址</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ChangeStudent</span><span class="params">(Student student)</span></span>&#123;</span><br><span class="line">        student = <span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(student);</span><br><span class="line">        ChangeStudent(student);</span><br><span class="line">        System.out.println(student);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实验结果</span></span><br><span class="line">Student&#123;name=<span class="string">'张三'</span>, number=<span class="number">10010</span>&#125;</span><br><span class="line">Student&#123;name=<span class="string">'张三'</span>, number=<span class="number">10010</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，在<code>ChangeStudent</code>方法中虽然改变了内存地址，创建了一个新的对象，但是这个改变也只是在该方法中的这个<code>局部变量student</code>的改变，<code>main方法</code>中<code>student</code>变量还是指向原来的那块堆内存地址。</p>
+<p>所以两次对<code>student</code> 的输出完全一致。</p>
 
       
     </div>
@@ -582,7 +588,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/02/25/javaLinkedList/" title="java集合框架之LinkedList">2019/02/25/javaLinkedList/</a>
+        <a href="/2019/03/19/javaValueChuanDi/" title="java值传递与引用传递？">2019/03/19/javaValueChuanDi/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -640,8 +646,6 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
-            <a href="/tags/java集合/" rel="tag"><i class="fa fa-tags"></i> java集合</a>
-          
         </div>
       
 
@@ -653,8 +657,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/25/javaArrayList/" rel="next" title="java集合框架之ArrayList">
-                <i class="fa fa-chevron-left"></i> java集合框架之ArrayList
+              <a href="/2019/03/19/javaEqualsObject/" rel="next" title="java == 和 equals()的区别">
+                <i class="fa fa-chevron-left"></i> java == 和 equals()的区别
               </a>
             
           </div>
@@ -662,10 +666,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/25/javaHashMap/" rel="prev" title="java集合框架之HashMap">
-                java集合框架之HashMap <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -861,7 +861,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、LinkedList属性"><span class="nav-number">1.</span> <span class="nav-text">一、LinkedList属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、LinkedList构造方法"><span class="nav-number">2.</span> <span class="nav-text">二、LinkedList构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、常用方法"><span class="nav-number">3.</span> <span class="nav-text">三、常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-add方法"><span class="nav-number">3.1.</span> <span class="nav-text">1. add方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、remove方法"><span class="nav-number">3.2.</span> <span class="nav-text">2、remove方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、set方法"><span class="nav-number">3.3.</span> <span class="nav-text">3、set方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型的传递"><span class="nav-number">1.</span> <span class="nav-text">基本类型的传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型的传递"><span class="nav-number">2.</span> <span class="nav-text">引用类型的传递</span></a></li></ol></div>
             
 
           </div>
