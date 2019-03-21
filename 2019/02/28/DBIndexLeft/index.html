@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
-<meta name="keywords" content="MySQL,数据库">
+  <meta name="description" content="示例表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c">
+<meta name="keywords" content="数据库,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="联合索引的最左前缀匹配原则">
 <meta property="og:url" content="https://maohehe.github.io/2019/02/28/DBIndexLeft/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
+<meta property="og:description" content="示例表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T07:47:10.803Z">
+<meta property="og:updated_time" content="2019-03-21T11:29:10.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="联合索引的最左前缀匹配原则">
-<meta name="twitter:description" content="表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c`,">
+<meta name="twitter:description" content="示例表结构： 12345678CREATE TABLE `abcd` (  `a` int(11) NOT NULL AUTO_INCREMENT,  `b` int(11) DEFAULT NULL,  `c` int(11) DEFAULT NULL,  `d` int(11) DEFAULT NULL,  PRIMARY KEY (`a`),  KEY `inx_b_c_d` (`b`,`c">
 
 
 
@@ -436,12 +436,24 @@
                 
               
 
-              <time title="创建时间：2019-02-28 15:42:32 / 修改时间：15:47:10" itemprop="dateCreated datePublished" datetime="2019-02-28T15:42:32+08:00">2019-02-28</time>
+              <time title="创建时间：2019-02-28 15:42:32" itemprop="dateCreated datePublished" datetime="2019-02-28T15:42:32+08:00">2019-02-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-21 19:29:10" itemprop="dateModified" datetime="2019-03-21T19:29:10+08:00">2019-03-21</time>
               
             
           </span>
@@ -547,7 +559,7 @@
       
 
       
-        <p>表结构：</p>
+        <p>示例表结构：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`abcd`</span> (</span><br><span class="line">  <span class="string">`a`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`b`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`c`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`d`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`a`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`inx_b_c_d`</span> (<span class="string">`b`</span>,<span class="string">`c`</span>,<span class="string">`d`</span>),</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">8</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</span><br></pre></td></tr></table></figure>
 <p>该表有 4 列，其中有一个联合索引由<code>b,c,d</code>三列联合。</p>
 <a id="more"></a>
@@ -704,9 +716,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tags"></i> MySQL</a>
-          
             <a href="/tags/数据库/" rel="tag"><i class="fa fa-tags"></i> 数据库</a>
+          
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tags"></i> MySQL</a>
           
         </div>
       
@@ -807,7 +819,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -959,7 +971,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">122k</span>
+    <span title="本站总字数">125k</span>
   
 
   
@@ -968,7 +980,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:51</span>
+    <span title="站点阅读时长">1:53</span>
   
 </div>
 
