@@ -112,8 +112,8 @@
 <meta property="og:description" content="一、运行时数据区概述： jvm执行程序时，会把它占有的内存分为一块块的区域，每个区域有不同的功能。就类似于国家分你一块地你用来造房子（我们从我们的16G 内存分几百MB给JVM），房子又分成了卧室（休息），客厅（..），洗手间（洗漱），厨房（做饭）等等区域。 而jvm内存区域具体分为：  线程独占区：每个线程都有各自的区域，区域的生命周期与线程相同 程序计数器 虚拟机栈 本地方法栈   线程共享区">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://camo.githubusercontent.com/7dbe84f3d6186c5f8e2836489ad1dae57f4b2f59/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f342f32372f313633303661333463643861343335343f773d35313326683d34303426663d706e6726733d313332303638">
-<meta property="og:image" content="https://image-static.segmentfault.com/790/620/79062021-58bed0592369e_articlex">
-<meta property="og:updated_time" content="2019-03-14T05:26:21.662Z">
+<meta property="og:image" content="http://pnsnkgpv4.bkt.clouddn.com/jvmstack.png">
+<meta property="og:updated_time" content="2019-03-22T09:34:32.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm内存区域">
 <meta name="twitter:description" content="一、运行时数据区概述： jvm执行程序时，会把它占有的内存分为一块块的区域，每个区域有不同的功能。就类似于国家分你一块地你用来造房子（我们从我们的16G 内存分几百MB给JVM），房子又分成了卧室（休息），客厅（..），洗手间（洗漱），厨房（做饭）等等区域。 而jvm内存区域具体分为：  线程独占区：每个线程都有各自的区域，区域的生命周期与线程相同 程序计数器 虚拟机栈 本地方法栈   线程共享区">
@@ -456,7 +456,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-14 13:26:21" itemprop="dateModified" datetime="2019-03-14T13:26:21+08:00">2019-03-14</time>
+                <time title="修改时间：2019-03-22 17:34:32" itemprop="dateModified" datetime="2019-03-22T17:34:32+08:00">2019-03-22</time>
               
             
           </span>
@@ -528,7 +528,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.3k</span>
+                <span title="本文字数">2.2k</span>
               
 
               
@@ -599,17 +599,17 @@
 <p>虚拟机描述的是Java方法执行的内存模型。我们平常说的堆栈的栈就可以认为是虚拟机栈（中的局部变量表）。</p>
 </blockquote>
 <p>​    每个方法被执行的时候都会创建一个栈帧，里面包含<strong>局部变量表</strong>、操作栈、动态链接、方法出口等。方法开始执行就对应栈帧入栈，执行完毕，对应栈帧出栈。</p>
-<p><img src="https://image-static.segmentfault.com/790/620/79062021-58bed0592369e_articlex" alt="栈帧图示"></p>
+<p><img src="http://pnsnkgpv4.bkt.clouddn.com/jvmstack.png" alt="栈帧图示"></p>
 <p><strong>局部变量表</strong>：</p>
-<p>​    局部变量表存放了编译期可知的八种基本数据类型、对象引用和returnAddress类型（指向字节码指令的地址）。局部变量表的单位是slot(局部变量表空间)，除了 64位的 long和double会占用两个slot，其他类型都只占用一个slot。</p>
+<p>​    局部变量表存放了编译期可知的八种基本数据类型、对象引用和<code>returnAddress</code>类型（指向字节码指令的地址）。</p>
 <p><strong>注意：</strong></p>
 <ul>
 <li>局部变量表需要的空间在<strong>编译时期分配</strong>，不是运行期。运行期间不会改变局部变量表大小。</li>
 </ul>
 <p><strong>异常信息</strong>：</p>
 <ul>
-<li>StackOverflowError：线程请求栈深度大于<strong>虚拟机允许的深度</strong>。</li>
-<li>OutOfMemoryError：虚拟机栈不够了，要申请额外内存，但是上头不分配了。</li>
+<li><code>StackOverflowError</code>：线程请求栈深度大于<strong>虚拟机允许的深度</strong>。</li>
+<li><code>OutOfMemoryError</code>：虚拟机栈不够了，要申请额外内存，但是上头不分配了。</li>
 </ul>
 <h4 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h4><blockquote>
 <p>与虚拟机栈类似，不过本地方法栈是为 <strong>Native 方法</strong>服务的。也有栈帧啥的，也是栈帧入栈出栈。</p>
@@ -620,18 +620,20 @@
 <p>​    由于堆用来存放对象实例的，如果对象死了，就要给它清理掉，释放堆中空间，所以堆还要经常进行GC（垃圾收集）。</p>
 <p>​    又因为对象的生存时间不一样，有的死得快，有的老不死，所以有分为<strong>新生代</strong>（死得快）和<strong>老年代</strong>（<del>老不死</del>），分开来保存对象，这样GC时效率高一点，新生代需要经常GC，老年代偶尔GC，所以分代是为了更好地GC。</p>
 <p>​    新生代又分为Eden 和两个Survivor区，空间大小比例 8:1:1，为什么需要这么划分请参考《jvm内存分配和垃圾收集》中的<strong>复制算法</strong>。为什么两个Survivor区请参考 <a href="https://maoheblog.top/2019/02/21/jvmYoungGenerationEdenAndDoubleSurvivor/" target="_blank" rel="noopener">新生代为什么分为一个Eden和两个Survivor</a> 。</p>
-<p>​    java堆可以是物理上不连续的内存空间，但逻辑上要连续。java堆可动态扩展，通过 -Xmx和-Xms参数控制。</p>
+<p>​    Java堆可以是物理上不连续的内存空间，但逻辑上要连续。Java堆可动态扩展，通过 <code>-Xmx</code>和<code>-Xms</code>参数控制。</p>
 <p><strong>异常信息</strong>；</p>
 <ul>
-<li>OutOfMemoryError：堆中内存不够分配给对象，且堆的内存无法扩展增加时。</li>
+<li><code>OutOfMemoryError</code>：堆中内存不够分配给对象，且堆的内存无法扩展增加时。</li>
 </ul>
 <h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h4><blockquote>
-<p>方法区用于存储已被虚拟机加载的类信息、常量、static变量、即时编译期编译的代码等。</p>
+<p>方法区用于存储已被虚拟机加载的<strong>类信息</strong>、<strong>常量</strong>、<strong>static变量</strong>、即时编译器编译的代码等。</p>
 </blockquote>
-<p>​    方法区的内存回收目标主要是针对<strong>常量池</strong>的回收和对<strong>类型的卸载</strong>。</p>
+<p>方法区的内存回收目标主要是针对<strong>常量池</strong>的回收和对<strong>类型的卸载</strong>。</p>
 <p><strong>运行时常量池</strong>：</p>
-<p>​    运行时常量池属于方法区。Class类文件结构中有一项常量池，用于存放编译期生成的各种字面量和符号引用，<strong>常量池的内容将在类加载后存放到方法区的运行时常量池中</strong>。</p>
-<p>​    了解：Class文件中常量池还具有动态性，常量除了编译期产生外，还有可能在运行期间产生常量放入池中，例如String类的intern()方法。</p>
+<ul>
+<li>运行时常量池属于方法区。Class类文件结构中有一项常量池，用于存放编译期生成的各种字面量和符号引用，<strong>常量池的内容将在类加载后存放到方法区的运行时常量池中</strong>。</li>
+</ul>
+<p>了解：Class文件中常量池还具有动态性，常量除了编译期产生外，还有可能在运行期间产生常量放入池中，例如String类的intern()方法。</p>
 <p><strong>异常信息</strong>：</p>
 <ul>
 <li>OutOfMemoryError：方法区内存不够，没法分配时。</li>
