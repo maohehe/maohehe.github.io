@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="== 基本数据类型：使用 == 比较的是他们的值。 引用数据类型：使用 == 比较的是他们的内存地址。">
+  <meta name="description" content="主线程main程序是程序入口，对编译好的class文件执行时，就可以运行这个编译好的程序。 这个过程中，系统自动创建了一个进程（程序）和一个线程（main线程）。 也就是说，系统运行就会自动创建主线程main。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java == 和 equals()的区别">
-<meta property="og:url" content="https://maohehe.github.io/2019/03/19/javaEqualsObject/index.html">
+<meta property="og:title" content="javaConcurrentThreadBasics">
+<meta property="og:url" content="https://maohehe.github.io/2019/03/30/javaConcurrentThreadBasics/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="== 基本数据类型：使用 == 比较的是他们的值。 引用数据类型：使用 == 比较的是他们的内存地址。">
+<meta property="og:description" content="主线程main程序是程序入口，对编译好的class文件执行时，就可以运行这个编译好的程序。 这个过程中，系统自动创建了一个进程（程序）和一个线程（main线程）。 也就是说，系统运行就会自动创建主线程main。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-19T04:57:58.429Z">
+<meta property="og:updated_time" content="2019-03-30T03:10:37.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java == 和 equals()的区别">
-<meta name="twitter:description" content="== 基本数据类型：使用 == 比较的是他们的值。 引用数据类型：使用 == 比较的是他们的内存地址。">
+<meta name="twitter:title" content="javaConcurrentThreadBasics">
+<meta name="twitter:description" content="主线程main程序是程序入口，对编译好的class文件执行时，就可以运行这个编译好的程序。 这个过程中，系统自动创建了一个进程（程序）和一个线程（main线程）。 也就是说，系统运行就会自动创建主线程main。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/03/19/javaEqualsObject/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/03/30/javaConcurrentThreadBasics/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>java == 和 equals()的区别 | MaoHe's Blog</title>
+  <title>javaConcurrentThreadBasics | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/19/javaEqualsObject/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/30/javaConcurrentThreadBasics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java == 和 equals()的区别
+          <h1 class="post-title" itemprop="name headline">javaConcurrentThreadBasics
 
               
             
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2019-03-19 12:56:13 / 修改时间：12:57:58" itemprop="dateCreated datePublished" datetime="2019-03-19T12:56:13+08:00">2019-03-19</time>
+              <time title="创建时间：2019-03-30 11:09:05 / 修改时间：11:10:37" itemprop="dateCreated datePublished" datetime="2019-03-30T11:09:05+08:00">2019-03-30</time>
             
 
             
@@ -465,7 +465,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java并发/" itemprop="url" rel="index"><span itemprop="name">java并发</span></a></span>
 
                 
                 
@@ -483,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/03/19/javaEqualsObject/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/javaEqualsObject/" itemprop="commentCount"></span>
+                <a href="/2019/03/30/javaConcurrentThreadBasics/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/30/javaConcurrentThreadBasics/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -513,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.4k</span>
+                <span title="本文字数">4.5k</span>
               
 
               
@@ -527,7 +527,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -547,31 +547,93 @@
       
 
       
-        <h3 id><a href="#" class="headerlink" title="=="></a><code>==</code></h3><ol>
-<li>基本数据类型：使用 == 比较的是他们的值。</li>
-<li>引用数据类型：使用 == 比较的是他们的内存地址。</li>
-</ol>
+        <h2 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h2><p>main程序是程序入口，对编译好的class文件执行时，就可以运行这个编译好的程序。</p>
+<p>这个过程中，系统自动创建了一个进程（程序）和一个线程（main线程）。</p>
+<p>也就是说，系统运行就会自动创建主线程main。</p>
 <a id="more"></a>
-<h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><code>equals()</code></h3><p>Object类是所有类的父类，而equals方法是在Object类中定义的，定义如下，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出，Object的equals方法就是简单的调用了 == 来进行比较，所以对于引用类型来说，比较的还是其在内存中的地址是否相同。</p>
-<h4 id="String中的euqals"><a href="#String中的euqals" class="headerlink" title="String中的euqals()"></a><code>String</code>中的<code>euqals()</code></h4><p>由于所有类都继承Object类，所以所有类都有<code>equals</code>方法，并且可以对其进行覆写。</p>
-<p>String类就将其进行了覆写，如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1、先比较内存地址，如果内存地址相同，那无可争议两个对象是相同的</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2、判断待比较对象是否是String类型的</span></span><br><span class="line">    <span class="comment">//2.1、如果是String类型的，才有接下来比较的必要</span></span><br><span class="line">    <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">        String anotherString = (String)anObject; <span class="comment">//强制转换为String</span></span><br><span class="line">        <span class="keyword">int</span> n = value.length;</span><br><span class="line">        <span class="comment">//比较两个String对象的内容是否相等</span></span><br><span class="line">        <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">            <span class="keyword">char</span> v1[] = value;</span><br><span class="line">            <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">//只要其中有一个字符不相等，则两个String对象就不相等</span></span><br><span class="line">                <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.2、如果待比较对象都不是String类型的，那很显然对象是不相同的</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由上述可见，String类对<code>equals()</code>方法进行了重写，重写的最终比较结果是判断两个String对象的内容是否相等。</p>
-<h3 id="自定义类覆写-equals-方法"><a href="#自定义类覆写-equals-方法" class="headerlink" title="自定义类覆写 equals() 方法"></a>自定义类覆写 <code>equals()</code> 方法</h3><p>在我们自定义的类中，可以覆写<code>equals</code>方法，来自定义判断规则。</p>
-<p>1、自定义类没有覆写<code>equals()</code>方法</p>
-<p>则默认调用父类Object的<code>equals</code>方法，即比较的还是两个对象的内存地址值。例如，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideEquals</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OverrideEquals a = <span class="keyword">new</span> OverrideEquals();</span><br><span class="line">        OverrideEquals b = <span class="keyword">new</span> OverrideEquals();</span><br><span class="line">        System.out.println(a.equals(b));<span class="comment">//false</span></span><br><span class="line">        OverrideEquals a1 = a;<span class="comment">//和a指向同一个地址</span></span><br><span class="line">        System.out.println(a.equals(a1);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、自定义类覆写<code>equals()</code>方法</p>
-<p>可以自己制定比较规则，来判断对象是否相等。</p>
-<p>例如，想要让任何情况下该自定义类对象和其他对象都相等，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideEquals</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        OverrideEquals a = <span class="keyword">new</span> OverrideEquals();</span><br><span class="line">        OverrideEquals b = <span class="keyword">new</span> OverrideEquals();</span><br><span class="line">        System.out.println(a.equals(b));<span class="comment">//true</span></span><br><span class="line">        Object o = <span class="keyword">new</span> Object();<span class="comment">//Object类型的对象</span></span><br><span class="line">        System.out.println(a.equals(o));<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出，即使是Object类型的对象也返回true，当然这种比较完全没有意义。</p>
-<p>3、有意义的覆写<code>equals()</code></p>
-<p>比如我现在要定义一Person类，来表示人，里面有ID，Name，age等字段，如果这三个字段都相等，则说明是同一个人，那么<code>equals()</code>方法就返回true。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == obj) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Person)&#123;</span><br><span class="line">            Person temp = (Person)obj;</span><br><span class="line">            <span class="keyword">if</span> (temp.getName().equals(<span class="keyword">this</span>.name)</span><br><span class="line">                    &amp;&amp; temp.getId()==<span class="keyword">this</span>.id</span><br><span class="line">                    &amp;&amp; temp.getAge()==<span class="keyword">this</span>.age)</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//...省略了get set方法和 有参构造方法...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person(<span class="string">"Tom"</span>,<span class="number">122</span>,<span class="number">23</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">"Tom"</span>,<span class="number">122</span>,<span class="number">23</span>);</span><br><span class="line">        System.out.println(p.equals(p2)); <span class="comment">//true</span></span><br><span class="line">        Person tom2 = <span class="keyword">new</span> Person(<span class="string">"Tom"</span>,<span class="number">122</span>,<span class="number">20</span>);</span><br><span class="line">        System.out.println(p.equals(tom2)); <span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>比较方式仍然是先判断类型是否相同，如果类型都不相同，那两个对象必然不同。其次比较对象的三个属性是否相同，如果相同，则两个对象也是相同的，返回true。</p>
+<h2 id="线程任务"><a href="#线程任务" class="headerlink" title="线程任务"></a>线程任务</h2><h3 id="Runnable接口"><a href="#Runnable接口" class="headerlink" title="Runnable接口"></a>Runnable接口</h3><p>线程创建出来用来干什么呢？</p>
+<p>是用来执行我们定义的任务的，比如我们需要20个线程来执行<strong>一个数自动加1 的任务</strong>。</p>
+<p>Java中任务被抽象成了一个<code>Runnable</code>接口，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义任务的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们自定义的任务要实现<code>Runnable</code>接口，并在覆写的<code>run()</code>方法中去定义实际要执行的任务。如，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintTask</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"线程执行这个任务。"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面就定义了一个打印任务，输出了一个字符串，每个线程要完成这个任务都会输出这个字符串。</p>
+<h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><h3 id="Thread类"><a href="#Thread类" class="headerlink" title="Thread类"></a>Thread类</h3><p>任务定义好了就需要创建线程来执行任务了。</p>
+<p>Java中Thread类用来创建线程，每个Thread对象都代表一个线程。</p>
+<p>Thread类有几种常见的构造方法，来实例化线程对象，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//指定一个任务，和线程名称</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target,String name)</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//仅指定一个任务，线程用系统默认名称</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target)</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//指定线程名称，任务在Thread类的run()方法中定义</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//什么都不指定</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由上面的构造方法可以发现，<strong>创建线程只有通过实例化出<code>Thread</code>对象来创建</strong>。而<code>Thread</code>类实现了<code>Runnable</code>接口，所以也可以覆写<code>run()</code>方法来在Thread类中定义任务。</p>
+<p>所以<strong>根据任务的定义方式，创建线程又可分为两种</strong>：</p>
+<ol>
+<li>通过实现<code>Runnable</code>接口定义任务，再将任务传给<code>Thread</code>来创建对象。</li>
+<li>直接继承<code>Thread</code>类，实例化出对象，在类中的<code>run()</code>方法中直接定义任务。</li>
+</ol>
+<p>示例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintTask</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行任务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        PrintTask task = <span class="keyword">new</span> PrintTask();</span><br><span class="line">        <span class="keyword">new</span> Thread(task).start();<span class="comment">//start方法启动线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"线程执行任务"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_2</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> PrintThread().start();<span class="comment">//start方法启动线程执行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="线程执行"><a href="#线程执行" class="headerlink" title="线程执行"></a>线程执行</h3><p>Thread类的<code>start()</code>方法用来启动线程的执行。</p>
+<p>对于创建出来的线程对象，必须调用其<code>start()</code>方法之后，才有可能执行。</p>
+<h2 id="线程相关方法"><a href="#线程相关方法" class="headerlink" title="线程相关方法"></a>线程相关方法</h2><p>Thread提供不少方法方法我们获取线程信息、控制线程等。</p>
+<ol>
+<li><p><strong>获取、设置线程名称</strong></p>
+<ul>
+<li><code>String getName()</code></li>
+<li><code>void setName(String name)</code></li>
+</ul>
+</li>
+<li><p><strong>获取线程ID</strong></p>
+<ul>
+<li><code>long getId()</code>，系统会自动为每个线程分配一个<code>long</code>类型的ID。</li>
+</ul>
+</li>
+<li><p><strong>获取、设置线程优先级<code>(Priority</code></strong></p>
+<ul>
+<li><code>int getPriority()</code></li>
+<li><code>void setPriority()</code></li>
+</ul>
+<p>Java优先级由1~10表示，十个等级，Thread中有三个常量来表示常用的等级，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最低等级</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> MIN_PRIORITY = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//中等等级</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> NORM_PRIORITY = <span class="number">5</span>;</span><br><span class="line"><span class="comment">//最高等级</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> MAX_PRIORITY = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>然而我们最好不要使用这种方式去修改线程优先级，线程执行的前后顺序还是交给处理器去自行调度为好。</p>
+</li>
+<li><p><strong>线程睡眠<code>(sleep())</code></strong></p>
+<ul>
+<li><code>static void sleep(long millis)</code> ，指定毫秒数的睡眠</li>
+<li><code>static void sleep(long millis,int nanos)</code>，指定毫秒数和纳秒数的睡眠</li>
+</ul>
+<p>哪个线程调用该方法，那个线程就会睡眠。</p>
+<p>该方法会抛出<code>InterruptException</code>异常，需要自行捕获（<code>catch</code>）</p>
+</li>
+<li><p><strong>获取当前正在执行线程<code>(currentThread())</code></strong></p>
+<ul>
+<li><code>static Thread currentThread()</code>，返回一个线程对象，是当前线程</li>
+</ul>
+<p>这是一个静态方法，在哪个线程中调用<code>Thread.currentThread()</code>方法，返回的就是这个线程对象。</p>
+</li>
+<li><p><strong>守护线程<code>(Daemon)</code></strong></p>
+<ul>
+<li><code>boolean isDaemon()</code>，查询线程是否是守护线程</li>
+<li><code>void setDaemon(boolean on)</code>，设置线程为守护线程</li>
+</ul>
+<p>守护线程就是后台线程，专门为普通线程提供服务，例如<code>jvm</code>专门负责垃圾收集的线程就是守护线程，如果所有普通线程都死掉了，那守护线程也没必要活下去了。</p>
+<p>注意：只有<strong>未启动的线程</strong><code>(未调用start方法)</code><strong>才可以设置为守护线程</strong><code>(setDaemon)</code>。还有<strong>从普通线程中创建的线程是普通线程</strong>，<strong>从守护线程中创建的线程是守护线程</strong>。</p>
+</li>
+<li><p><strong>让出本次时间片<code>(yield())</code></strong></p>
+<ul>
+<li><code>static void yield()</code>，让出本次时间片</li>
+</ul>
+<p>线程的执行都是靠处理器调度，每次分配一定的时间片给线程执行，时间片结束就重新调度分配。</p>
+<p><code>yield()</code>方法就表示线程放弃了此次时间片，处理器立即进行重新调度。</p>
+<p>当然处理器可能恰巧又调度到了这个线程，这也说不准。</p>
+</li>
+<li><p><strong>等待另一线程结束<code>(join())</code></strong></p>
+<ul>
+<li><code>void join()</code>，等待线程终止才继续执行</li>
+<li><code>void koin(long millis)</code>，指定的时间内等待线程终止，时间结束，无论是否终止，都继续执行</li>
+<li><code>void join(long millis,int nanos)</code>，同上</li>
+</ul>
+<p>有时候需要在一个线程中等待另一个线程执行完成之后，本线程才能继续执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJoin</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义t1线程</span></span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"线程t1正在执行："</span> + i);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">"线程t1"</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        <span class="comment">//定义t2线程</span></span><br><span class="line">        Thread t2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//在线程t2中调用t1的join方法</span></span><br><span class="line">                    t1.join();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"线程t1执行完毕，t2开始执行..."</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">"t2"</span>);</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//执行结果：</span></span><br><span class="line">D:\java\jdk\bin\java.exe ...</span><br><span class="line">线程t1正在执行：<span class="number">0</span></span><br><span class="line">线程t1正在执行：<span class="number">1</span></span><br><span class="line">线程t1正在执行：<span class="number">2</span></span><br><span class="line">线程t1正在执行：<span class="number">3</span></span><br><span class="line">线程t1正在执行：<span class="number">4</span></span><br><span class="line">线程t1执行完毕，t2开始执行...</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -587,7 +649,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/03/19/javaEqualsObject/" title="java == 和 equals()的区别">2019/03/19/javaEqualsObject/</a>
+        <a href="/2019/03/30/javaConcurrentThreadBasics/" title="javaConcurrentThreadBasics">2019/03/30/javaConcurrentThreadBasics/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -656,8 +718,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/18/javaAbstractClassInterface/" rel="next" title="java抽象类与接口">
-                <i class="fa fa-chevron-left"></i> java抽象类与接口
+              <a href="/2019/03/27/jvmJMM/" rel="next" title="JMM内存模型">
+                <i class="fa fa-chevron-left"></i> JMM内存模型
               </a>
             
           </div>
@@ -665,10 +727,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/19/javaValueChuanDi/" rel="prev" title="java值传递与引用传递？">
-                java值传递与引用传递？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -866,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">==</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#equals"><span class="nav-number">2.</span> <span class="nav-text">equals()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String中的euqals"><span class="nav-number">2.1.</span> <span class="nav-text">String中的euqals()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义类覆写-equals-方法"><span class="nav-number">3.</span> <span class="nav-text">自定义类覆写 equals() 方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主线程"><span class="nav-number">1.</span> <span class="nav-text">主线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程任务"><span class="nav-number">2.</span> <span class="nav-text">线程任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable接口"><span class="nav-number">2.1.</span> <span class="nav-text">Runnable接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建线程"><span class="nav-number">3.</span> <span class="nav-text">创建线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread类"><span class="nav-number">3.1.</span> <span class="nav-text">Thread类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程执行"><span class="nav-number">3.2.</span> <span class="nav-text">线程执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程相关方法"><span class="nav-number">4.</span> <span class="nav-text">线程相关方法</span></a></li></ol></div>
             
 
           </div>
