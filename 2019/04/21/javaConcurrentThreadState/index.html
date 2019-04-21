@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
-<meta name="keywords" content="redis">
+  <meta name="description" content="线程的生命周期线程生命周期对应着：新建、就绪、运行、阻塞、死亡 五种状态。">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="缓存雪崩 缓存穿透 缓存更新">
-<meta property="og:url" content="https://maohehe.github.io/2019/03/04/redisTopics/index.html">
+<meta property="og:title" content="java并发之线程的生命周期与状态（8）">
+<meta property="og:url" content="https://maohehe.github.io/2019/04/21/javaConcurrentThreadState/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
+<meta property="og:description" content="线程的生命周期线程生命周期对应着：新建、就绪、运行、阻塞、死亡 五种状态。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-17T14:33:11.195Z">
+<meta property="og:updated_time" content="2019-04-21T06:34:51.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="缓存雪崩 缓存穿透 缓存更新">
-<meta name="twitter:description" content="1. 缓存 提高性能：缓存查询速度比数据库查询速度快。 提高并发能力：缓存分担了部分请求，支持更高的并发。">
+<meta name="twitter:title" content="java并发之线程的生命周期与状态（8）">
+<meta name="twitter:description" content="线程的生命周期线程生命周期对应着：新建、就绪、运行、阻塞、死亡 五种状态。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/03/04/redisTopics/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/04/21/javaConcurrentThreadState/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>缓存雪崩 缓存穿透 缓存更新 | MaoHe's Blog</title>
+  <title>java并发之线程的生命周期与状态（8） | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/04/redisTopics/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/04/21/javaConcurrentThreadState/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">缓存雪崩 缓存穿透 缓存更新
+          <h1 class="post-title" itemprop="name headline">java并发之线程的生命周期与状态（8）
 
               
             
@@ -436,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-03-04 15:10:47" itemprop="dateCreated datePublished" datetime="2019-03-04T15:10:47+08:00">2019-03-04</time>
+              <time title="创建时间：2019-04-21 14:33:00 / 修改时间：14:34:51" itemprop="dateCreated datePublished" datetime="2019-04-21T14:33:00+08:00">2019-04-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-17 22:33:11" itemprop="dateModified" datetime="2019-03-17T22:33:11+08:00">2019-03-17</time>
               
             
           </span>
@@ -470,14 +458,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java并发/" itemprop="url" rel="index"><span itemprop="name">java并发</span></a></span>
 
                 
                 
@@ -495,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/03/04/redisTopics/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/04/redisTopics/" itemprop="commentCount"></span>
+                <a href="/2019/04/21/javaConcurrentThreadState/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/21/javaConcurrentThreadState/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -525,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3k</span>
+                <span title="本文字数">3.7k</span>
               
 
               
@@ -559,130 +547,98 @@
       
 
       
-        <h3 id="1-缓存"><a href="#1-缓存" class="headerlink" title="1. 缓存"></a>1. 缓存</h3><ul>
-<li>提高性能：缓存查询速度比数据库查询速度快。</li>
-<li>提高并发能力：缓存分担了部分请求，支持更高的并发。</li>
-</ul>
+        <h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p>线程生命周期对应着：新建、就绪、运行、阻塞、死亡 五种状态。</p>
 <a id="more"></a>
-<h3 id="2-缓存雪崩"><a href="#2-缓存雪崩" class="headerlink" title="2. 缓存雪崩"></a>2. 缓存雪崩</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
-<p>当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，也会给后端数据库系统带来很大压力。</p>
-</blockquote>
-<p>如果缓存正常，那我们请求数据时，就会先走缓存，如果有的话，直接返回缓存里的数据，如果没有，就查询数据库，再返回结果。这样可以为数据库分担不小的压力。</p>
-<p>因为<code>Redis</code>可以设置key的过期时间，在一定的时间之后，key就会过期，然后被自动删除。而如果现在缓存了一批数据，他们的key的过期时间都一样，一段时间后，这些数据全部被删除，如果此时有大量访问请求 Redis，而请求的数据刚好全被删除掉，那么这些请求就会全部访问数据库，导致数据库压力骤增。</p>
-<p><strong>总结</strong>：</p>
-<ol>
-<li>Redis 服务器系统挂掉，导致请求全部由数据库处理。</li>
-<li>对缓存的数据设置相同的过期时间，导致某段时间缓存失效，请求也全由数据库处理。</li>
-</ol>
-<p>如果发生缓存雪崩，那数据库很可能会崩溃，导致整个服务瘫痪。</p>
-<h4 id="缓存雪崩解决办法"><a href="#缓存雪崩解决办法" class="headerlink" title="缓存雪崩解决办法"></a>缓存雪崩解决办法</h4><ol>
-<li>Redis服务器宕机导致雪崩：<ul>
-<li>宕机前预防：实现 Redis 高可用。主从复制+哨兵机制。</li>
-<li>宕机中补救：如果Redis挂掉，可以设置<strong>本地缓存</strong>，并且<strong>限制请求流量</strong>（限流），来保护数据库。</li>
-<li>宕机后恢复：Redis 持久化机制。<strong><code>RDB/AOF</code>机制</strong>来从磁盘加载，快速恢复缓存数据。</li>
-</ul>
-</li>
-<li>键过期时间导致雪崩：<ul>
-<li>key不设置相同的过期时间就完事了。可以对<strong>过期时间</strong>设置一个<strong>随机值</strong>，减少过期时间相同的概率。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-缓存穿透"><a href="#3-缓存穿透" class="headerlink" title="3. 缓存穿透"></a>3. 缓存穿透</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><blockquote>
-<p>缓存穿透是指查询一个<strong>一定不存在</strong>的数据。由于数据肯定不存在，所以缓存中没有，该请求就会交由数据库处理，而数据库中也没有该数据，处于容错考虑，这个不存在的数据在数据库中的查询结果也不会写入缓存，这就会导致对这个不存在数据的每次请求都会走数据库去查询，这样缓存就没有意义了。</p>
-</blockquote>
-<p>例如我的数据表有一些数据，ID是从1开始递增，没有负数。如果有一个闲人对我的数据库进行访问，每次访问的数据ID都是负数，这样我的Redis缓存中没有该数据，这些查询就会走数据库，数据库也没有对应数据，就会返回空对象，而且这个空对象也不会写到缓存中。如果这个闲人开始丧心病狂起来，疯狂访问我的数据库，这样我的数据库就会增加这些没必要的压力，早晚得完蛋。</p>
-<p><strong>总结</strong>：</p>
-<ol>
-<li>请求的数据在缓存中大量都不命中，导致这些未命中的请求都走数据库。</li>
-</ol>
-<h4 id="缓存穿透解决办法"><a href="#缓存穿透解决办法" class="headerlink" title="缓存穿透解决办法"></a>缓存穿透解决办法</h4><ol>
-<li>对于请求不合法的参数（请求不存在的数据），可以对其进行过滤（boomfilter或压缩filter），提前拦截。直接拒绝它，不让其走到数据库。编程复杂，不过比较省缓存空间。</li>
-<li>对于合法的请求，但是数据库却找不到，我们也将这个空对象写到缓存，下次请求就可以从缓存中获取。不过这个空对象的存活时间一般会很短，很快就过期。编程简单，不过会占用缓存空间。</li>
-</ol>
-<h3 id="4-缓存更新"><a href="#4-缓存更新" class="headerlink" title="4. 缓存更新"></a>4. 缓存更新</h3><h4 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h4><p>一般缓存流程（读操作）：</p>
-<ol>
-<li>对于一个请求，如果缓存中有请求的数据，就直接返回缓存中的数据。</li>
-<li>如果缓存没有命中数据，就走数据库，之后将数据库查询的数据写入到缓存。</li>
-<li>最后返回数据。</li>
-</ol>
-<h4 id="缓存与数据库双写一致"><a href="#缓存与数据库双写一致" class="headerlink" title="缓存与数据库双写一致"></a>缓存与数据库双写一致</h4><p>如果对于写操作，我们要更新数据库，这时候没有更新缓存，导致缓存的数据和数据库的数据不一致。在没有发现缓存与数据库的数据不一致的这段时间内，如果有请求，走的是缓存，最后返回的数据就不是数据库中新更新的数据了。</p>
-<p>幸运的是，Redis 中有键过期时间这一项，过期时间一到，缓存中的对应数据就会被删除，下次再请求就会走数据库，并将数据进行缓存，理论上可以保证缓存和数据库的数据一致。</p>
-<p>如果在未过期的这段时间发生数据库更新，导致还是不一致呢？</p>
-<p>那就对缓存中的数据也进行更新吧…</p>
-<h4 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h4><p>可进行的更新操作：</p>
-<ol>
-<li>先更新数据库，再更新缓存。</li>
-<li>先更新缓存，再更新数据库。</li>
-</ol>
-<p>对于上面两种操作，要么都成功，要么都失败，如果一个成功一个失败，那还是会有数据不一致的问题。    如果第一个更新操作（不论是先更新数据库还是先更新缓存）都失败了，那第二个更新也没必要了，直接抛出异常得了。</p>
-<h5 id="1-操作缓存"><a href="#1-操作缓存" class="headerlink" title="1. 操作缓存"></a>1. 操作缓存</h5><p>对数据没什么可操作的，更新就完事了，但是对于缓存可以有两种操作：</p>
-<ol>
-<li><p>更新缓存</p>
-</li>
-<li><p>删除缓存</p>
-</li>
-</ol>
-<p>但是，如果在多线程高并发环境下，更新数据库和更新缓存容易导致线程安全问题，最后两者数据还是不一样。    再者，每次更新数据库还得附带上更新缓存，请求少还好，更新请求一旦多起来，性能上就会受影响，毕竟平白无故增加了额外的更新操作。</p>
-<p>所以，一般都是<strong>采用删除缓存策略</strong>，直接删除，一了百了，简单又安全。一发生更新，就直接删除缓存里对应的数据，下次请求该数据直接请求数据库再缓存就完事了，数据还是一致的。</p>
-<h5 id="2-先更新数据库，再删除缓存"><a href="#2-先更新数据库，再删除缓存" class="headerlink" title="2. 先更新数据库，再删除缓存"></a>2. 先更新数据库，再删除缓存</h5><p>一般流程：</p>
+<h3 id="五种状态"><a href="#五种状态" class="headerlink" title="五种状态"></a>五种状态</h3><h4 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread t = <span class="keyword">new</span> Thread();</span><br></pre></td></tr></table></figure>
+<p>通过<code>new Thread()</code>实例化出一个线程对象后，该线程就处于新建状态。</p>
+<p>此时，<code>jvm</code>分配内存`，初始化成员变量，但并没有开始执行线程体。</p>
+<h4 id="就绪"><a href="#就绪" class="headerlink" title="就绪"></a>就绪</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.start();</span><br></pre></td></tr></table></figure>
+<p>线程对象调用<code>start()</code>方法后，线程就处于就绪状态。</p>
+<p>虽然调用了<code>start()</code>方法，但线程并没有开始运行，要等待CPU调度。</p>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>处于就绪状态的线程被CPU调度成功后，就开始运行，处于运行状态。</p>
+<h4 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h4><p>运行状态的线程由于一系列原因，失去了CPU调度，就处于阻塞状态。</p>
+<p>处于阻塞状态的线程可以变为就绪状态，重新等待CPU调度。</p>
+<p><strong>两种特别的阻塞状态：</strong></p>
 <ul>
-<li>先更新数据库，成功</li>
-<li>再删除缓存，成功</li>
+<li>等待阻塞：线程执行<code>wait()</code>方法，<code>jvm</code>将线程放入等待队列。</li>
+<li>同步阻塞：线程获取同步锁，但锁被其他线程占用，<code>jvm</code>将该线程放入锁池，等待其他线程释放锁。</li>
 </ul>
-<p>如果原子性被破坏，会发生什么呢？</p>
-<ol>
-<li>如果在更新数据库就失败了，就直接返回异常，缓存也不用删除了，这样两者数据还是旧数据，也是一致的。</li>
-<li>更新数据库成功，删除缓存失败了，导致缓存里是旧数据，数据库里是新数据，导致数据不一致。<ul>
-<li>如果发生这种情况，就将要删除的key发送到消息队列，然后获取要删除的key，不断地进行删除，直到删除成功。</li>
+<h4 id="死亡"><a href="#死亡" class="headerlink" title="死亡"></a>死亡</h4><p>线程结束后就变为死亡状态。</p>
+<p>主线程结束后，其他线程仍然可以运行，他们与主线程地位平等。</p>
+<p>处于死亡状态下的线程生命周期就结束了，该线程就不能用了，也就是不能回到其他状态，也不能调用<code>start()</code>方法。</p>
+<h3 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h3><h4 id="运行变就绪"><a href="#运行变就绪" class="headerlink" title="运行变就绪"></a>运行变就绪</h4><ul>
+<li>CPU分配的时间片用完。</li>
+<li>调用<code>Thread.yield()</code>让出本次调度。</li>
 </ul>
-</li>
-</ol>
-<p>如果上面一般流程的操作都成功了，理论上是没问题的，但是在多线程并发环境下还是可能发生问题的，例如</p>
-<ol>
-<li>缓存失效了，线程 A 查询数据，查询请求走数据库。</li>
-<li>此时线程A的请求内容还没写进缓存，就被挂起了。</li>
-<li>线程 B 更新数据，先<strong>更新数据库</strong>，完事又删除了缓存。</li>
-<li>之后线程 A 又被调度了，将它查询数据库的<strong>旧数据写入缓存</strong>。</li>
-</ol>
-<p>所以就又出现了缓存与数据库数据不一致的问题。</p>
-<p>当然这种概率特别特别小，因为这是线程读写操作并发的条件下，写操作速度远慢于读操作，而且还要锁表，上述例子的条件必须要符合<strong>读操作必需在写操作前进入数据库操作，而又要晚于写操作更新缓存</strong>，这个条件概率又是特别小的。</p>
-<h5 id="3-先删除缓存，再更新数据库"><a href="#3-先删除缓存，再更新数据库" class="headerlink" title="3. 先删除缓存，再更新数据库"></a>3. 先删除缓存，再更新数据库</h5><p>一般流程：</p>
+<h4 id="运行变阻塞"><a href="#运行变阻塞" class="headerlink" title="运行变阻塞"></a>运行变阻塞</h4><ul>
+<li>线程调用sleep方法主动放弃<code>cpu</code>。</li>
+<li>线程调用其他线程的<code>join</code>方法，等待其他线程先执行。</li>
+<li>线程调用阻塞式IO方法，方法返回之前线程被阻塞。</li>
+<li>线程视图获取锁，但锁被其他线程持有。</li>
+</ul>
+<h4 id="阻塞变就绪"><a href="#阻塞变就绪" class="headerlink" title="阻塞变就绪"></a>阻塞变就绪</h4><ul>
+<li><code>sleep()</code>方法的时间结束。</li>
+<li>阻塞式IO方法已返回。</li>
+<li>线程成功获得了同步锁。</li>
+</ul>
+<h4 id="其他变死亡"><a href="#其他变死亡" class="headerlink" title="其他变死亡"></a>其他变死亡</h4><ul>
+<li><code>run()</code>方法执行结束，表示线程正常结束。</li>
+<li>线程抛出未捕获的异常或错误，导致线程结束。</li>
+<li>调用<code>stop()</code>方法结束线程（弃用，会线程不安全）。</li>
+</ul>
+<h2 id="java封装的线程状态"><a href="#java封装的线程状态" class="headerlink" title="java封装的线程状态"></a><code>java</code>封装的线程状态</h2><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>Java为了方便管理线程，对底层的操作系统线程状态做了抽象封装，如下，</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>对应线程状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NEW</code></td>
+<td>初始状态</td>
+<td>新建</td>
+</tr>
+<tr>
+<td><code>RUNNABLE</code></td>
+<td>运行状态，包括运行和就绪</td>
+<td>就绪/运行</td>
+</tr>
+<tr>
+<td><code>BLOCKED</code></td>
+<td>线程阻塞于锁</td>
+<td>阻塞</td>
+</tr>
+<tr>
+<td><code>WAITING</code></td>
+<td>等待状态</td>
+<td>阻塞</td>
+</tr>
+<tr>
+<td><code>TIME_WAITING</code></td>
+<td>超时等待状态</td>
+<td>阻塞</td>
+</tr>
+<tr>
+<td><code>TERMINATED</code></td>
+<td>终止状态</td>
+<td>死亡</td>
+</tr>
+</tbody>
+</table>
+<p>注意：</p>
 <ul>
-<li>先删除缓存，成功</li>
-<li>再更新数据库，成功</li>
+<li>操作系统中线程的 运行/就绪 状态，Java中统一用<code>RUNNABLE</code>表示。</li>
+<li>操作系统中的阻塞状态，Java中有<code>BLOCKED, WAITING, TIME_WAITING</code>三种。</li>
 </ul>
-<p>如果原子性被破坏，会发生什么呢？</p>
-<ol>
-<li>如果删除缓存就失败了，就直接返回异常，也不用更新数据库了，这样两者的数据还是旧数据，也是一致的。</li>
-<li>如果删除缓存成功，更新数据库失败了？那也没啥事，数据库没更新，缓存还删除了。下次请求数据库，数据再写入缓存，两者数据库还是一致的。</li>
-</ol>
-<p>如果上面一般流程的操作都成功了，理论上是没问题的，但是在多线程并发环境下还是可能发生问题的，例如</p>
-<ol>
-<li>线程 A 删除了缓存。</li>
-<li>此时线程 A 的新数据还没更新到数据库，就被挂起了。</li>
-<li>线程 B 被调度，查询操作，发现缓存没有命中，就去数据库查，然后在将旧数据写入到缓存。</li>
-<li>线程 A 又被调度，接着执行上次未执行的操作，将讯数据更新到数据库。</li>
-</ol>
-<p>所以，最后出现了两者数据不一致的问题。</p>
-<p><strong>解决办法</strong>：</p>
-<ul>
-<li>将删除缓存、更新数据库、读取缓存等操作放到一个队列里，串行执行。</li>
-</ul>
-<h4 id="更新缓存的两种操作对比"><a href="#更新缓存的两种操作对比" class="headerlink" title="更新缓存的两种操作对比"></a>更新缓存的两种操作对比</h4><ol>
-<li>先更新数据库，再删除缓存<ul>
-<li>高并发情况下比较好，极小的概率发生不一致问题，可认为不会发生。</li>
-<li>原子性被破坏时，表现较差。</li>
-</ul>
-</li>
-<li>先删除缓存，再更新数据库<ul>
-<li>高并发环境下表现较差，容易发生不一致问题。</li>
-<li>原子性被破坏时，表现较好，不会发生数据不一致问题。</li>
-</ul>
-</li>
-</ol>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://segmentfault.com/a/1190000017882763#articleHeader8" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017882763#articleHeader8</a></li>
-</ul>
+<h3 id="获取线程执行状态"><a href="#获取线程执行状态" class="headerlink" title="获取线程执行状态"></a>获取线程执行状态</h3><p>Java的<code>Thread</code>类中定义了一个<code>State</code>枚举类型，表示线程状态，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//State枚举表示线程状态</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</span><br><span class="line">        NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//getState方法，获取线程状态</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> State <span class="title">getState</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// ...省略...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过<code>getState()</code>方法会获取线程状态。</p>
+<p>示例如下，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadStateDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object lock = <span class="keyword">new</span> Object();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread t = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">double</span> d = <span class="number">0.1</span>;</span><br><span class="line">                <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (i++ &lt; <span class="number">100000</span>) &#123; <span class="comment">//模拟一个耗时操作</span></span><br><span class="line">                    d = d*<span class="number">0.3</span>d;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">2000L</span>); <span class="comment">//休眠2秒钟</span></span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        lock.wait();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock) &#123; <span class="comment">//尝试获取lock锁</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">"t"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"线程t初始状态："</span> + t.getState());</span><br><span class="line"></span><br><span class="line">        t.start();</span><br><span class="line">        System.out.println(<span class="string">"运行一个耗时操作时的状态："</span> + t.getState());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"休眠时的状态："</span> + t.getState());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">2000L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"wait的状态："</span> + t.getState());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">            lock.notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"被notify后的状态："</span> + t.getState());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123; <span class="comment">//调用sleep方法不会释放锁</span></span><br><span class="line">                Thread.sleep(<span class="number">1000L</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"因为获取锁而阻塞的状态："</span> + t.getState());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">D:\Learn\java\jdk\bin\java.exe ...</span><br><span class="line">线程t初始状态：NEW</span><br><span class="line">运行一个耗时操作时的状态：RUNNABLE</span><br><span class="line">休眠时的状态：TIMED_WAITING</span><br><span class="line">wait的状态：WAITING</span><br><span class="line">被notify后的状态：BLOCKED</span><br><span class="line">因为获取锁而阻塞的状态：TERMINATED</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>以上就是获取的各种状态。</p>
 
       
     </div>
@@ -698,7 +654,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/03/04/redisTopics/" title="缓存雪崩 缓存穿透 缓存更新">2019/03/04/redisTopics/</a>
+        <a href="/2019/04/21/javaConcurrentThreadState/" title="java并发之线程的生命周期与状态（8）">2019/04/21/javaConcurrentThreadState/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -754,7 +710,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"><i class="fa fa-tags"></i> redis</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
         </div>
       
@@ -767,8 +723,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/03/redisValueOperation/" rel="next" title="三、Redis五种基本数据类型">
-                <i class="fa fa-chevron-left"></i> 三、Redis五种基本数据类型
+              <a href="/2019/04/21/javaConcurrentProviderConsumer/" rel="next" title="java并发线程通信之生产者/消费者模型（7）">
+                <i class="fa fa-chevron-left"></i> java并发线程通信之生产者/消费者模型（7）
               </a>
             
           </div>
@@ -776,10 +732,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/04/jvmObjectCreate/" rel="prev" title="jvm中对象的创建、布局和访问">
-                jvm中对象的创建、布局和访问 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -981,7 +933,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-缓存"><span class="nav-number">1.</span> <span class="nav-text">1. 缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-缓存雪崩"><span class="nav-number">2.</span> <span class="nav-text">2. 缓存雪崩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存雪崩解决办法"><span class="nav-number">2.2.</span> <span class="nav-text">缓存雪崩解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-缓存穿透"><span class="nav-number">3.</span> <span class="nav-text">3. 缓存穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述-1"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存穿透解决办法"><span class="nav-number">3.2.</span> <span class="nav-text">缓存穿透解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-缓存更新"><span class="nav-number">4.</span> <span class="nav-text">4. 缓存更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存流程"><span class="nav-number">4.1.</span> <span class="nav-text">缓存流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存与数据库双写一致"><span class="nav-number">4.2.</span> <span class="nav-text">缓存与数据库双写一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新操作"><span class="nav-number">4.3.</span> <span class="nav-text">更新操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-操作缓存"><span class="nav-number">4.3.1.</span> <span class="nav-text">1. 操作缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-先更新数据库，再删除缓存"><span class="nav-number">4.3.2.</span> <span class="nav-text">2. 先更新数据库，再删除缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-先删除缓存，再更新数据库"><span class="nav-number">4.3.3.</span> <span class="nav-text">3. 先删除缓存，再更新数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新缓存的两种操作对比"><span class="nav-number">4.4.</span> <span class="nav-text">更新缓存的两种操作对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">4.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的生命周期"><span class="nav-number">1.</span> <span class="nav-text">线程的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#五种状态"><span class="nav-number">1.1.</span> <span class="nav-text">五种状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建"><span class="nav-number">1.1.1.</span> <span class="nav-text">新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#就绪"><span class="nav-number">1.1.2.</span> <span class="nav-text">就绪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行"><span class="nav-number">1.1.3.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻塞"><span class="nav-number">1.1.4.</span> <span class="nav-text">阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死亡"><span class="nav-number">1.1.5.</span> <span class="nav-text">死亡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换"><span class="nav-number">1.2.</span> <span class="nav-text">状态转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行变就绪"><span class="nav-number">1.2.1.</span> <span class="nav-text">运行变就绪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行变阻塞"><span class="nav-number">1.2.2.</span> <span class="nav-text">运行变阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻塞变就绪"><span class="nav-number">1.2.3.</span> <span class="nav-text">阻塞变就绪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他变死亡"><span class="nav-number">1.2.4.</span> <span class="nav-text">其他变死亡</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java封装的线程状态"><span class="nav-number">2.</span> <span class="nav-text">java封装的线程状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-number">2.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取线程执行状态"><span class="nav-number">2.2.</span> <span class="nav-text">获取线程执行状态</span></a></li></ol></li></ol></div>
             
 
           </div>
