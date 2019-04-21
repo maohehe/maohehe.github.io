@@ -103,27 +103,25 @@
 
 
 
-  <meta name="description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
-<meta name="keywords" content="java,jvm">
+  <meta name="description" content="生产者消费者模式生产者消费者是线程通信wait/notify机制的一个重要应用。 以饭店为例子，厨师作为生产者生产食物，服务员作为消费者消费食物，而厨师和服务员不直接交互，而是通过窗口，厨师生产食物放到窗口，服务员消费窗口的食物。 每个厨师就相当于一个生产者线程，服务员相当于消费者线程，窗口就是缓冲队列，生产者将生产的东西不断放在缓冲队列，消费者从缓冲队列取出东西消费。 注意点： 缓冲队列能容纳的">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm中对象的创建、布局和访问">
-<meta property="og:url" content="https://maohehe.github.io/2019/03/04/jvmObjectCreate/index.html">
+<meta property="og:title" content="java并发线程通信之生产者&#x2F;消费者模型（7）">
+<meta property="og:url" content="https://maohehe.github.io/2019/04/21/javaConcurrentProviderConsumer/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
+<meta property="og:description" content="生产者消费者模式生产者消费者是线程通信wait/notify机制的一个重要应用。 以饭店为例子，厨师作为生产者生产食物，服务员作为消费者消费食物，而厨师和服务员不直接交互，而是通过窗口，厨师生产食物放到窗口，服务员消费窗口的食物。 每个厨师就相当于一个生产者线程，服务员相当于消费者线程，窗口就是缓冲队列，生产者将生产的东西不断放在缓冲队列，消费者从缓冲队列取出东西消费。 注意点： 缓冲队列能容纳的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pnsnkgpv4.bkt.clouddn.com/jvmjubing.jpg">
-<meta property="og:updated_time" content="2019-03-22T09:43:02.497Z">
+<meta property="og:updated_time" content="2019-04-21T05:32:17.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm中对象的创建、布局和访问">
-<meta name="twitter:description" content="java堆中对象的创建、布局和访问1. 对象的创建创建对象的过程：类加载检查、分配内存、初始化零值、设置对象头、执行&amp;lt;init&amp;gt;方法">
-<meta name="twitter:image" content="http://pnsnkgpv4.bkt.clouddn.com/jvmjubing.jpg">
+<meta name="twitter:title" content="java并发线程通信之生产者&#x2F;消费者模型（7）">
+<meta name="twitter:description" content="生产者消费者模式生产者消费者是线程通信wait/notify机制的一个重要应用。 以饭店为例子，厨师作为生产者生产食物，服务员作为消费者消费食物，而厨师和服务员不直接交互，而是通过窗口，厨师生产食物放到窗口，服务员消费窗口的食物。 每个厨师就相当于一个生产者线程，服务员相当于消费者线程，窗口就是缓冲队列，生产者将生产的东西不断放在缓冲队列，消费者从缓冲队列取出东西消费。 注意点： 缓冲队列能容纳的">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/03/04/jvmObjectCreate/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/04/21/javaConcurrentProviderConsumer/">
 
 
 
@@ -133,7 +131,7 @@
   };
 </script>
 
-  <title>jvm中对象的创建、布局和访问 | MaoHe's Blog</title>
+  <title>java并发线程通信之生产者/消费者模型（7） | MaoHe's Blog</title>
   
 
 
@@ -395,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/04/jvmObjectCreate/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/04/21/javaConcurrentProviderConsumer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -412,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jvm中对象的创建、布局和访问
+          <h1 class="post-title" itemprop="name headline">java并发线程通信之生产者/消费者模型（7）
 
               
             
@@ -438,24 +436,12 @@
                 
               
 
-              <time title="创建时间：2019-03-04 16:30:57" itemprop="dateCreated datePublished" datetime="2019-03-04T16:30:57+08:00">2019-03-04</time>
+              <time title="创建时间：2019-04-21 13:28:27 / 修改时间：13:32:17" itemprop="dateCreated datePublished" datetime="2019-04-21T13:28:27+08:00">2019-04-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-22 17:43:02" itemprop="dateModified" datetime="2019-03-22T17:43:02+08:00">2019-03-22</time>
               
             
           </span>
@@ -479,7 +465,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java虚拟机/" itemprop="url" rel="index"><span itemprop="name">java虚拟机</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java并发/" itemprop="url" rel="index"><span itemprop="name">java并发</span></a></span>
 
                 
                 
@@ -497,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/03/04/jvmObjectCreate/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/04/jvmObjectCreate/" itemprop="commentCount"></span>
+                <a href="/2019/04/21/javaConcurrentProviderConsumer/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/21/javaConcurrentProviderConsumer/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -527,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">4.2k</span>
               
 
               
@@ -541,7 +527,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -561,64 +547,33 @@
       
 
       
-        <h3 id="java堆中对象的创建、布局和访问"><a href="#java堆中对象的创建、布局和访问" class="headerlink" title="java堆中对象的创建、布局和访问"></a>java堆中对象的创建、布局和访问</h3><h4 id="1-对象的创建"><a href="#1-对象的创建" class="headerlink" title="1. 对象的创建"></a>1. 对象的创建</h4><p>创建对象的过程：<strong>类加载检查、分配内存、初始化零值、设置对象头、执行<code>&lt;init&gt;</code>方法</strong></p>
+        <h2 id="生产者消费者模式"><a href="#生产者消费者模式" class="headerlink" title="生产者消费者模式"></a>生产者消费者模式</h2><p>生产者消费者是线程通信<code>wait/notify</code>机制的一个重要应用。</p>
+<p>以饭店为例子，厨师作为生产者生产食物，服务员作为消费者消费食物，而厨师和服务员不直接交互，而是通过窗口，厨师生产食物放到窗口，服务员消费窗口的食物。</p>
+<p>每个厨师就相当于一个<strong>生产者线程</strong>，服务员相当于<strong>消费者线程</strong>，窗口就是<strong>缓冲队列</strong>，生产者将生产的东西不断放在缓冲队列，消费者从缓冲队列取出东西消费。</p>
+<p><strong>注意点：</strong> 缓冲队列能容纳的东西数量是有限的，如果缓冲队列为空，消费者就要提醒生产者生产，然后自己就去等待队列等待。如果缓冲队列满，生产者就提醒消费者消费，然后自己就去等待队列等待。</p>
 <a id="more"></a>
+<p>实例代码，定义一个食物<code>Food</code>类，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Food</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> counter = <span class="number">0</span>; <span class="comment">//统计所有食物数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Food</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i = ++counter; <span class="comment">//每次生产食物，i+1，代表这是第几个食物</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"第"</span> + i + <span class="string">"个菜"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再定义一个<code>sleep</code>工具，来模拟生产和消费的过程，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SleepUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Random random = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当前线程随机休眠一秒以内</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">randomSleep</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(random.nextInt(<span class="number">1000</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义生产者线程厨师，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mao.ProviderConsumer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cooker</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="comment">//食物缓冲队列，窗口</span></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Food&gt; queue;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cooker</span><span class="params">(Queue&lt;Food&gt; queue, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            SleepUtil.randomSleep(); <span class="comment">//模拟生产食物过程</span></span><br><span class="line">            Food food = <span class="keyword">new</span> Food();</span><br><span class="line">            System.out.println(getName()+<span class="string">"生产了"</span>+food);</span><br><span class="line">            <span class="comment">//生产食物后就要送到窗口，而送到窗口要排队</span></span><br><span class="line">            <span class="comment">//需要进行同步处理</span></span><br><span class="line">            <span class="keyword">synchronized</span> (queue)&#123;</span><br><span class="line">                <span class="keyword">while</span> (queue.size() &gt;= <span class="number">5</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">"队列元素超过5个，"</span>+getName() +<span class="string">"等待队列等待"</span>);</span><br><span class="line">                        queue.wait();</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                queue.add(food);</span><br><span class="line">                queue.notifyAll();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每个生产者线程<code>Cooker</code>内部维护了一个<code>queue</code>缓冲队列，<code>run</code>方法中循环生产<code>Food</code>，没生产一次都判断缓冲队列中元素个数，看是否可以放到窗口。如果放到了窗口，则说明窗口有食物，就通知等待队列中的线程进行消费。</p>
+<p>定义消费者线程服务员，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Waiter</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Food&gt; queue;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Waiter</span><span class="params">(String name, Queue&lt;Food&gt; queue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            Food food = <span class="keyword">null</span>; <span class="comment">//先声明一个变量，相当于一个空盘子</span></span><br><span class="line">            <span class="keyword">synchronized</span> (queue) &#123;</span><br><span class="line">                <span class="comment">//获取窗口的锁之后，判断缓冲队列有没有食物</span></span><br><span class="line">                <span class="keyword">while</span> (queue.size() &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(getName()+<span class="string">"来到窗口，窗口没菜了，进入等待队列等待"</span>);</span><br><span class="line">                        queue.wait();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//有食物的话就消费食物</span></span><br><span class="line">                food = queue.remove();</span><br><span class="line">                System.out.println(getName()+<span class="string">"获取到"</span>+food);</span><br><span class="line">                queue.notifyAll();</span><br><span class="line">            &#125;</span><br><span class="line">            SleepUtil.randomSleep();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>消费者维护了与生产者相同的一个缓冲队列，<code>run</code>方法中循环取出食物。取出食物要进行判断是否有食物，没有食物就没得消费，就要进入等待队列进行等待。有食物就消费，之后通知等待队列的线程继续进行生产食物。</p>
+<p>最后进行测试，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Queue&lt;Food&gt; queue = <span class="keyword">new</span> LinkedList&lt;Food&gt;();</span><br><span class="line">        <span class="keyword">new</span> Cook(queue,<span class="string">"厨师1"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Cook(queue,<span class="string">"厨师2"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Cook(queue,<span class="string">"厨师3"</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Waiter(<span class="string">"服务员1"</span>,queue).start();</span><br><span class="line">        <span class="keyword">new</span> Waiter(<span class="string">"服务员2"</span>,queue).start();</span><br><span class="line">        <span class="keyword">new</span> Waiter(<span class="string">"服务员3"</span>,queue).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试结果</span></span><br><span class="line">D:\Learn\java\jdk\bin\java.exe ...</span><br><span class="line">服务员<span class="number">1</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">服务员<span class="number">2</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">服务员<span class="number">3</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">厨师<span class="number">3</span>生产了第<span class="number">1</span>个菜</span><br><span class="line">服务员<span class="number">3</span>获取到第<span class="number">1</span>个菜</span><br><span class="line">服务员<span class="number">2</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">服务员<span class="number">1</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">厨师<span class="number">3</span>生产了第<span class="number">2</span>个菜</span><br><span class="line">服务员<span class="number">1</span>获取到第<span class="number">2</span>个菜</span><br><span class="line">服务员<span class="number">2</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">厨师<span class="number">1</span>生产了第<span class="number">3</span>个菜</span><br><span class="line">服务员<span class="number">2</span>获取到第<span class="number">3</span>个菜</span><br><span class="line">服务员<span class="number">3</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">服务员<span class="number">1</span>来到窗口，窗口没菜了，进入等待队列等待</span><br><span class="line">厨师<span class="number">1</span>生产了第<span class="number">4</span>个菜</span><br><span class="line">服务员<span class="number">1</span>获取到第<span class="number">4</span>个菜</span><br><span class="line"></span><br><span class="line">Process finished with exit code -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>模拟了三个厨师和三个服务员，对应三个生产者和三个消费者线程。</p>
+<p><strong>注意点：</strong></p>
 <ol>
-<li><p><strong>类加载检查</strong>：当我们用new关键字实例化对象时，最后到虚拟机执行的就变成 new 指令，虚拟机遇到一条 new 指令时，首先检查 new 指令的参数是否能在常量池中定位到这个类的符号引用，如果常量池中有符号引用，就检查这个符号引用的类是否已被加载、解析、初始化过。如果常量池没有该符号引用，那必须先将参数表示的类进行加载。</p>
-</li>
-<li><p><strong>分配内存</strong>：对象需要的内存在经过类加载之后就可以确定，之后就在堆中划一块内存给这个对象，具体的划分内存的方式有两种：</p>
-<ol>
-<li><strong>指针碰撞</strong>：要求内存整齐，就是分配过对象的内存在一边，按照顺序分配。这样在最后一个对象尾部有一个指针，当要分配新对象时，就指针后移对象需要的距离分配给对象。</li>
-<li><strong>空闲列表</strong>：内存不是整齐的，使用过的和空闲的可能交错。虚拟机维护了一个”空闲列表”，列表上记录了空闲的内存区，当给对象分配内存，就从列表上找一块装得下该对象的内存给对象，同时将这块内存从列表中去掉。<ul>
-<li>思考：为什么有规整的和不规整的内存区域呢？因为和垃圾收集有关，有的内存经过垃圾收集之后内存是整齐的（复制算法、标记整理算法），有的收集之后就是不规整的（标记清除算法），详情参考我的《jvm内存分配与垃圾收集》一文。</li>
-</ul>
-</li>
+<li>生产者和消费者使用的是同一个锁<code>queue</code>。</li>
+<li>由于使用同一个锁，所以等待队列也是同一个。</li>
+<li>生产者和消费者没有同时存在于等待队列。</li>
 </ol>
-<p><strong>理解：</strong> 如果涉及<strong>多线程为对象分配内存</strong>呢？就是一个线程正在分配内存，指针还没开始移动，另一个线程就在原来的区域进行分配了，造成冲突。解决方式有两种：</p>
-<ul>
-<li>同步处理：一个线程分配内存就上锁，别的线程不能同时分配。虚拟机采用<strong><code>CAS+失败重试</code></strong>方式更新。</li>
-<li><code>TLAB(Thread Local Allocation Buffer)</code>：本地线程分配缓冲。就是给每个线程在堆中先分配一块区域，线程在自己的内存区域给自己的对象分配内存。当有线程的<code>TLAB</code>用完了，继续向堆申请内存，这时候就要采用同步的方式进行上锁了，不然其他的线程也要同时申请就又冲突了。</li>
-</ul>
-</li>
-<li><p><strong>初始化零值</strong>：给对象分配内存后，<code>jvm</code>要将分配到的内存空间都初始化为零值(就是数据类型的默认值)，可以保证对象的<strong>实例字段</strong>在不赋初始值就直接使用，程序访问到的是这些字段的数据类型所对应的零值。（零值：如int零值是0，boolean是false，引用类型为null）。</p>
-</li>
-<li><p><strong>设置对象头</strong>：之后要设置对象头，对象头包括对象是<strong>哪个类的实例</strong>、<strong>对象Hash值</strong>、<strong>对象GC的Age</strong>、<strong>类的元数据</strong>等。</p>
-</li>
-<li><p><strong>执行<code>&lt;init&gt;</code>方法</strong>：经过以上步骤，对于虚拟机来说，一个新对象已经产生，但对Java程序来说，对象创建才刚开始，因为所有字段还为零值，对象还没有根据程序员的意愿初始化。一般来说，执行 new 指令之后会接着执行 <code>&lt;init&gt;</code> 方法，把对象初始化为程序员期望的值，这样一个真正可用的对象才算完全产生。</p>
-</li>
-</ol>
-<h4 id="2-对象的内存布局"><a href="#2-对象的内存布局" class="headerlink" title="2. 对象的内存布局"></a>2. 对象的内存布局</h4><p>对象在内存中的布局分为三个区域：<strong>对象头</strong>、<strong>实例数据</strong>、<strong>对齐补充</strong>。</p>
-<h5 id="1-对象头"><a href="#1-对象头" class="headerlink" title="1. 对象头"></a>1. 对象头</h5><p>对象头包括两部分，第一部分是用于存储<strong>对象自身的运行时数据</strong>，另一部分是<strong>类型指针</strong>。</p>
-<ul>
-<li><p><strong>对象自身运行时数据</strong>：哈希吗、对象GC的Age、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等。32bit/64bit（和虚拟机位数相同）。</p>
-</li>
-<li><p><strong>类型指针</strong>：对象指向它的类元数据的指针，通过这个指针来确定这个对象是哪个类的实例。32bit长度。</p>
-</li>
-<li><p><strong>数组长度（可选）</strong>：如果<strong>对象是数组类型（String []）</strong>，还需要32bit记录数组长度。</p>
-</li>
-</ul>
-<h5 id="2-实例数据"><a href="#2-实例数据" class="headerlink" title="2. 实例数据"></a>2. 实例数据</h5><blockquote>
-<p>实例数据是对象真正存储的有效信息，即程序代码中定义的字段的实际值。</p>
-</blockquote>
-<p>实例数据记录的数据包含父类继承下来的，自身定义的，子类定义的。而这几种数据的存储数据受<strong>虚拟机分配策略参数</strong>和字段在<strong>Java源程序中定义顺序</strong>的影响。</p>
-<h5 id="3-对齐补充"><a href="#3-对齐补充" class="headerlink" title="3. 对齐补充"></a>3. 对齐补充</h5><blockquote>
-<p>对齐补充没什么意义，只起占位符作用。</p>
-</blockquote>
-<p>​    虚拟机要求对象的起始地址必须是8字节 的整数倍，即对象占的空间也得是8字节 的整数倍，因为对象头是8字节 的整数倍，实例数据大小不固定，所以需要对齐补充来补全实例数据为8字节的整数倍。</p>
-<h4 id="3-对象的访问"><a href="#3-对象的访问" class="headerlink" title="3. 对象的访问"></a>3. 对象的访问</h4><p>​    我们知道具体对象是在堆中创建的，而我们的Java程序是通过栈上的 reference 数据来引用具体对象。那么 reference 数据是怎么指向堆中的具体对象呢？</p>
-<p><strong>访问对象的方式</strong>：</p>
-<ol>
-<li><strong>句柄访问</strong>：Java堆中会划分出一块内存作为句柄池，句柄中保存的就是对象的实例数据（堆中）和类型数据（方法区中）具体地址。reference中存储的就是具体对象的句柄信息。<img src="http://pnsnkgpv4.bkt.clouddn.com/jvmjubing.jpg" alt="图示"></li>
-<li><strong>直接指针访问</strong>：直接指针方式就是reference中保存的就是对象在堆中的具体地址。而对象在方法区中的类型数据信息就由Java堆去考虑。</li>
-</ol>
-<p>两种方式比较：</p>
-<ul>
-<li>使用句柄访问的话，对象被移动时（如垃圾收集中标记整理、复制算法对象的地址都会变动），只需要修改句柄中的地址，reference数据本身不需要变。</li>
-<li>直接指针访问速度更快，不用先定位句柄，句柄在定位对象，节省一次定位时间。</li>
-</ul>
 <p><strong>参考：</strong></p>
 <ul>
-<li>《深入理解Java虚拟机 - 周志明》</li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&amp;mid=2247483841&amp;idx=1&amp;sn=5af39d7fdc2affe574a8cffc904d7f19&amp;scene=19#wechat_redirect" target="_blank" rel="noopener">公众号文章-我们都是小青蛙</a></li>
 </ul>
 
       
@@ -635,7 +590,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/03/04/jvmObjectCreate/" title="jvm中对象的创建、布局和访问">2019/03/04/jvmObjectCreate/</a>
+        <a href="/2019/04/21/javaConcurrentProviderConsumer/" title="java并发线程通信之生产者/消费者模型（7）">2019/04/21/javaConcurrentProviderConsumer/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -693,8 +648,6 @@
           
             <a href="/tags/java/" rel="tag"><i class="fa fa-tags"></i> java</a>
           
-            <a href="/tags/jvm/" rel="tag"><i class="fa fa-tags"></i> jvm</a>
-          
         </div>
       
 
@@ -706,8 +659,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/04/redisTopics/" rel="next" title="缓存雪崩 缓存穿透 缓存更新">
-                <i class="fa fa-chevron-left"></i> 缓存雪崩 缓存穿透 缓存更新
+              <a href="/2019/04/20/javaConcurrentWaitNotify/" rel="next" title="java并发线程通信之wait-notify机制（6）">
+                <i class="fa fa-chevron-left"></i> java并发线程通信之wait-notify机制（6）
               </a>
             
           </div>
@@ -715,10 +668,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/javaObserver/" rel="prev" title="观察者模式">
-                观察者模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -920,7 +869,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java堆中对象的创建、布局和访问"><span class="nav-number">1.</span> <span class="nav-text">java堆中对象的创建、布局和访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对象的创建"><span class="nav-number">1.1.</span> <span class="nav-text">1. 对象的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-对象的内存布局"><span class="nav-number">1.2.</span> <span class="nav-text">2. 对象的内存布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-对象头"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 对象头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-实例数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 实例数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-对齐补充"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 对齐补充</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象的访问"><span class="nav-number">1.3.</span> <span class="nav-text">3. 对象的访问</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生产者消费者模式"><span class="nav-number">1.</span> <span class="nav-text">生产者消费者模式</span></a></li></ol></div>
             
 
           </div>
