@@ -103,25 +103,25 @@
 
 
 
-  <meta name="description" content="线程问题多个线程可以共享同一进程的资源，而进程中的资源如内存、IO等在代码中是以变量的形式存在的，所以这些变量在多线程之间可能是共享、可变的。 共享：就是这个变量可以被多个线程同时访问。 可变：就是变量的值可能被访问他的线程修改。 对于这些变量来说，如果处理不好，可能会引发很大的安全问题。">
+  <meta name="description" content="JDBC基础JDBC概念概述JDBC（Java DataBase Connectivity）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。 JDBC是sun公司定义的一套接口规范。JDBC对Java程序员而言是API，对实现与数据库连接的服务提供商而言是接口模型（规范）。作为API，JDBC为程序开发提供标准的接口，并为数据">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java并发之原子性操作（2）">
-<meta property="og:url" content="https://maohehe.github.io/2019/03/30/javaConcurrentAtomicOperator/index.html">
+<meta property="og:title" content="JDBC基础">
+<meta property="og:url" content="https://maohehe.github.io/2019/04/24/javaBaseOfJDBC/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="线程问题多个线程可以共享同一进程的资源，而进程中的资源如内存、IO等在代码中是以变量的形式存在的，所以这些变量在多线程之间可能是共享、可变的。 共享：就是这个变量可以被多个线程同时访问。 可变：就是变量的值可能被访问他的线程修改。 对于这些变量来说，如果处理不好，可能会引发很大的安全问题。">
+<meta property="og:description" content="JDBC基础JDBC概念概述JDBC（Java DataBase Connectivity）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。 JDBC是sun公司定义的一套接口规范。JDBC对Java程序员而言是API，对实现与数据库连接的服务提供商而言是接口模型（规范）。作为API，JDBC为程序开发提供标准的接口，并为数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T06:50:01.733Z">
+<meta property="og:updated_time" content="2019-04-24T09:43:34.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java并发之原子性操作（2）">
-<meta name="twitter:description" content="线程问题多个线程可以共享同一进程的资源，而进程中的资源如内存、IO等在代码中是以变量的形式存在的，所以这些变量在多线程之间可能是共享、可变的。 共享：就是这个变量可以被多个线程同时访问。 可变：就是变量的值可能被访问他的线程修改。 对于这些变量来说，如果处理不好，可能会引发很大的安全问题。">
+<meta name="twitter:title" content="JDBC基础">
+<meta name="twitter:description" content="JDBC基础JDBC概念概述JDBC（Java DataBase Connectivity）是一种用于执行SQL语句的Java API，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。 JDBC是sun公司定义的一套接口规范。JDBC对Java程序员而言是API，对实现与数据库连接的服务提供商而言是接口模型（规范）。作为API，JDBC为程序开发提供标准的接口，并为数据">
 
 
 
 
 
 
-  <link rel="canonical" href="https://maohehe.github.io/2019/03/30/javaConcurrentAtomicOperator/">
+  <link rel="canonical" href="https://maohehe.github.io/2019/04/24/javaBaseOfJDBC/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>java并发之原子性操作（2） | MaoHe's Blog</title>
+  <title>JDBC基础 | MaoHe's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/03/30/javaConcurrentAtomicOperator/">
+    <link itemprop="mainEntityOfPage" href="https://maohehe.github.io/2019/04/24/javaBaseOfJDBC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maohe">
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java并发之原子性操作（2）
+          <h1 class="post-title" itemprop="name headline">JDBC基础
 
               
             
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2019-03-30 14:47:33 / 修改时间：14:50:01" itemprop="dateCreated datePublished" datetime="2019-03-30T14:47:33+08:00">2019-03-30</time>
+              <time title="创建时间：2019-04-24 17:42:26 / 修改时间：17:43:34" itemprop="dateCreated datePublished" datetime="2019-04-24T17:42:26+08:00">2019-04-24</time>
             
 
             
@@ -465,7 +465,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java并发/" itemprop="url" rel="index"><span itemprop="name">java并发</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
 
                 
                 
@@ -483,8 +483,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/03/30/javaConcurrentAtomicOperator/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/30/javaConcurrentAtomicOperator/" itemprop="commentCount"></span>
+                <a href="/2019/04/24/javaBaseOfJDBC/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/24/javaBaseOfJDBC/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -513,7 +513,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.8k</span>
+                <span title="本文字数">5k</span>
               
 
               
@@ -527,7 +527,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -547,86 +547,61 @@
       
 
       
-        <h2 id="线程问题"><a href="#线程问题" class="headerlink" title="线程问题"></a>线程问题</h2><p>多个线程可以共享同一进程的资源，而进程中的资源如内存、IO等在代码中是以变量的形式存在的，所以这些变量在多线程之间可能是<strong>共享、可变</strong>的。</p>
-<p>共享：就是这个变量可以被多个线程同时访问。</p>
-<p>可变：就是变量的值可能被访问他的线程修改。</p>
-<p>对于这些变量来说，如果处理不好，可能会引发很大的安全问题。</p>
+        <h2 id="JDBC基础"><a href="#JDBC基础" class="headerlink" title="JDBC基础"></a><code>JDBC</code>基础</h2><h3 id="JDBC概念"><a href="#JDBC概念" class="headerlink" title="JDBC概念"></a><code>JDBC</code>概念</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p><code>JDBC（Java DataBase Connectivity）</code>是一种用于执行<code>SQL</code>语句的<code>Java API</code>，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。</p>
+<p><code>JDBC</code>是sun公司定义的一套接口规范。<code>JDBC</code>对Java程序员而言是<code>API</code>，对实现与数据库连接的服务提供商而言是接口模型（规范）。作为<code>API，JDBC</code>为程序开发提供标准的接口，并为数据库厂商及第三方中间件厂商实现与数据库的连接提供了标准方法。</p>
+<p>也就是说，对于多种关系型数据库<code>（Mysql，DB2，Oracle等）</code>，通过使用<code>JDBC</code>这一种方式就可以访问他们，而不用对每种数据库都编写一套程序。而实际的访问代码是由数据库厂商根据<code>JDBC</code>接口规范来实现的。</p>
 <a id="more"></a>
-<h2 id="共享变量"><a href="#共享变量" class="headerlink" title="共享变量"></a>共享变量</h2><p>Java虚拟机内存区域中按线程访问可划分两种区域：线程独占，线程共享。</p>
-<p>一个线程调用一个方法时，会在虚拟机栈（线程独占）中为局部变量即方法参数申请一些内存，方法调用结束，内存就被释放。不同的线程调用同一个方法都在各自的栈内存中创建局部变量和方法参数的副本。所以，<strong>栈内存是线程私有的，即局部变量和方法参数不能被共享</strong>，对应的也就没有同步的问题。</p>
-<p>但是对象或数组是在堆上创建的，静态变量保存在方法区，堆和方法区是所有线程共享的区域，所以<strong>包括成员变量、静态变量和数组元素线程可共享的。</strong></p>
-<h2 id="线程安全性"><a href="#线程安全性" class="headerlink" title="线程安全性"></a>线程安全性</h2><p>线程安全涉及三个最主要的主题，</p>
-<ul>
-<li>原子性操作</li>
-<li>内存可见性</li>
-<li>指令重排序</li>
+<h4 id="数据库驱动"><a href="#数据库驱动" class="headerlink" title="数据库驱动"></a>数据库驱动</h4><p>各大数据库厂商编写的<code>JDBC</code>接口的实现类，他们将实现类编译后打包成jar包并发布，这就是数据库驱动，即我们使用<code>JDBC</code>连接<code>Mysql</code>数据库，当我们调用<code>JDBC</code>中接口方法时，实际调用<code>Mysql</code>驱动的实现类。</p>
+<h3 id="JDBC编程流程"><a href="#JDBC编程流程" class="headerlink" title="JDBC编程流程"></a><code>JDBC</code>编程流程</h3><h4 id="编程流程"><a href="#编程流程" class="headerlink" title="编程流程"></a>编程流程</h4><ol>
+<li>注册驱动<ol>
+<li>获取驱动对象</li>
+<li>注册驱动</li>
+</ol>
+</li>
+<li>获取数据库连接</li>
+<li>获取数据库操作对象</li>
+<li>执行<code>SQL</code>语句<ul>
+<li>执行数据库查询语句<code>select</code></li>
+<li>执行数据库操作语句<code>update,insert,delete</code></li>
 </ul>
-<h2 id="原子性操作"><a href="#原子性操作" class="headerlink" title="原子性操作"></a>原子性操作</h2><p>原子性操作就是<strong>一个或几个操作只能在一个线程执行完成之后，另一个线程才能开始执行</strong>，即<strong>这些操作是不能再被分割的，多个线程不能在这些操作上交替执行</strong>。</p>
-<h3 id="非原子性操作问题"><a href="#非原子性操作问题" class="headerlink" title="非原子性操作问题"></a>非原子性操作问题</h3><p>多线程非原子性操作问题举例，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个自增对象，对象在堆中分配，是线程共享的</span></span><br><span class="line"><span class="comment">//对象中的实例变量i就是共享变量</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Increment</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getI</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">1</span>);</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">10</span>);</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">100</span>);</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">1000</span>);</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">10000</span>);</span><br><span class="line">        test(<span class="number">20</span>, <span class="number">100000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//20个线程，进行指定循环次数，对共享变量进行++操作</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> ThreadNum, <span class="keyword">final</span> <span class="keyword">int</span> loopTimes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Increment increment = <span class="keyword">new</span> Increment();</span><br><span class="line">        Thread[] threads = <span class="keyword">new</span> Thread[ThreadNum];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; threads.length; i++) &#123;</span><br><span class="line">            Thread t = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;loopTimes;i++)&#123;</span><br><span class="line">                        increment.increase();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            threads[i] = t;</span><br><span class="line">            t.start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//等所有线程执行完毕，main线程再执行</span></span><br><span class="line">        <span class="keyword">for</span> (Thread t : threads) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                t.join();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(ThreadNum + <span class="string">"个线程，循环"</span> + loopTimes + <span class="string">"次结果："</span> + increment.getI());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实验结果</span></span><br><span class="line">D:\java\jdk\bin\java.exe ...</span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">1</span>次结果：<span class="number">20</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">10</span>次结果：<span class="number">200</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">100</span>次结果：<span class="number">2000</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">1000</span>次结果：<span class="number">19035</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">10000</span>次结果：<span class="number">58212</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">100000</span>次结果：<span class="number">1609601</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>最后一次实验结果说明，20个线程对共享变量 i 执行 ++ 操作，每个线程执行100000次，最后我们期望的结果 i 的值应该是2000000，然而并不是。</p>
-<p><strong>因为 <code>i++</code> 不是原子操作导致的。</strong></p>
-<p><code>i++</code>等同于<code>=i+1</code>，通过<code>javap -v Increment</code>查看<code>increase()</code>方法的字节码指令，如下，</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1: getfield      #2                  // Field i:I</span><br><span class="line"><span class="number">2</span>: iconst_1</span><br><span class="line"><span class="number">3</span>: iadd</span><br><span class="line">4: putfield      #2                  // Field i:I</span><br></pre></td></tr></table></figure>
-<ol>
-<li>读取 i 的值。</li>
-<li>读取常量 1 。</li>
-<li>将 i + 1 。</li>
-<li>结果再赋值给 i 。</li>
+</li>
+<li>处理结果集</li>
+<li>关闭资源</li>
 </ol>
-<p>可见，<code>i++</code> 一个操作对应着多个字节码指令。每条指令都是可以单独成为一种操作的，所以<code>i++</code>不是原子性操作。</p>
-<p>那结果为什么不是2000000呢。</p>
-<p>以两个线程执行<code>i++</code>为例，</p>
+<p>代码示例，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用之前要导入mysql-connector.jar包</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCTest01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//注意：由于finally块中无法获取try块定义的内容，</span></span><br><span class="line">        <span class="comment">//所以将需要在finally块中关闭的资源提取出来。</span></span><br><span class="line">        Connection connection = <span class="keyword">null</span>;</span><br><span class="line">        Statement statement = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet resultSet = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 注册驱动</span></span><br><span class="line">            <span class="comment">//获取驱动对象</span></span><br><span class="line">            Driver driver = <span class="keyword">new</span> Driver();</span><br><span class="line">            <span class="comment">//注册驱动</span></span><br><span class="line">            DriverManager.registerDriver(driver);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//2. 获取数据库连接</span></span><br><span class="line">            String url = <span class="string">"jdbc:mysql://localhost:3306/world"</span>;</span><br><span class="line">            String username = <span class="string">"root"</span>;</span><br><span class="line">            String password = <span class="string">"root"</span>;</span><br><span class="line">            <span class="comment">//获取连接,getConnection()方法需要这三个参数</span></span><br><span class="line">            connection = DriverManager.getConnection(url, username, password);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3. 获取数据库操作对象</span></span><br><span class="line">            <span class="comment">//statement对象将sql语句发送数据库</span></span><br><span class="line">            statement = connection.createStatement(); </span><br><span class="line"></span><br><span class="line">            <span class="comment">//4. 执行SQL语句</span></span><br><span class="line">            String sql = <span class="string">"SELECT * FROM city limit 10"</span>;</span><br><span class="line">            resultSet = statement.executeQuery(sql); <span class="comment">//返回查询结果集</span></span><br><span class="line">            System.out.println(resultSet);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//5. 处理查询结果集</span></span><br><span class="line">            <span class="keyword">while</span>(resultSet.next())&#123;</span><br><span class="line">                <span class="comment">//根据列号查询，列号是查询结果的列序号</span></span><br><span class="line">                <span class="keyword">int</span> id = resultSet.getInt(<span class="number">1</span>);</span><br><span class="line">                String name = resultSet.getString(<span class="number">2</span>);</span><br><span class="line">                <span class="comment">//根据列名查询，有别名使用别名</span></span><br><span class="line">                String countryCode = resultSet.getString(<span class="string">"CountryCode"</span>);</span><br><span class="line">                String district = resultSet.getString(<span class="string">"District"</span>);</span><br><span class="line">                <span class="keyword">int</span> population = resultSet.getInt(<span class="string">"Population"</span>);</span><br><span class="line">                System.out.println(id +<span class="string">" "</span> + name + <span class="string">" "</span> +countryCode + <span class="string">" "</span> + district</span><br><span class="line">                + <span class="string">" "</span> + population);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//6. 倒序关闭资源</span></span><br><span class="line">            <span class="keyword">if</span> (resultSet != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    resultSet.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (statement != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    statement.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (connection != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    connection.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a>注册驱动</h5><p>注册驱动有两种方式，上面的是方式一。</p>
+<p><strong>方式一:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Driver driver = <span class="keyword">new</span> Driver(); <span class="comment">//获取驱动对象</span></span><br><span class="line">DriverManager.registerDriver(driver); <span class="comment">//注册驱动</span></span><br></pre></td></tr></table></figure>
+<p><strong>方式二：使用反射</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
+<p>根据<code>Dirver.class</code>的源码可以发现，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Driver</span> <span class="keyword">extends</span> <span class="title">NonRegisteringDriver</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">sql</span>.<span class="title">Driver</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Driver</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//注意这里</span></span><br><span class="line">            DriverManager.registerDriver(<span class="keyword">new</span> Driver());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException var1) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Can't register driver!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这种反射机制来注册，根据类加载机制会立即加载<code>Driver</code>类，并且执行其中的<code>static{}</code>块，而静态代码块中有注册驱动的语句<code>DriverManager.registerDriver(new Driver());</code>，所以底层还是方式一的方法进行注册。</p>
+<h5 id="获取数据库操作对象"><a href="#获取数据库操作对象" class="headerlink" title="获取数据库操作对象"></a>获取数据库操作对象</h5><p>数据库操作对象用来执行<code>SQL</code>语句，并返回执行的结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement statement = connection.getStatement();</span><br></pre></td></tr></table></figure>
+<p>有两种常用的<code>statement</code>对象：</p>
 <ol>
-<li>线程1执行<code>increase</code>方法先读取变量i的值，发现是<code>5</code>，此时切换到线程2执行<code>increase</code>方法读取变量i的值，发现也是<code>5</code>。</li>
-<li>线程1执行将变量i的值加1的操作，得到结果是<code>6</code>，线程二也执行这个操作。</li>
-<li>线程1将结果赋值给变量i，线程2也将结果赋值给变量i。</li>
+<li><code>Statement</code>：由<code>createStatement()</code>创建，用于发送简单的<code>SQL</code>语句（<strong>不带参数</strong>）。</li>
+<li><code>PreparedStatement</code>：继承自<code>Statement</code>接口，由<code>preparedStatement</code>创建，用于发送含有一个或<strong>多个参数</strong>的<code>SQL</code>语句。<code>PreparedStatement</code>对象比<code>Statement</code>对象的效率更高，并且可以<strong>防止<code>SQL</code>注入</strong>，所以我们一般都使用<code>PreparedStatement</code>。<ul>
+<li>然而通过<code>preparedStatement()</code>方法创建<code>PreparedStatement</code>对象时就要立即传入<code>SQL</code>语句。</li>
+</ul>
+</li>
 </ol>
-<p>所以就发生了i=5执行了两次<code>increase</code>方法，最后结果却是6，而不是预期的7。</p>
-<p>由于处理器速度快，循环次数越大就越明显了。</p>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>对于上述问题，是对共享可变变量进行的操作，所以可以从变量和操作两个大角度上考虑解决办法。</p>
-<ol>
-<li>变量角度：共享性，可变性</li>
-<li>操作角度：锁住操作</li>
-</ol>
-<h4 id="共享性解决"><a href="#共享性解决" class="headerlink" title="共享性解决"></a>共享性解决</h4><p>共享性解决方案就是将变量设置成线程不共享的，不过就<strong>失去了多线程协作的初衷</strong>，多线程各做个的，没有关联了。</p>
-<ol>
-<li>使用<strong>局部变量</strong>解决：就是在方法内部定义变量，或者使用方法参数，这些变量都是线程私有的，没有同步问题。</li>
-<li><strong>使用<code>ThreadLocal</code>类</strong>：对于<code>ThreadLocal</code>类对象，每个线程对对象的操作不会影响其他线程的值，类似于这个<code>ThreadLocal</code>对象为每个使用它的线程分配一块空间，各个线程间互不干涉。</li>
-</ol>
-<h4 id="可变性解决"><a href="#可变性解决" class="headerlink" title="可变性解决"></a>可变性解决</h4><p>如果一个变量不可变了，那么所有的线程都不能修改它了，也就没有上述的问题了。</p>
-<p>具体程序中是否需要这么做还需要多加判断，考虑。</p>
-<h4 id="加锁解决"><a href="#加锁解决" class="headerlink" title="加锁解决"></a>加锁解决</h4><p>对于一些非原子性的操作，可以加锁锁住，将其编程原子性操作。</p>
-<p>对于上面的<code>i++</code> 操作，加锁锁住的话，每个线程必须执行完<code>i++</code> 的 4 个字节码指令释放锁之后，别的线程才能继续执行 <code>i++</code> 操作。</p>
-<h2 id="加锁操作"><a href="#加锁操作" class="headerlink" title="加锁操作"></a>加锁操作</h2><h3 id="操作详述"><a href="#操作详述" class="headerlink" title="操作详述"></a>操作详述</h3><p>还是<code>i++</code>操作，指令简化一下，</p>
-<ol>
-<li>读取变量 i</li>
-<li>i+1运算</li>
-<li>写变量 i</li>
-</ol>
-<p>加锁的描述就是，每个线程执行<code>i++</code>之前都上锁，依次执行上面三个操作，执行过程中，其余线程若要执行<code>i++</code>操作，只能等待正执行的线程释放锁，所以也就暂时无法执行了。</p>
-<p>待正执行的线程执行完毕后，就释放锁，这样其余线程抢到锁之后才能执行<code>i++</code>的操作。</p>
-<h3 id="加锁的方式"><a href="#加锁的方式" class="headerlink" title="加锁的方式"></a>加锁的方式</h3><h4 id="1-同步代码块"><a href="#1-同步代码块" class="headerlink" title="1. 同步代码块"></a>1. 同步代码块</h4><p>Java语言将锁抽象化了，<strong>任何一个对象都可以作为一个锁，又称内置锁</strong>。</p>
-<p>对于同步代码块的方式，一个线程进入代码块时获取锁，退出代码块时释放锁。</p>
-<p>语法格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(锁对象)&#123;</span><br><span class="line">	<span class="comment">//...要锁住的内容...   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>给开始的<code>Increment</code>类加锁，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Increment</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">//随机声明一个对象作为锁，因为每个对象都可以作为锁</span></span><br><span class="line">    Object lock = <span class="keyword">new</span> Object();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用同步代码块将i++变成原子操作</span></span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;<span class="comment">//当然这里的锁对象也可以使用this作为锁</span></span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...省略...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行结果</span></span><br><span class="line">D:\java\jdk\bin\java.exe ...</span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">1</span>次结果：<span class="number">20</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">10</span>次结果：<span class="number">200</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">100</span>次结果：<span class="number">2000</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">1000</span>次结果：<span class="number">20000</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">10000</span>次结果：<span class="number">200000</span></span><br><span class="line"><span class="number">20</span>个线程，循环<span class="number">100000</span>次结果：<span class="number">2000000</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>可见，锁住之后，操作就符合预期的2000000了。</p>
-<p>注意：</p>
-<ol>
-<li>对于成员方法的同步代码块来说，如果不使用显式定义的对象作为锁，可以使用this对象作为锁。</li>
-<li>对于静态方法的同步代码块来说，静态方法属于类，所以没有this对象，就可以使用<code>Class对象</code>作为锁了。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Increment</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">anotherStaticMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(Increment.class)&#123;</span><br><span class="line">            <span class="comment">//...同步操作...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-同步方法"><a href="#2-同步方法" class="headerlink" title="2. 同步方法"></a>2. 同步方法</h4><p>使用同步代码块必须显示指定一个对象作为锁，而有时候需要将整个方法的所有操作都锁住，这时就有一种便捷的方式：同步方法。</p>
-<p>格式，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">methodName</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//待同步的操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例如，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Increment</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increase</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同步方法若是成员方法，使用<code>this</code>作为锁，若是静态方法，使用<code>Class对象</code>作为锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">"SELECT * FROM city limit 10"</span>;</span><br><span class="line">PreparedStatement preparedStatement = connection.prepareStatement(sql);</span><br><span class="line">resultSet = preparedStatement.executeQuery();</span><br></pre></td></tr></table></figure>
+<h5 id="执行SQL语句"><a href="#执行SQL语句" class="headerlink" title="执行SQL语句"></a>执行<code>SQL</code>语句</h5><p>数据库语句分为两种，数据库查询语句、数据库操作语句。</p>
+<p><strong>数据库查询语言：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet resultSet = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
+<p>查询语句返回查询到的内容，由于是查询的具体的每一行的内容，所以要保存在结果集<code>ResultSet</code>中。</p>
+<p>可以遍历结果集中的内容来进行取出，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(resultSet.next())&#123;</span><br><span class="line">    String id = resultSet.getInt(<span class="string">"ID"</span>);</span><br><span class="line">    String name = resultSet.getString(<span class="string">"Name"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>next()</code>方法就是判断<code>resultSet</code>遍历完成了没，为<code>false</code>就遍历完成。</p>
+<p><strong>数据库操作语言：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> result = statement.executeUpdate(sql);</span><br></pre></td></tr></table></figure>
+<p>数据库操作语言返回的结果就是操作数据库表时影响的行数。</p>
+<h5 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h5><p>使用之后要释放该释放的资源，如下几种，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Connection connection = <span class="keyword">null</span>;</span><br><span class="line">Statement statement = <span class="keyword">null</span>;</span><br><span class="line">ResultSet resultSet = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<p>释放资源时要按定义的顺序<strong>倒序释放</strong>，并且要<strong>分别捕获异常</strong>。</p>
 
       
     </div>
@@ -642,7 +617,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/03/30/javaConcurrentAtomicOperator/" title="java并发之原子性操作（2）">2019/03/30/javaConcurrentAtomicOperator/</a>
+        <a href="/2019/04/24/javaBaseOfJDBC/" title="JDBC基础">2019/04/24/javaBaseOfJDBC/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -711,8 +686,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/30/javaConcurrentThreadBasics/" rel="next" title="java并发之多线程基本概念（1）">
-                <i class="fa fa-chevron-left"></i> java并发之多线程基本概念（1）
+              <a href="/2019/04/21/javaConcurrentDeadLock/" rel="next" title="java并发之活跃性-死锁 饥饿 活锁（9）">
+                <i class="fa fa-chevron-left"></i> java并发之活跃性-死锁 饥饿 活锁（9）
               </a>
             
           </div>
@@ -720,10 +695,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/30/javaConcurrentMemoryVisibility/" rel="prev" title="java并发之内存可见性（3）">
-                java并发之内存可见性（3） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -925,7 +896,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程问题"><span class="nav-number">1.</span> <span class="nav-text">线程问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享变量"><span class="nav-number">2.</span> <span class="nav-text">共享变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全性"><span class="nav-number">3.</span> <span class="nav-text">线程安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性操作"><span class="nav-number">4.</span> <span class="nav-text">原子性操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非原子性操作问题"><span class="nav-number">4.1.</span> <span class="nav-text">非原子性操作问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">4.2.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共享性解决"><span class="nav-number">4.2.1.</span> <span class="nav-text">共享性解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可变性解决"><span class="nav-number">4.2.2.</span> <span class="nav-text">可变性解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加锁解决"><span class="nav-number">4.2.3.</span> <span class="nav-text">加锁解决</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加锁操作"><span class="nav-number">5.</span> <span class="nav-text">加锁操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作详述"><span class="nav-number">5.1.</span> <span class="nav-text">操作详述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加锁的方式"><span class="nav-number">5.2.</span> <span class="nav-text">加锁的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-同步代码块"><span class="nav-number">5.2.1.</span> <span class="nav-text">1. 同步代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-同步方法"><span class="nav-number">5.2.2.</span> <span class="nav-text">2. 同步方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC基础"><span class="nav-number">1.</span> <span class="nav-text">JDBC基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC概念"><span class="nav-number">1.1.</span> <span class="nav-text">JDBC概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库驱动"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据库驱动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC编程流程"><span class="nav-number">1.2.</span> <span class="nav-text">JDBC编程流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编程流程"><span class="nav-number">1.2.1.</span> <span class="nav-text">编程流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注册驱动"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">注册驱动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取数据库操作对象"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">获取数据库操作对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行SQL语句"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">执行SQL语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#释放资源"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">释放资源</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
