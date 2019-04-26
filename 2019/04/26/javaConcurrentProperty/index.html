@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。 背景多线程是用来提高处理器的利用率的。 现代计算机处理器核心越来越多，如果一个程序只有一个线程，那就无法更好的利用多核心。 其次，处理器运算速度远大于内存、硬盘等，如果一个程序与内存、硬盘等交互远远多于与处理器的交互，那让处理器等待也会造成更大的浪费，所以在他们通信时可以让处理器执行其他线程，最大化利用处理器资源。 程序性能好坏判定：">
+  <meta name="description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java并发之性能概述">
+<meta property="og:title" content="java并发之性能概述(一)">
 <meta property="og:url" content="https://maohehe.github.io/2019/04/26/javaConcurrentProperty/index.html">
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
-<meta property="og:description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。 背景多线程是用来提高处理器的利用率的。 现代计算机处理器核心越来越多，如果一个程序只有一个线程，那就无法更好的利用多核心。 其次，处理器运算速度远大于内存、硬盘等，如果一个程序与内存、硬盘等交互远远多于与处理器的交互，那让处理器等待也会造成更大的浪费，所以在他们通信时可以让处理器执行其他线程，最大化利用处理器资源。 程序性能好坏判定：">
+<meta property="og:description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-26T02:44:18.901Z">
+<meta property="og:updated_time" content="2019-04-26T13:47:27.194Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java并发之性能概述">
-<meta name="twitter:description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。 背景多线程是用来提高处理器的利用率的。 现代计算机处理器核心越来越多，如果一个程序只有一个线程，那就无法更好的利用多核心。 其次，处理器运算速度远大于内存、硬盘等，如果一个程序与内存、硬盘等交互远远多于与处理器的交互，那让处理器等待也会造成更大的浪费，所以在他们通信时可以让处理器执行其他线程，最大化利用处理器资源。 程序性能好坏判定：">
+<meta name="twitter:title" content="java并发之性能概述(一)">
+<meta name="twitter:description" content="性能Java并发最主要的三个问题：安全性、活跃性、性能问题。">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>java并发之性能概述 | MaoHe's Blog</title>
+  <title>java并发之性能概述(一) | MaoHe's Blog</title>
   
 
 
@@ -410,7 +410,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java并发之性能概述
+          <h1 class="post-title" itemprop="name headline">java并发之性能概述(一)
 
               
             
@@ -436,7 +436,7 @@
                 
               
 
-              <time title="创建时间：2019-04-26 10:42:57 / 修改时间：10:44:18" itemprop="dateCreated datePublished" datetime="2019-04-26T10:42:57+08:00">2019-04-26</time>
+              <time title="创建时间：2019-04-26 10:42:57 / 修改时间：21:47:27" itemprop="dateCreated datePublished" datetime="2019-04-26T10:42:57+08:00">2019-04-26</time>
             
 
             
@@ -548,6 +548,7 @@
 
       
         <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>Java并发最主要的三个问题：安全性、活跃性、性能问题。</p>
+<a id="more"></a>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>多线程是用来提高处理器的利用率的。</p>
 <p>现代计算机处理器核心越来越多，如果一个程序只有一个线程，那就无法更好的利用多核心。</p>
 <p>其次，处理器运算速度远大于内存、硬盘等，如果一个程序与内存、硬盘等交互远远多于与处理器的交互，那让处理器等待也会造成更大的浪费，所以在他们通信时可以让处理器执行其他线程，最大化利用处理器资源。</p>
@@ -609,7 +610,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2019/04/26/javaConcurrentProperty/" title="java并发之性能概述">2019/04/26/javaConcurrentProperty/</a>
+        <a href="/2019/04/26/javaConcurrentProperty/" title="java并发之性能概述(一)">2019/04/26/javaConcurrentProperty/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -688,6 +689,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/26/javaConcurrentPropertyLock/" rel="prev" title="java并发性能之显式锁(二)">
+                java并发性能之显式锁(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -762,7 +767,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -920,7 +925,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">178k</span>
+    <span title="本站总字数">187k</span>
   
 
   
@@ -929,7 +934,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:41</span>
+    <span title="站点阅读时长">2:50</span>
   
 </div>
 
