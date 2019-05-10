@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="MaoHe&#39;s Blog">
 <meta property="og:description" content="概述 代理模式是Java常见的设计模式之一。所谓代理模式是指客户端并不直接调用实际的对象，而是通过调用代理，来间接的调用实际的对象。  代理就是代替别人做别人不想做的事情的意思。 举例来说，歌神要开演唱会，如果他没有经纪人的话，唱歌前的租场地、签合同、买车票机票，唱歌后的收钱等工作全都得自己来做，但是歌神专职是唱歌的，其他的工作自己可以做但没必要，如果能只专注如何在演唱会唱好歌，如何在演唱会上调动">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T08:02:17.273Z">
+<meta property="og:updated_time" content="2019-04-30T03:24:31.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代理模式">
 <meta name="twitter:description" content="概述 代理模式是Java常见的设计模式之一。所谓代理模式是指客户端并不直接调用实际的对象，而是通过调用代理，来间接的调用实际的对象。  代理就是代替别人做别人不想做的事情的意思。 举例来说，歌神要开演唱会，如果他没有经纪人的话，唱歌前的租场地、签合同、买车票机票，唱歌后的收钱等工作全都得自己来做，但是歌神专职是唱歌的，其他的工作自己可以做但没必要，如果能只专注如何在演唱会唱好歌，如何在演唱会上调动">
@@ -436,12 +436,24 @@
                 
               
 
-              <time title="创建时间：2019-03-01 16:00:48 / 修改时间：16:02:17" itemprop="dateCreated datePublished" datetime="2019-03-01T16:00:48+08:00">2019-03-01</time>
+              <time title="创建时间：2019-03-01 16:00:48" itemprop="dateCreated datePublished" datetime="2019-03-01T16:00:48+08:00">2019-03-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-30 11:24:31" itemprop="dateModified" datetime="2019-04-30T11:24:31+08:00">2019-04-30</time>
               
             
           </span>
@@ -579,7 +591,7 @@
 <li><code>InvlcationHandler</code>：指定代理中介，代理对象调用的方法都会经过代理中介的<code>invoke</code>方法进行处理。对于指定的方法，可以在其执行前后加上自定义的逻辑处理代码。</li>
 </ul>
 <p>实际上，代理对象调用每个方法，都会经过代理中介的<code>invoke</code>方法处理（<code>Method method</code>参数），<strong>最后实际还是调用的委托对象的方法</strong>。    不过我们可以在想要的方法前后添加一些逻辑，比如上面例子中在 <code>SingSong</code> 方法前添加了一些代码。</p>
-<h5 id="2-cglib动态代理"><a href="#2-cglib动态代理" class="headerlink" title="2. cglib动态代理"></a>2. <code>cglib</code>动态代理</h5><p>对于上面的<code>jdk</code>动态代理来说，<code>jdk</code>动态代理只能为实现了接口的委托类来生成代理对象<code>Proxy.newProxyInstance(.., Class&lt;?&gt;[] interfaces,..)</code>，也就意味着<code>**jdk</code>动态代理是针对接口实现**的。</p>
+<h5 id="2-cglib动态代理"><a href="#2-cglib动态代理" class="headerlink" title="2. cglib动态代理"></a>2. <code>cglib</code>动态代理</h5><p>对于上面的<code>jdk</code>动态代理来说，<code>jdk</code>动态代理只能为实现了接口的委托类来生成代理对象<code>Proxy.newProxyInstance(.., Class&lt;?&gt;[] interfaces,..)</code>，也就意味着<strong><code>jdk</code>动态代理是针对接口实现</strong>的。</p>
 <p>如果一个一个类没有实现接口，怎么生成代理对象呢？这就需要<code>cglib</code>动态代理了。</p>
 <p><strong><code>cglib</code>动态代理</strong> 是 <strong>针对类实现</strong>的。原理是为目标类<strong>生成一个子类</strong>，覆盖其中的方法并在目标类方法的执行前后执行一些操作实现方法增强，但是因为采用的是继承关系，所以<strong>不能对<code>final</code>修饰的类实现代理</strong>（如<code>String</code>）。</p>
 <p>实例代码：</p>
@@ -764,7 +776,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -922,7 +934,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="本站总字数">187k</span>
+    <span title="本站总字数">190k</span>
   
 
   
@@ -931,7 +943,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:50</span>
+    <span title="站点阅读时长">2:52</span>
   
 </div>
 
